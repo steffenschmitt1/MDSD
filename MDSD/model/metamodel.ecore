@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://www.example.org/metaModel" nsPrefix="metaModel">
+  <eSubpackages name="viewType">
+    <eSubpackages name="repository">
+      <eClassifiers xsi:type="ecore:EClass" name="Component">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
+            eType="#//viewType/repository/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
+            eType="#//viewType/repository/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//viewType/repository/BehaviourDescription"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interface">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" upperBound="-1"
+            eType="#//viewType/repository/Signature"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ParameterType" abstract="true" eSuperTypes="#//viewType/repository/Type"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Signature">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" lowerBound="1"
+            eType="#//viewType/repository/Type"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+            eType="#//viewType/repository/Parameter"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+            eType="#//viewType/repository/ParameterType"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Repository">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+            eType="#//viewType/repository/Component" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+            eType="#//viewType/repository/Interface" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BehaviourDescription">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="internalActions" upperBound="-1"
+            eType="#//viewType/repository/InternalAction" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="externalCalls" upperBound="-1"
+            eType="#//viewType/repository/ExternalCall" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="loops" upperBound="-1"
+            eType="#//viewType/repository/Loop" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+            eType="#//viewType/repository/Branch" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SimpleType" abstract="true" eSuperTypes="#//viewType/repository/ParameterType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ComplexType" eSuperTypes="#//viewType/repository/ParameterType">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1"
+            upperBound="-1" eType="#//viewType/repository/ParameterType"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Char" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Float" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Map" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//viewType/repository/SimpleType"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//viewType/repository/Type"/>
+      <eClassifiers xsi:type="ecore:EClass" name="InternalAction"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ExternalCall"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Loop"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Branch"/>
+    </eSubpackages>
+    <eSubpackages name="assembly">
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="environment"/>
+    <eSubpackages name="allocation"/>
+  </eSubpackages>
+</ecore:EPackage>
