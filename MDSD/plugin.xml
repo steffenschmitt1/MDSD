@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
 <plugin>
 
-<extension  point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
-<file filePath="model/Repository.view"/>
-</extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metaModel -->
+      <package
+            uri="http://www.example.org/metaModel"
+            class="mdsd.metaModel.MetaModelPackage"
+            genModel="model/metaModel.genmodel"/>
+   </extension>
+
 </plugin>
