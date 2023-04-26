@@ -35,10 +35,15 @@
           ecoreFeature="ecore:EReference metaModel.ecore#//Repository/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//Repository/interface"/>
     </genClasses>
-    <genClasses ecoreClass="metaModel.ecore#//Description"/>
+    <genClasses ecoreClass="metaModel.ecore#//BehaviourDescription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//BehaviourDescription/internalAction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//BehaviourDescription/externalcall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//BehaviourDescription/loop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModel.ecore#//BehaviourDescription/branch"/>
+    </genClasses>
     <genClasses ecoreClass="metaModel.ecore#//SimpleType"/>
     <genClasses ecoreClass="metaModel.ecore#//ComplexType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//ComplexType/simpletype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModel.ecore#//ComplexType/types"/>
     </genClasses>
     <genClasses ecoreClass="metaModel.ecore#//Boolean"/>
     <genClasses ecoreClass="metaModel.ecore#//Char"/>
@@ -51,5 +56,9 @@
     <genClasses ecoreClass="metaModel.ecore#//String"/>
     <genClasses ecoreClass="metaModel.ecore#//Type"/>
     <genClasses ecoreClass="metaModel.ecore#//Void"/>
+    <genClasses ecoreClass="metaModel.ecore#//InternalAction"/>
+    <genClasses ecoreClass="metaModel.ecore#//ExternalCall"/>
+    <genClasses ecoreClass="metaModel.ecore#//Loop"/>
+    <genClasses ecoreClass="metaModel.ecore#//Branch"/>
   </genPackages>
 </genmodel:GenModel>
