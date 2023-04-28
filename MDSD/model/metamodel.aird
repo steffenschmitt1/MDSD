@@ -13,7 +13,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="metaModel.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uB0lUeReEe2ymN21KbUqlA" name="assembly class diagram" repPath="#_uBz-QOReEe2ymN21KbUqlA" changeId="29a0875c-7dbe-4650-b09a-d4e0c236cb87">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uB0lUeReEe2ymN21KbUqlA" name="assembly class diagram" repPath="#_uBz-QOReEe2ymN21KbUqlA" changeId="bfbf9821-eb89-4f2b-b5d9-eb5e57895f89">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="metamodel.ecore#//viewType/assembly"/>
       </ownedRepresentationDescriptors>
@@ -2169,10 +2169,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hBSbEuXOEe2lzO4AOEJymg" sourceNode="_QUEwsOUnEe22Aci3bFJ4rw" targetNode="_YDKb8OUqEe22Aci3bFJ4rw" beginLabel="[1..1] requiredrole" endLabel="[0..1] assemblyconnector">
-      <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/RequiredRole/assemblyconnector"/>
-      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/RequiredRole/assemblyconnector"/>
-      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyConnector/requiredrole"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hBSbEuXOEe2lzO4AOEJymg" sourceNode="_QUEwsOUnEe22Aci3bFJ4rw" targetNode="_YDKb8OUqEe22Aci3bFJ4rw" beginLabel="[1..1] requiredRole" endLabel="[0..1] assemblyConnector">
+      <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/RequiredRole/assemblyConnector"/>
+      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/RequiredRole/assemblyConnector"/>
+      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyConnector/requiredRole"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_gTWFVOX1Ee2aiNTdh4ZhMQ" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_gTWFVeX1Ee2aiNTdh4ZhMQ" showIcon="false"/>

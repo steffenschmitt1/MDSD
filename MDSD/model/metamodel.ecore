@@ -114,8 +114,8 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
             lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
             eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyconnector"
-            eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/requiredrole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
+            eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/requiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
             eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/requires"/>
       </eClassifiers>
@@ -126,8 +126,15 @@
             eType="#//viewType/repository/Interface" eOpposite="#//viewType/repository/Interface/delegationConnectorRequired"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredrole" lowerBound="1"
-            eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyconnector"/>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="constraints" value="connectedAssemblyContextsShouldBeAllocatedToSameContainerOrToLinkedContainers"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+          <details key="connectedAssemblyContextsShouldBeAllocatedToSameContainerOrToLinkedContainers"
+              value="&#xA;&#x9;&#x9;&#x9;&#x9;self.requiredRole.assemblyContext.allocationContext.container = self.providedRole.assemblyContext.allocationContext.container or &#xA;&#x9;&#x9;&#x9;&#x9;self.requiredRole.assemblyContext.allocationContext.container.links -> exists(link | link.containers -> includes(self.providedRole.assemblyContext.allocationContext.container))"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole" lowerBound="1"
+            eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole" lowerBound="1"
             eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/assemblyConnector"/>
       </eClassifiers>
