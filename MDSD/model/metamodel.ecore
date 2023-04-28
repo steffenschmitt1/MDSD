@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://metaModel" nsPrefix="metaModel">
+  <eAnnotations/>
   <eSubpackages name="viewType" nsURI="http://metaModel/viewType" nsPrefix="metaModel.viewType">
     <eSubpackages name="repository" nsURI="http://metaModel/viewType/repository" nsPrefix="metaModel.viewType.repository">
       <eClassifiers xsi:type="ecore:EClass" name="Component">
@@ -77,6 +78,11 @@
       <eClassifiers xsi:type="ecore:EClass" name="Branch"/>
     </eSubpackages>
     <eSubpackages name="assembly" nsURI="http://metaModel/viewType/assembly" nsPrefix="metaModel.viewType.assembly">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
@@ -91,6 +97,12 @@
             lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="System">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="constraints" value="providedInterfacesShouldMatchProvidedRolesOfInstances"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+          <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.provides -> asSet() = self.encapsulatedInstances.provides.delegationConnector.linkedInterface -> asSet()"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedInstances"
             lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" lowerBound="1"
@@ -119,13 +131,16 @@
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/providedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
+            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
+            eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"/>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="linkedRole" lowerBound="1"
-            eType="#//viewType/assembly/ProvidedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
             eType="#//viewType/repository/Interface" eOpposite="#//viewType/repository/Interface/delegationConnectorProvided"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="linkdedRole" lowerBound="1"
+            eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/delegationConnector"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="environment" nsURI="http://metaModel/viewType/environment"
