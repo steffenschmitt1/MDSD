@@ -6,6 +6,7 @@
     <semanticResources>metamodell.ecore</semanticResources>
     <semanticResources>metamodel.genmodel</semanticResources>
     <semanticResources>metamodel.ecore</semanticResources>
+    <semanticResources>metamodel.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_ei5cMOQ9Ee2NtKQDV4d8NQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ej9zMOQ9Ee2NtKQDV4d8NQ" name="metaModel" repPath="#_ejw-4OQ9Ee2NtKQDV4d8NQ" changeId="8511917f-712e-424a-aaaf-519b900b8a46">
