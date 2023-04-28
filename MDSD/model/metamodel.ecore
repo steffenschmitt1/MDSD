@@ -147,10 +147,10 @@
     </eSubpackages>
     <eSubpackages name="allocation" nsURI="http://metaModel/viewType/allocation" nsPrefix="metaModel.viewType.allocation">
       <eClassifiers xsi:type="ecore:EClass" name="AllocationContext">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
-            eType="ecore:EClass ../xxx.ecore#//viewType/assembly/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
             eType="#//viewType/environment/Container"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
+            eType="#//viewType/assembly/AssemblyContext"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
