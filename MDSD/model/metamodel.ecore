@@ -128,7 +128,30 @@
             eType="#//viewType/repository/Interface" eOpposite="#//viewType/repository/Interface/delegationConnectorProvided"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="environment"/>
-    <eSubpackages name="allocation"/>
+    <eSubpackages name="environment" nsURI="http://metaModel/viewType/environment"
+        nsPrefix="metaModel.viewType.environment">
+      <eClassifiers xsi:type="ecore:EClass" name="Container">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Link">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="containers" lowerBound="2"
+            upperBound="-1" eType="#//viewType/environment/Container"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Enivronment">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="container" upperBound="-1"
+            eType="#//viewType/environment/Container" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1"
+            eType="#//viewType/environment/Link" containment="true"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="allocation" nsURI="http://metaModel/viewType/allocation" nsPrefix="metaModel.viewType.allocation">
+      <eClassifiers xsi:type="ecore:EClass" name="AllocationContext">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
+            eType="ecore:EClass ../xxx.ecore#//viewType/assembly/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+            eType="#//viewType/environment/Container"/>
+      </eClassifiers>
+    </eSubpackages>
   </eSubpackages>
 </ecore:EPackage>
