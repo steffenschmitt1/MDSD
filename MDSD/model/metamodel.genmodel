@@ -12,6 +12,8 @@
     <genClasses ecoreClass="metamodel.ecore#//ComponentBasedSystem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/repositories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/enivronments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/systems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/allocationContexts"/>
     </genClasses>
     <nestedGenPackages prefix="ViewType" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType">
       <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/NamedElement">
@@ -27,8 +29,6 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Interface">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/signatures"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/delegationConnectorRequired"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/delegationConnectorProvided"/>
         </genClasses>
         <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/repository/ParameterType"/>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Signature">
@@ -105,6 +105,10 @@
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/encapsulatedInstances"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/provides"/>
+          <genFeatures children="true" createChild="true" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/assemblyConnectors"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/delegationConnectors"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/assemblyConnectors.1"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/RequiredRole">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"

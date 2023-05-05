@@ -7,6 +7,10 @@
         eType="#//viewType/repository/Repository" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enivronments" upperBound="-1"
         eType="#//viewType/environment/Enivronment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" upperBound="-1"
+        eType="#//viewType/assembly/System" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" upperBound="-1"
+        eType="#//viewType/allocation/AllocationContext" containment="true"/>
   </eClassifiers>
   <eSubpackages name="viewType" nsURI="http://metaModel/viewType" nsPrefix="metaModel.viewType">
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
@@ -25,12 +29,6 @@
       <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" upperBound="-1"
             eType="#//viewType/repository/Signature" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnectorRequired"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
-            containment="true" eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedInterface"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnectorProvided"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
-            containment="true" eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkedInterface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ParameterType" abstract="true" eSuperTypes="#//viewType/repository/Type"/>
       <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//viewType/NamedElement">
@@ -123,9 +121,9 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
             eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
-            eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyContext"/>
+            eType="#//viewType/assembly/RequiredRole" containment="true" eOpposite="#//viewType/assembly/RequiredRole/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
-            eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/assemblyContext"/>
+            eType="#//viewType/assembly/ProvidedRole" containment="true" eOpposite="#//viewType/assembly/ProvidedRole/assemblyContext"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//viewType/repository/Component">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -145,9 +143,14 @@
           <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.provides -> asSet() = self.encapsulatedInstances.provides.delegationConnector.linkedInterface -> asSet()"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedInstances"
-            lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"/>
+            lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"
+            containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" lowerBound="1"
             upperBound="-1" eType="#//viewType/repository/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnectors"
+            upperBound="-1" eType="#//viewType/assembly/DelegationConnector" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors"
+            upperBound="-1" eType="#//viewType/assembly/AssemblyConnector" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
@@ -162,7 +165,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedRole" lowerBound="1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/delegationConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
-            eType="#//viewType/repository/Interface" eOpposite="#//viewType/repository/Interface/delegationConnectorRequired"/>
+            eType="#//viewType/repository/Interface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -190,7 +193,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"/>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
-            eType="#//viewType/repository/Interface" eOpposite="#//viewType/repository/Interface/delegationConnectorProvided"/>
+            eType="#//viewType/repository/Interface"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkdedRole" lowerBound="1"
             eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/delegationConnector"/>
       </eClassifiers>
@@ -199,7 +202,7 @@
         nsPrefix="metaModel.viewType.environment">
       <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
-            eType="#//viewType/allocation/AllocationContext" containment="true" eOpposite="#//viewType/allocation/AllocationContext/container"/>
+            eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/container"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
             eType="#//viewType/environment/Link" eOpposite="#//viewType/environment/Link/containers"/>
       </eClassifiers>
@@ -228,7 +231,7 @@
           <details key="assemblyContextFromCompositeComponentCantBeAllocated" value="not self.assemblyContext.instanceOf.oclIsTypeOf(assembly::CompositeComponent)"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
-            eType="#//viewType/assembly/AssemblyContext" containment="true" eOpposite="#//viewType/assembly/AssemblyContext/allocationContext"/>
+            eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/allocationContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
             eType="#//viewType/environment/Container" eOpposite="#//viewType/environment/Container/allocationContext"/>
       </eClassifiers>

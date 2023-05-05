@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaModel:ComponentBasedSystem
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:metaModel="http://metaModel"
+    xmlns:metaModel.viewType.assembly="http://metaModel/viewType/assembly"
+    xsi:schemaLocation="http://metaModel metamodel.ecore http://metaModel/viewType/assembly metamodel.ecore#//viewType/assembly">
+  <repositories>
+    <components
+        name="WebBrowser"
+        provides="//@repositories.0/@interface.0"/>
+    <components
+        name="WebGUI"
+        requires="//@repositories.0/@interface.0"/>
+    <components
+        xsi:type="metaModel.viewType.assembly:CompositeComponent"
+        name="MediaStore"/>
+    <interface
+        name="HTTP"/>
+  </repositories>
+  <enivronments>
+    <container
+        name="Client"
+        links="//@enivronments.0/@link.0"/>
+    <container
+        name="ApplicationServer"
+        links="//@enivronments.0/@link.0"/>
+    <link name="linkClientServer"
+        containers="//@enivronments.0/@container.0 //@enivronments.0/@container.1"/>
+  </enivronments>
+  <systems>
+    <encapsulatedInstances
+        name="AssemblyContextWebBrowser"
+        instanceOf="//@repositories.0/@components.0">
+      <requires
+          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
+    </encapsulatedInstances>
+    <encapsulatedInstances
+        name="AssemblyContextWebGUI"
+        instanceOf="//@repositories.0/@components.1">
+      <provides
+          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
+    </encapsulatedInstances>
+    <delegationConnectors
+        xsi:type="metaModel.viewType.assembly:DelegationConnectorRequired"/>
+    <assemblyConnectors
+        requiredRole="//@systems.0/@encapsulatedInstances.0/@requires.0"
+        providedRole="//@systems.0/@encapsulatedInstances.1/@provides.0"/>
+  </systems>
+  <allocationContexts/>
+</metaModel:ComponentBasedSystem>
