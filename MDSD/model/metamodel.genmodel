@@ -1,10 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MDSD/src-gen" creationIcons="false" editDirectory="/MDSD.edit/src-gen"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/MDSD/src-gen" creationIcons="false" editDirectory="/MDSD.edit/src-gen"
     editorDirectory="/MDSD.editor/src-gen" modelPluginID="MDSD" modelName="MetaModel"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>metaModel.ecore</foreignModel>
+  <foreignModel>metamodel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
+    <nestedGenPackages prefix="ViewType" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType">
+      <nestedGenPackages prefix="Repository" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/repository">
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Component">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/Component/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Component/requires"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Component/provides"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Component/description"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Interface">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/Interface/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/signatures"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/delegationConnectorRequired"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/delegationConnectorProvided"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/repository/ParameterType"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Signature">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Signature/returnType"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/Signature/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Signature/parameters"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Parameter">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/Parameter/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Parameter/type"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Repository">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/components"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/interface"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/BehaviourDescription">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/internalActions"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/externalCalls"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/loops"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/branches"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/repository/SimpleType"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/ComplexType">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/ComplexType/types"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Boolean"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Char"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Date"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Float"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/List"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Int"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Long"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Map"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/String"/>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/repository/Type"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Void"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/InternalAction"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/ExternalCall"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Loop"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Branch"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Assembly" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/assembly">
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/AssemblyContext">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/assembly/AssemblyContext/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/instanceOf"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/allocationContext"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/requires"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/provides"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/CompositeComponent">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/CompositeComponent/encapsulatedInstances"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/System">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/encapsulatedInstances"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/provides"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/RequiredRole">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/RequiredRole/delegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/RequiredRole/assemblyConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/RequiredRole/assemblyContext"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnectorRequired">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorRequired/linkedInterface"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/AssemblyConnector">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyConnector/requiredRole"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyConnector/providedRole"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/assembly/Role"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/ProvidedRole">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/ProvidedRole/delegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/ProvidedRole/assemblyConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/ProvidedRole/assemblyContext"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnector"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkedInterface"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Environment" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/environment">
+        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Container">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/environment/Container/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Container/allocationContext"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Container/links"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Link">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/environment/Link/name"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Link/containers"/>
+        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Enivronment">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/container"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/link"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Allocation" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/allocation">
+        <genClasses ecoreClass="metamodel.ecore#//viewType/allocation/AllocationContext">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/allocation/AllocationContext/assemblyContext"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/allocation/AllocationContext/container"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
 </genmodel:GenModel>
