@@ -13,28 +13,29 @@
             eType="#//viewType/repository/Interface"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
             eType="#//viewType/repository/Interface"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//viewType/repository/BehaviourDescription"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//viewType/repository/BehaviourDescription"
+            containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" upperBound="-1"
-            eType="#//viewType/repository/Signature"/>
+            eType="#//viewType/repository/Signature" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnectorRequired"
             lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
-            eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedInterface"/>
+            containment="true" eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedInterface"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnectorProvided"
             lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
-            eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkedInterface"/>
+            containment="true" eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkedInterface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ParameterType" abstract="true" eSuperTypes="#//viewType/repository/Type"/>
       <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" lowerBound="1"
-            eType="#//viewType/repository/Type"/>
+            eType="#//viewType/repository/Type" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-            eType="#//viewType/repository/Parameter"/>
+            eType="#//viewType/repository/Parameter" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
-            eType="#//viewType/repository/ParameterType"/>
+            eType="#//viewType/repository/ParameterType" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Repository">
         <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
@@ -55,7 +56,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="SimpleType" abstract="true" eSuperTypes="#//viewType/repository/ParameterType"/>
       <eClassifiers xsi:type="ecore:EClass" name="ComplexType" eSuperTypes="#//viewType/repository/ParameterType">
         <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1"
-            upperBound="-1" eType="#//viewType/repository/ParameterType"/>
+            upperBound="-1" eType="#//viewType/repository/ParameterType" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//viewType/repository/SimpleType"/>
       <eClassifiers xsi:type="ecore:EClass" name="Char" eSuperTypes="#//viewType/repository/SimpleType"/>
@@ -83,7 +84,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
             eType="#//viewType/repository/Component"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
-            eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
+            eType="#//viewType/allocation/AllocationContext" containment="true" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
