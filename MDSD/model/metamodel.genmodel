@@ -9,21 +9,15 @@
   <foreignModel>metamodel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
+    <genClasses ecoreClass="metamodel.ecore#//ComponentBasedSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/repositories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/enivronments"/>
+    </genClasses>
     <nestedGenPackages prefix="ViewType" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType">
       <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/NamedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/NamedElement/name"/>
       </genClasses>
       <nestedGenPackages prefix="Repository" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/repository">
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Map"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/String"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Boolean"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Int"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/List"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Date"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Long"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Float"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Char"/>
-        <genDataTypes ecoreDataType="metamodel.ecore#//viewType/repository/Void"/>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Component">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Component/requires"/>
@@ -64,41 +58,39 @@
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Loop"/>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Branch"/>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/MapType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/MapType/Map"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/MapType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/StringType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/StringType/String"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/StringType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/BooleanType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/BooleanType/Boolean"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/BooleanType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/IntType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/IntType/Int"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/IntType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/ListType">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/ListType/List"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/DateType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/DateType/Date"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/DateType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/LongType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/LongType/Long"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/LongType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/FloatType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/FloatType/Float"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/FloatType/type"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/CharType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/CharType/Char"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/CharType/type"/>
         </genClasses>
-        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/VoidType">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/repository/VoidType/Void"/>
-        </genClasses>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/repository/VoidType"/>
       </nestedGenPackages>
       <nestedGenPackages prefix="Assembly" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/assembly">
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/AssemblyContext">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/instanceOf"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/allocationContext"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/allocationContext"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/requires"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"

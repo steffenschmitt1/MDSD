@@ -2,6 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://metaModel" nsPrefix="metaModel">
   <eAnnotations/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentBasedSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+        eType="#//viewType/repository/Repository" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enivronments" upperBound="-1"
+        eType="#//viewType/environment/Enivronment" containment="true"/>
+  </eClassifiers>
   <eSubpackages name="viewType" nsURI="http://metaModel/viewType" nsPrefix="metaModel.viewType">
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
@@ -115,7 +121,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
             eType="#//viewType/repository/Component"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
-            eType="#//viewType/allocation/AllocationContext" containment="true" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
+            eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
@@ -193,7 +199,7 @@
         nsPrefix="metaModel.viewType.environment">
       <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
-            eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/container"/>
+            eType="#//viewType/allocation/AllocationContext" containment="true" eOpposite="#//viewType/allocation/AllocationContext/container"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
             eType="#//viewType/environment/Link" eOpposite="#//viewType/environment/Link/containers"/>
       </eClassifiers>
@@ -222,7 +228,7 @@
           <details key="assemblyContextFromCompositeComponentCantBeAllocated" value="not self.assemblyContext.instanceOf.oclIsTypeOf(assembly::CompositeComponent)"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
-            eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/allocationContext"/>
+            eType="#//viewType/assembly/AssemblyContext" containment="true" eOpposite="#//viewType/assembly/AssemblyContext/allocationContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
             eType="#//viewType/environment/Container" eOpposite="#//viewType/environment/Container/allocationContext"/>
       </eClassifiers>
