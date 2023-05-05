@@ -58,21 +58,61 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1"
             upperBound="-1" eType="#//viewType/repository/ParameterType" containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Char" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Float" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Map" eSuperTypes="#//viewType/repository/SimpleType"/>
-      <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//viewType/repository/SimpleType"/>
       <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//viewType/repository/Type"/>
       <eClassifiers xsi:type="ecore:EClass" name="InternalAction"/>
       <eClassifiers xsi:type="ecore:EClass" name="ExternalCall"/>
       <eClassifiers xsi:type="ecore:EClass" name="Loop"/>
       <eClassifiers xsi:type="ecore:EClass" name="Branch"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Map" instanceClassName="java.util.Map"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="java.lang.Boolean"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Int" instanceClassName="java.lang.Integer"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="List" instanceClassName="java.util.List"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Long" instanceClassName="java.lang.Long"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="java.lang.Float"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Char" instanceClassName="java.lang.Character"/>
+      <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Map" lowerBound="1"
+            eType="#//viewType/repository/Map"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="String" lowerBound="1"
+            eType="#//viewType/repository/String"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Boolean" lowerBound="1"
+            eType="#//viewType/repository/Boolean"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="IntType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Int" lowerBound="1"
+            eType="#//viewType/repository/Int"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ListType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="List" lowerBound="1"
+            eType="#//viewType/repository/List"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DateType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Date" lowerBound="1"
+            eType="#//viewType/repository/Date"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="LongType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Long" lowerBound="1"
+            eType="#//viewType/repository/Long"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="FloatType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Float" lowerBound="1"
+            eType="#//viewType/repository/Float"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="CharType" eSuperTypes="#//viewType/repository/SimpleType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Char" lowerBound="1"
+            eType="#//viewType/repository/Char"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="VoidType" eSuperTypes="#//viewType/repository/Type">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Void" lowerBound="1"
+            eType="#//viewType/repository/Void"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"/>
     </eSubpackages>
     <eSubpackages name="assembly" nsURI="http://metaModel/viewType/assembly" nsPrefix="metaModel.viewType.assembly">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
