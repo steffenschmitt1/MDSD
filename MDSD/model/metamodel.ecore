@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://metaModel" nsPrefix="metaModel">
-  <eAnnotations/>
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
@@ -180,7 +179,7 @@
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
           <details key="connectedAssemblyContextsShouldBeAllocatedToSameContainerOrToLinkedContainers"
-              value="not (self.requiredRole.assemblyContext.allocationContext = null) and not (self.providedRole.assemblyContext.allocationContext = null)&#xA;&#x9;&#x9;&#x9;&#x9;implies&#xA;&#x9;&#x9;&#x9;&#x9;self.requiredRole.assemblyContext.allocationContext.container = self.providedRole.assemblyContext.allocationContext.container or &#xA;&#x9;&#x9;&#x9;&#x9;self.requiredRole.assemblyContext.allocationContext.container.links -> exists(link | link.containers -> includes(self.providedRole.assemblyContext.allocationContext.container))"/>
+              value="not (self.requiredRole.assemblyContext.allocationContext = null) and not (self.providedRole.assemblyContext.allocationContext = null) implies self.requiredRole.assemblyContext.allocationContext.container = self.providedRole.assemblyContext.allocationContext.container or self.requiredRole.assemblyContext.allocationContext.container.links -> exists(link | link.containers -> includes(self.providedRole.assemblyContext.allocationContext.container))"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole" lowerBound="1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/assemblyConnector"/>
