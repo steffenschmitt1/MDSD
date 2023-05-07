@@ -154,14 +154,14 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
-            eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
+            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
+            eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/requiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
             eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/requires"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorRequired" eSuperTypes="#//viewType/assembly/DelegationConnector">
+      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedRole" lowerBound="1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/delegationConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
@@ -180,18 +180,18 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole" lowerBound="1"
             eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/assemblyConnector"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//viewType/NamedElement"/>
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
-            eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
+            eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkdedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/providedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
             eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/provides"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
+      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorRequired" eSuperTypes="#//viewType/assembly/DelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
             eType="#//viewType/repository/Interface"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkdedRole" lowerBound="1"
@@ -223,7 +223,7 @@
         <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
         <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
       </eAnnotations>
-      <eClassifiers xsi:type="ecore:EClass" name="AllocationContext">
+      <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//viewType/NamedElement">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="assemblyContextFromCompositeComponentCantBeAllocated"/>
         </eAnnotations>
