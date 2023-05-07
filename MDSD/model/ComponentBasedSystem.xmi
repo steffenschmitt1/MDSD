@@ -101,7 +101,8 @@
         allocationContext="//@allocationContexts.0">
       <requires
           name="WebGUI"
-          delegationConnector="//@systems.0/@delegationConnectors.1"/>
+          delegationConnector="//@systems.0/@delegationConnectors.1"
+          assemblyConnector="//@systems.0/@assemblyConnectors.2"/>
       <provides
           name="WebGUI"/>
     </encapsulatedInstances>
@@ -138,9 +139,11 @@
         instanceOf="//@repositories.0/@components.2"
         allocationContext="//@allocationContexts.2">
       <requires
-          name="MediasstoreDBServer"/>
+          name="MediasstoreDBServer"
+          assemblyConnector="//@systems.0/@assemblyConnectors.3"/>
       <provides
-          name="WebGUIMediaStore"/>
+          name="WebGUIMediaStore"
+          assemblyConnector="//@systems.0/@assemblyConnectors.2"/>
     </encapsulatedInstances>
     <encapsulatedInstances
         name="DBServer"
@@ -148,7 +151,8 @@
         allocationContext="//@allocationContexts.1">
       <provides
           name="DBServer"
-          delegationConnector="//@systems.0/@delegationConnectors.0"/>
+          delegationConnector="//@systems.0/@delegationConnectors.0"
+          assemblyConnector="//@systems.0/@assemblyConnectors.3"/>
     </encapsulatedInstances>
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorProvided"
@@ -164,6 +168,12 @@
     <assemblyConnectors
         requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.0"
         providedRole="//@systems.0/@encapsulatedInstances.2/@provides.0"/>
+    <assemblyConnectors
+        requiredRole="//@systems.0/@encapsulatedInstances.0/@requires.0"
+        providedRole="//@systems.0/@encapsulatedInstances.4/@provides.0"/>
+    <assemblyConnectors
+        requiredRole="//@systems.0/@encapsulatedInstances.4/@requires.0"
+        providedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
   </systems>
   <allocationContexts
       name="Server WebGUI"
