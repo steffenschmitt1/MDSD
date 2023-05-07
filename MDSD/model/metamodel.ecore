@@ -2,6 +2,9 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://metaModel" nsPrefix="metaModel">
   <eAnnotations/>
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentBasedSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//viewType/repository/Repository" containment="true"/>
@@ -140,7 +143,7 @@
           <details key="constraints" value="providedInterfacesShouldMatchProvidedRolesOfInstances"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-          <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.provides -> asSet() = self.encapsulatedInstances.provides.delegationConnector.linkedInterface -> asSet()"/>
+          <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.encapsulatedInstances.instanceOf.provides -> includesAll(self.provides -> asSet())"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedInstances"
             lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"
@@ -163,8 +166,6 @@
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorRequired" eSuperTypes="#//viewType/assembly/DelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedRole" lowerBound="1"
             eType="#//viewType/assembly/RequiredRole" eOpposite="#//viewType/assembly/RequiredRole/delegationConnector"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
-            eType="#//viewType/repository/Interface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -188,10 +189,11 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
             eType="#//viewType/assembly/AssemblyContext" eOpposite="#//viewType/assembly/AssemblyContext/provides"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
+      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkedInterface" lowerBound="1"
             eType="#//viewType/repository/Interface"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="linkdedRole" lowerBound="1"
             eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/delegationConnector"/>
       </eClassifiers>

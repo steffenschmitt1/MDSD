@@ -13,7 +13,8 @@
         requires="//@repositories.0/@interface.0"/>
     <components
         name="WebGUI"
-        requires="//@repositories.0/@interface.3"/>
+        requires="//@repositories.0/@interface.3"
+        provides="//@repositories.0/@interface.0"/>
     <components
         xsi:type="metaModel.viewType.assembly:CompositeComponent"
         name="MediaStore"
@@ -155,8 +156,8 @@
         linkdedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorRequired"
-        linkedRole="//@systems.0/@encapsulatedInstances.0/@requires.0"
-        linkedInterface="//@repositories.0/@interface.3"/>
+        linkedInterface="//@repositories.0/@interface.3"
+        linkedRole="//@systems.0/@encapsulatedInstances.0/@requires.0"/>
     <assemblyConnectors
         requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.1"
         providedRole="//@systems.0/@encapsulatedInstances.3/@provides.0"/>

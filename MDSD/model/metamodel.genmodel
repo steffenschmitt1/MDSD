@@ -105,10 +105,9 @@
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/encapsulatedInstances"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/provides"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/delegationConnectors"/>
           <genFeatures children="true" createChild="true" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/assemblyConnectors"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/delegationConnectors"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/System/assemblyConnectors.1"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/RequiredRole">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -121,7 +120,7 @@
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnectorRequired">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
-          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorRequired/linkedInterface"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnector/linkedInterface"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/AssemblyConnector">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -138,9 +137,11 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/ProvidedRole/assemblyContext"/>
         </genClasses>
-        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnector"/>
+        <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnector">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnector/linkedInterface"/>
+        </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided">
-          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkedInterface"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
         </genClasses>
