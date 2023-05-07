@@ -154,8 +154,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorRequired"
-            eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
+            eType="#//viewType/assembly/DelegationConnectorRequired" eOpposite="#//viewType/assembly/DelegationConnectorRequired/linkedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/requiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
@@ -183,8 +182,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//viewType/NamedElement"/>
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
-            lowerBound="1" eType="#//viewType/assembly/DelegationConnectorProvided"
-            eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+            eType="#//viewType/assembly/DelegationConnectorProvided" eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/providedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
@@ -202,7 +200,7 @@
         nsPrefix="metaModel.viewType.environment">
       <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
-            eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/container"/>
+            upperBound="-1" eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/container"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
             eType="#//viewType/environment/Link" eOpposite="#//viewType/environment/Link/containers"/>
       </eClassifiers>

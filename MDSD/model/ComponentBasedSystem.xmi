@@ -19,7 +19,7 @@
         name="MediaStore"
         requires="//@repositories.0/@interface.2"
         provides="//@repositories.0/@interface.3"
-        encapsulatedInstances="//@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.4 //@systems.0/@encapsulatedInstances.2"/>
+        encapsulatedInstances="//@systems.0/@encapsulatedInstances.2 //@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.1"/>
     <components
         name="MediaManager"
         requires="//@repositories.0/@interface.1 //@repositories.0/@interface.2"/>
@@ -83,31 +83,17 @@
   </repositories>
   <enivronments>
     <container
-        name="Client"
-        allocationContext="//@allocationContexts.1"
+        name="ApplicationServer"
+        allocationContext="//@allocationContexts.0 //@allocationContexts.2"
         links="//@enivronments.0/@link.0"/>
     <container
-        name="ApplicationServer"
-        allocationContext="//@allocationContexts.3"
-        links="//@enivronments.0/@link.0 //@enivronments.0/@link.1"/>
-    <container
         name="DatabaseServer"
-        allocationContext="//@allocationContexts.2"
-        links="//@enivronments.0/@link.1"/>
-    <link name="linkClientServer"
-        containers="//@enivronments.0/@container.0 //@enivronments.0/@container.1"/>
+        allocationContext="//@allocationContexts.1"
+        links="//@enivronments.0/@link.0"/>
     <link name="ServerDBServer"
-        containers="//@enivronments.0/@container.2 //@enivronments.0/@container.1"/>
+        containers="//@enivronments.0/@container.1 //@enivronments.0/@container.0"/>
   </enivronments>
-  <systems>
-    <encapsulatedInstances
-        name="AssemblyContextWebBrowser"
-        instanceOf="//@repositories.0/@components.0"
-        allocationContext="//@allocationContexts.1">
-      <requires
-          name="WebBrowser"
-          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
-    </encapsulatedInstances>
+  <systems provides="//@repositories.0/@interface.0">
     <encapsulatedInstances
         name="AssemblyContextWebGUI"
         instanceOf="//@repositories.0/@components.1"
@@ -116,18 +102,17 @@
           name="WebGUI"
           delegationConnector="//@systems.0/@delegationConnectors.1"/>
       <provides
-          name="WebGUI"
-          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
+          name="WebGUI"/>
     </encapsulatedInstances>
     <encapsulatedInstances
         name="MediaManager"
         instanceOf="//@repositories.0/@components.3">
       <requires
           name="MediaManagerDB"
-          assemblyConnector="//@systems.0/@assemblyConnectors.2"/>
+          assemblyConnector="//@systems.0/@assemblyConnectors.1"/>
       <requires
           name="MediaManagerWatermarking"
-          assemblyConnector="//@systems.0/@assemblyConnectors.1"/>
+          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
       <provides
           name="MediaManager"/>
     </encapsulatedInstances>
@@ -138,19 +123,19 @@
           name="DBCache"/>
       <provides
           name="DBCache"
-          assemblyConnector="//@systems.0/@assemblyConnectors.2"/>
+          assemblyConnector="//@systems.0/@assemblyConnectors.1"/>
     </encapsulatedInstances>
     <encapsulatedInstances
         name="DigitalWatermarking"
         instanceOf="//@repositories.0/@components.4">
       <provides
           name="DigitalWatermarking"
-          assemblyConnector="//@systems.0/@assemblyConnectors.1"/>
+          assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
     </encapsulatedInstances>
     <encapsulatedInstances
         name="MediaStore"
         instanceOf="//@repositories.0/@components.2"
-        allocationContext="//@allocationContexts.3">
+        allocationContext="//@allocationContexts.2">
       <requires
           name="MediasstoreDBServer"/>
       <provides
@@ -159,7 +144,7 @@
     <encapsulatedInstances
         name="DBServer"
         instanceOf="//@repositories.0/@components.6"
-        allocationContext="//@allocationContexts.2">
+        allocationContext="//@allocationContexts.1">
       <provides
           name="DBServer"
           delegationConnector="//@systems.0/@delegationConnectors.0"/>
@@ -167,34 +152,28 @@
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorProvided"
         linkedInterface="//@repositories.0/@interface.2"
-        linkdedRole="//@systems.0/@encapsulatedInstances.6/@provides.0"/>
+        linkdedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorRequired"
-        linkedRole="//@systems.0/@encapsulatedInstances.1/@requires.0"
+        linkedRole="//@systems.0/@encapsulatedInstances.0/@requires.0"
         linkedInterface="//@repositories.0/@interface.3"/>
     <assemblyConnectors
-        requiredRole="//@systems.0/@encapsulatedInstances.0/@requires.0"
-        providedRole="//@systems.0/@encapsulatedInstances.1/@provides.0"/>
-    <assemblyConnectors
-        requiredRole="//@systems.0/@encapsulatedInstances.2/@requires.1"
-        providedRole="//@systems.0/@encapsulatedInstances.4/@provides.0"/>
-    <assemblyConnectors
-        requiredRole="//@systems.0/@encapsulatedInstances.2/@requires.0"
+        requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.1"
         providedRole="//@systems.0/@encapsulatedInstances.3/@provides.0"/>
+    <assemblyConnectors
+        requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.0"
+        providedRole="//@systems.0/@encapsulatedInstances.2/@provides.0"/>
   </systems>
   <allocationContexts
       name="Server WebGUI"
-      assemblyContext="//@systems.0/@encapsulatedInstances.1"/>
-  <allocationContexts
-      name="Client"
       assemblyContext="//@systems.0/@encapsulatedInstances.0"
       container="//@enivronments.0/@container.0"/>
   <allocationContexts
       name="DBServer"
-      assemblyContext="//@systems.0/@encapsulatedInstances.6"
-      container="//@enivronments.0/@container.2"/>
-  <allocationContexts
-      name="Server MediaStore"
       assemblyContext="//@systems.0/@encapsulatedInstances.5"
       container="//@enivronments.0/@container.1"/>
+  <allocationContexts
+      name="Server MediaStore"
+      assemblyContext="//@systems.0/@encapsulatedInstances.4"
+      container="//@enivronments.0/@container.0"/>
 </metaModel:ComponentBasedSystem>
