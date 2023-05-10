@@ -8,24 +8,6 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: metaModel,
- metaModel.impl,
- metaModel.util,
- metaModel.viewType,
- metaModel.viewType.allocation,
- metaModel.viewType.allocation.impl,
- metaModel.viewType.allocation.util,
- metaModel.viewType.assembly,
- metaModel.viewType.assembly.impl,
- metaModel.viewType.assembly.util,
- metaModel.viewType.environment,
- metaModel.viewType.environment.impl,
- metaModel.viewType.environment.util,
- metaModel.viewType.impl,
- metaModel.viewType.repository,
- metaModel.viewType.repository.impl,
- metaModel.viewType.repository.util,
- metaModel.viewType.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ocl.pivot;visibility:=reexport,
  org.eclipse.ocl.examples.codegen;visibility:=reexport,
