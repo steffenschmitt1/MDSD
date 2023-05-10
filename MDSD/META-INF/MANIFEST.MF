@@ -8,9 +8,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: mdsd.metaModel,
- mdsd.metaModel.impl,
- mdsd.metaModel.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ocl.pivot;visibility:=reexport,
+ org.eclipse.ocl.examples.codegen;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
