@@ -7,14 +7,14 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated metaModel -->
+      <!-- @generated metamodel -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="mdsd.metaModel.presentation.MetaModelModelWizardID"
+            id="metaModel.presentation.MetaModelModelWizardID"
             name="%_UI_MetaModelModelWizard_label"
-            class="mdsd.metaModel.presentation.MetaModelModelWizard"
+            class="metaModel.presentation.MetaModelModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/MetaModelModelFile.gif">
          <description>%_UI_MetaModelModelWizard_description</description>
@@ -23,14 +23,126 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated metaModel -->
+      <!-- @generated metamodel -->
       <editor
-            id="mdsd.metaModel.presentation.MetaModelEditorID"
+            id="metaModel.presentation.MetaModelEditorID"
             name="%_UI_MetaModelEditor_label"
             icon="icons/full/obj16/MetaModelModelFile.gif"
             extensions="metamodel"
-            class="mdsd.metaModel.presentation.MetaModelEditor"
-            contributorClass="mdsd.metaModel.presentation.MetaModelActionBarContributor">
+            class="metaModel.presentation.MetaModelEditor"
+            contributorClass="metaModel.presentation.MetaModelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="metaModel.viewType.repository.presentation.RepositoryModelWizardID"
+            name="%_UI_RepositoryModelWizard_label"
+            class="metaModel.viewType.repository.presentation.RepositoryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RepositoryModelFile.gif">
+         <description>%_UI_RepositoryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metamodel -->
+      <editor
+            id="metaModel.viewType.repository.presentation.RepositoryEditorID"
+            name="%_UI_RepositoryEditor_label"
+            icon="icons/full/obj16/RepositoryModelFile.gif"
+            extensions="repository"
+            class="metaModel.viewType.repository.presentation.RepositoryEditor"
+            contributorClass="metaModel.viewType.repository.presentation.RepositoryActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="metaModel.viewType.assembly.presentation.AssemblyModelWizardID"
+            name="%_UI_AssemblyModelWizard_label"
+            class="metaModel.viewType.assembly.presentation.AssemblyModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AssemblyModelFile.gif">
+         <description>%_UI_AssemblyModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metamodel -->
+      <editor
+            id="metaModel.viewType.assembly.presentation.AssemblyEditorID"
+            name="%_UI_AssemblyEditor_label"
+            icon="icons/full/obj16/AssemblyModelFile.gif"
+            extensions="assembly"
+            class="metaModel.viewType.assembly.presentation.AssemblyEditor"
+            contributorClass="metaModel.viewType.assembly.presentation.AssemblyActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="metaModel.viewType.environment.presentation.EnvironmentModelWizardID"
+            name="%_UI_EnvironmentModelWizard_label"
+            class="metaModel.viewType.environment.presentation.EnvironmentModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EnvironmentModelFile.gif">
+         <description>%_UI_EnvironmentModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metamodel -->
+      <editor
+            id="metaModel.viewType.environment.presentation.EnvironmentEditorID"
+            name="%_UI_EnvironmentEditor_label"
+            icon="icons/full/obj16/EnvironmentModelFile.gif"
+            extensions="environment"
+            class="metaModel.viewType.environment.presentation.EnvironmentEditor"
+            contributorClass="metaModel.viewType.environment.presentation.EnvironmentActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated metamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="metaModel.viewType.allocation.presentation.AllocationModelWizardID"
+            name="%_UI_AllocationModelWizard_label"
+            class="metaModel.viewType.allocation.presentation.AllocationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AllocationModelFile.gif">
+         <description>%_UI_AllocationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated metamodel -->
+      <editor
+            id="metaModel.viewType.allocation.presentation.AllocationEditorID"
+            name="%_UI_AllocationEditor_label"
+            icon="icons/full/obj16/AllocationModelFile.gif"
+            extensions="allocation"
+            class="metaModel.viewType.allocation.presentation.AllocationEditor"
+            contributorClass="metaModel.viewType.allocation.presentation.AllocationActionBarContributor">
       </editor>
    </extension>
 

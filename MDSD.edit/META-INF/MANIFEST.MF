@@ -5,11 +5,16 @@ Bundle-SymbolicName: MDSD.edit;singleton:=true
 Automatic-Module-Name: MDSD.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: mdsd.metaModel.provider.MetaModelEditPlugin$Implementation
+Bundle-Activator: metaModel.provider.MetamodelEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: mdsd.metaModel.provider
+Export-Package: metaModel.provider,
+ metaModel.viewType.allocation.provider,
+ metaModel.viewType.assembly.provider,
+ metaModel.viewType.environment.provider,
+ metaModel.viewType.provider,
+ metaModel.viewType.repository.provider
 Require-Bundle: org.eclipse.core.runtime,
  MDSD;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
