@@ -1,0 +1,5 @@
+Refactors:
+
+- Packages by view type
+- Extracted Named attribute to NamedElement
+- Added Names to some Elements to make them distinguishable in the editor
