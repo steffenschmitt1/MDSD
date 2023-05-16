@@ -1,13 +1,8 @@
-!/kit.mdsd.xtext/src/kit/mdsd/xtext/dsl/Dsl.xtext
-!/kit.mdsd.xtext/src/kit/mdsd/xtext/dsl/GenerateDsl.mwe2
 /MDSD.editor/
 /MDSD.model/
 /MDSD.model.edit/
 /MDSD.edit/
 /MDSD.tests/
 /.metadata/
-*/src/
-*/src-gen/
-*/xtend-gen/
 */bin/
 */test-bin/
