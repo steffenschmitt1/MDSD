@@ -9,10 +9,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/MDSD">
-		<accessrules>
-			<accessrule kind="accessible" pattern="**/*"/>
-		</accessrules>
-	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/MDSD"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
