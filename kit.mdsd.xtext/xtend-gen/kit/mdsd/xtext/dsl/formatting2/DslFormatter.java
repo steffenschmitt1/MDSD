@@ -8,7 +8,7 @@ import java.util.Arrays;
 import kit.mdsd.xtext.dsl.services.DslGrammarAccess;
 import metaModel.ComponentBasedSystem;
 import metaModel.viewType.allocation.AllocationContext;
-import metaModel.viewType.environment.Enivronment;
+import metaModel.viewType.environment.Environment;
 import metaModel.viewType.repository.Component;
 import metaModel.viewType.repository.Interface;
 import metaModel.viewType.repository.Repository;
@@ -30,9 +30,9 @@ public class DslFormatter extends AbstractFormatter2 {
     for (final Repository repository : _repositories) {
       document.<Repository>format(repository);
     }
-    EList<Enivronment> _enivronments = componentBasedSystem.getEnivronments();
-    for (final Enivronment enivronment : _enivronments) {
-      document.<Enivronment>format(enivronment);
+    EList<Environment> _enivronments = componentBasedSystem.getEnivronments();
+    for (final Environment enivronment : _enivronments) {
+      document.<Environment>format(enivronment);
     }
     EList<metaModel.viewType.assembly.System> _systems = componentBasedSystem.getSystems();
     for (final metaModel.viewType.assembly.System system : _systems) {

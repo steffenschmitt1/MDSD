@@ -14,12 +14,13 @@ import metaModel.viewType.allocation.AllocationPackage;
 import metaModel.viewType.assembly.AssemblyConnector;
 import metaModel.viewType.assembly.AssemblyContext;
 import metaModel.viewType.assembly.AssemblyPackage;
+import metaModel.viewType.assembly.CompositeComponent;
 import metaModel.viewType.assembly.DelegationConnectorProvided;
 import metaModel.viewType.assembly.DelegationConnectorRequired;
 import metaModel.viewType.assembly.ProvidedRole;
 import metaModel.viewType.assembly.RequiredRole;
 import metaModel.viewType.environment.Container;
-import metaModel.viewType.environment.Enivronment;
+import metaModel.viewType.environment.Environment;
 import metaModel.viewType.environment.EnvironmentPackage;
 import metaModel.viewType.environment.Link;
 import metaModel.viewType.repository.BehaviourDescription;
@@ -79,6 +80,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AssemblyPackage.ASSEMBLY_CONTEXT:
 				sequence_AssemblyContext(context, (AssemblyContext) semanticObject); 
 				return; 
+			case AssemblyPackage.COMPOSITE_COMPONENT:
+				sequence_CompositeComponent(context, (CompositeComponent) semanticObject); 
+				return; 
 			case AssemblyPackage.DELEGATION_CONNECTOR_PROVIDED:
 				sequence_DelegationConnectorProvided(context, (DelegationConnectorProvided) semanticObject); 
 				return; 
@@ -100,8 +104,8 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EnvironmentPackage.CONTAINER:
 				sequence_Container(context, (Container) semanticObject); 
 				return; 
-			case EnvironmentPackage.ENIVRONMENT:
-				sequence_Enivronment(context, (Enivronment) semanticObject); 
+			case EnvironmentPackage.ENVIRONMENT:
+				sequence_Environment(context, (Environment) semanticObject); 
 				return; 
 			case EnvironmentPackage.LINK:
 				sequence_Link(context, (Link) semanticObject); 
@@ -347,7 +351,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (repositories+=Repository repositories+=Repository*)? 
-	 *         (enivronments+=Enivronment enivronments+=Enivronment*)? 
+	 *         (environments+=Environment environments+=Environment*)? 
 	 *         (systems+=System systems+=System*)? 
 	 *         (allocationContexts+=AllocationContext allocationContexts+=AllocationContext*)?
 	 *     )
@@ -373,6 +377,26 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     CompositeComponent returns CompositeComponent
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         (requires+=[Interface|EString] requires+=[Interface|EString]*)? 
+	 *         (provides+=[Interface|EString] provides+=[Interface|EString]*)? 
+	 *         description=BehaviourDescription? 
+	 *         encapsulatedInstances+=[AssemblyContext|EString]+
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_CompositeComponent(ISerializationContext context, CompositeComponent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -468,13 +492,13 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Enivronment returns Enivronment
+	 *     Environment returns Environment
 	 *
 	 * Constraint:
 	 *     ((container+=Container container+=Container*)? (link+=Link link+=Link*)?)
 	 * </pre>
 	 */
-	protected void sequence_Enivronment(ISerializationContext context, Enivronment semanticObject) {
+	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -684,7 +708,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Repository returns Repository
 	 *
 	 * Constraint:
-	 *     ((components+=Component components+=Component*)? (interface+=Interface interface+=Interface*)?)
+	 *     ((components+=Component components+=Component*)? (interfaces+=Interface interfaces+=Interface*)?)
 	 * </pre>
 	 */
 	protected void sequence_Repository(ISerializationContext context, Repository semanticObject) {

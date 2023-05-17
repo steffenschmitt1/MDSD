@@ -20,7 +20,7 @@
 'E'=13
 'ECharacterObject'=12
 'EDate'=11
-'Enivronment'=26
+'Environment'=26
 'ExternalCall'=49
 'FloatType'=66
 'IntType'=62
@@ -53,10 +53,10 @@
 'description'=40
 'e'=14
 'encapsulatedInstances'=33
-'enivronments'=20
+'environments'=20
 'externalCalls'=45
 'instanceOf'=77
-'interface'=25
+'interfaces'=25
 'internalActions'=44
 'link'=28
 'linkdedRole'=89
