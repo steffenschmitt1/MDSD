@@ -10,7 +10,7 @@
   <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
     <genClasses ecoreClass="metamodel.ecore#//ComponentBasedSystem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/repositories"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/enivronments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/environments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/systems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/allocationContexts"/>
     </genClasses>
@@ -150,9 +150,9 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Link/containers"/>
         </genClasses>
-        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Enivronment">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/container"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/link"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Environment">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Environment/container"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Environment/link"/>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Allocation" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/allocation">
