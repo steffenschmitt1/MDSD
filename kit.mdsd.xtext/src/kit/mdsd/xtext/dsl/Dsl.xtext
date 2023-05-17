@@ -91,6 +91,18 @@ Component returns repository::Component:
 		('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		('description' description=BehaviourDescription)?
 	'}';
+	
+	
+CompositeComponent returns assembly::CompositeComponent:
+	{assembly::CompositeComponent}
+	'CompositeComponent'
+	name=EString
+	'{'
+		('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
+		('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
+		('description' description=BehaviourDescription)?
+		('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+ ')'
+	'}';
 
 Interface returns repository::Interface:
 	{repository::Interface}
