@@ -39,7 +39,7 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Repository">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/components"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/interface"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/interfaces"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/BehaviourDescription">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/internalActions"/>

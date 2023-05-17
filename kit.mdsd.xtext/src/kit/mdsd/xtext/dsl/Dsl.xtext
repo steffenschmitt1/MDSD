@@ -54,7 +54,7 @@ Repository returns repository::Repository:
 	'Repository'
 	'{'
 		('components' '{' components+=Component ( "," components+=Component)* '}' )?
-		('interface' '{' interface+=Interface ( "," interface+=Interface)* '}' )?
+		('interfaces' '{' interfaces+=Interface ( "," interfaces+=Interface)* '}' )?
 	'}';
 
 Enivronment returns environment::Enivronment:
