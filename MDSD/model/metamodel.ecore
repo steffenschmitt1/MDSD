@@ -7,8 +7,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComponentBasedSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//viewType/repository/Repository" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enivronments" upperBound="-1"
-        eType="#//viewType/environment/Enivronment" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environments" upperBound="-1"
+        eType="#//viewType/environment/Environment" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systems" upperBound="-1"
         eType="#//viewType/assembly/System" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" upperBound="-1"
@@ -221,7 +221,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="containers" lowerBound="2"
             upperBound="-1" eType="#//viewType/environment/Container" eOpposite="#//viewType/environment/Container/links"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Enivronment">
+      <eClassifiers xsi:type="ecore:EClass" name="Environment">
         <eStructuralFeatures xsi:type="ecore:EReference" name="container" upperBound="-1"
             eType="#//viewType/environment/Container" containment="true" resolveProxies="false"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1"

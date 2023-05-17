@@ -14,7 +14,7 @@ ComponentBasedSystem returns metaModel::ComponentBasedSystem:
 	'ComponentBasedSystem'
 	'{'
 		('repositories' '{' repositories+=Repository ( "," repositories+=Repository)* '}' )?
-		('enivronments' '{' enivronments+=Enivronment ( "," enivronments+=Enivronment)* '}' )?
+		('environments' '{' environments+=Environment ( "," environments+=Environment)* '}' )?
 		('systems' '{' systems+=System ( "," systems+=System)* '}' )?
 		('allocationContexts' '{' allocationContexts+=AllocationContext ( "," allocationContexts+=AllocationContext)* '}' )?
 	'}';
@@ -57,9 +57,9 @@ Repository returns repository::Repository:
 		('interfaces' '{' interfaces+=Interface ( "," interfaces+=Interface)* '}' )?
 	'}';
 
-Enivronment returns environment::Enivronment:
-	{environment::Enivronment}
-	'Enivronment'
+Environment returns environment::Environment:
+	{environment::Environment}
+	'Environment'
 	'{'
 		('container' '{' container+=Container ( "," container+=Container)* '}' )?
 		('link' '{' link+=Link ( "," link+=Link)* '}' )?
