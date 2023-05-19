@@ -30,9 +30,9 @@ public class DslFormatter extends AbstractFormatter2 {
     for (final Repository repository : _repositories) {
       document.<Repository>format(repository);
     }
-    EList<Environment> _enivronments = componentBasedSystem.getEnivronments();
-    for (final Environment enivronment : _enivronments) {
-      document.<Environment>format(enivronment);
+    EList<Environment> _environments = componentBasedSystem.getEnvironments();
+    for (final Environment environment : _environments) {
+      document.<Environment>format(environment);
     }
     EList<metaModel.viewType.assembly.System> _systems = componentBasedSystem.getSystems();
     for (final metaModel.viewType.assembly.System system : _systems) {
@@ -49,9 +49,9 @@ public class DslFormatter extends AbstractFormatter2 {
     for (final Component component : _components) {
       document.<Component>format(component);
     }
-    EList<Interface> _interface = repository.getInterface();
-    for (final Interface _interface_1 : _interface) {
-      document.<Interface>format(_interface_1);
+    EList<Interface> _interfaces = repository.getInterfaces();
+    for (final Interface _interface : _interfaces) {
+      document.<Interface>format(_interface);
     }
   }
 

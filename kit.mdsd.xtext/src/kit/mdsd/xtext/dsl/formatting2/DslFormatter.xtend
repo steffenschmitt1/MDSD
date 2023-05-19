@@ -19,8 +19,8 @@ class DslFormatter extends AbstractFormatter2 {
 		for (repository : componentBasedSystem.repositories) {
 			repository.format
 		}
-		for (enivronment : componentBasedSystem.enivronments) {
-			enivronment.format
+		for (environment : componentBasedSystem.environments) {
+			environment.format
 		}
 		for (system : componentBasedSystem.systems) {
 			system.format
@@ -35,10 +35,10 @@ class DslFormatter extends AbstractFormatter2 {
 		for (component : repository.components) {
 			component.format
 		}
-		for (_interface : repository.interface) {
+		for (_interface : repository.interfaces) {
 			_interface.format
 		}
 	}
 	
-	// TODO: implement for Enivronment, System, Component, Interface, BehaviourDescription, Signature, Parameter, ComplexType, AssemblyContext
+	// TODO: implement for Environment, System, Component, CompositeComponent, Interface, BehaviourDescription, Signature, Parameter, ComplexType, AssemblyContext
 }

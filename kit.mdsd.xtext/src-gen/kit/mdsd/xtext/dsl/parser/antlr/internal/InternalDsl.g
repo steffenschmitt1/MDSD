@@ -788,17 +788,17 @@ ruleEnvironment returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_2_0());
+						newCompositeNode(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_2_0());
 					}
-					lv_container_5_0=ruleContainer
+					lv_containers_5_0=ruleContainer
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
 						}
 						add(
 							$current,
-							"container",
-							lv_container_5_0,
+							"containers",
+							lv_containers_5_0,
 							"kit.mdsd.xtext.dsl.Dsl.Container");
 						afterParserOrEnumRuleCall();
 					}
@@ -812,17 +812,17 @@ ruleEnvironment returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_3_1_0());
+							newCompositeNode(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_3_1_0());
 						}
-						lv_container_7_0=ruleContainer
+						lv_containers_7_0=ruleContainer
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
 							}
 							add(
 								$current,
-								"container",
-								lv_container_7_0,
+								"containers",
+								lv_containers_7_0,
 								"kit.mdsd.xtext.dsl.Dsl.Container");
 							afterParserOrEnumRuleCall();
 						}
@@ -846,17 +846,17 @@ ruleEnvironment returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_2_0());
 					}
-					lv_link_11_0=ruleLink
+					lv_links_11_0=ruleLink
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
 						}
 						add(
 							$current,
-							"link",
-							lv_link_11_0,
+							"links",
+							lv_links_11_0,
 							"kit.mdsd.xtext.dsl.Dsl.Link");
 						afterParserOrEnumRuleCall();
 					}
@@ -870,17 +870,17 @@ ruleEnvironment returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_3_1_0());
+							newCompositeNode(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_3_1_0());
 						}
-						lv_link_13_0=ruleLink
+						lv_links_13_0=ruleLink
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
 							}
 							add(
 								$current,
-								"link",
-								lv_link_13_0,
+								"links",
+								lv_links_13_0,
 								"kit.mdsd.xtext.dsl.Dsl.Link");
 							afterParserOrEnumRuleCall();
 						}
@@ -3224,9 +3224,9 @@ ruleAssemblyContext returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getAssemblyContextAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_3='instanceOf'
+		otherlv_3='instantiatedComponent'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAssemblyContextAccess().getInstanceOfKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getAssemblyContextAccess().getInstantiatedComponentKeyword_3());
 		}
 		(
 			(
@@ -3236,7 +3236,7 @@ ruleAssemblyContext returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getAssemblyContextAccess().getInstanceOfComponentCrossReference_4_0());
+					newCompositeNode(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentComponentCrossReference_4_0());
 				}
 				ruleEString
 				{

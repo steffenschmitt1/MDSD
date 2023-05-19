@@ -476,22 +476,22 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cContainerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cContainerAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cContainerContainerParserRuleCall_3_2_0 = (RuleCall)cContainerAssignment_3_2.eContents().get(0);
+		private final Assignment cContainersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cContainersContainerParserRuleCall_3_2_0 = (RuleCall)cContainersAssignment_3_2.eContents().get(0);
 		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
 		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
-		private final Assignment cContainerAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
-		private final RuleCall cContainerContainerParserRuleCall_3_3_1_0 = (RuleCall)cContainerAssignment_3_3_1.eContents().get(0);
+		private final Assignment cContainersAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cContainersContainerParserRuleCall_3_3_1_0 = (RuleCall)cContainersAssignment_3_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cLinkKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cLinkAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cLinkLinkParserRuleCall_4_2_0 = (RuleCall)cLinkAssignment_4_2.eContents().get(0);
+		private final Assignment cLinksAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cLinksLinkParserRuleCall_4_2_0 = (RuleCall)cLinksAssignment_4_2.eContents().get(0);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
 		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cLinkAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cLinkLinkParserRuleCall_4_3_1_0 = (RuleCall)cLinkAssignment_4_3_1.eContents().get(0);
+		private final Assignment cLinksAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cLinksLinkParserRuleCall_4_3_1_0 = (RuleCall)cLinksAssignment_4_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
@@ -499,16 +499,16 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    {environment::Environment}
 		//    'Environment'
 		//    '{'
-		//        ('container' '{' container+=Container ( "," container+=Container)* '}' )?
-		//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
+		//        ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		//        ('link' '{' links+=Link ( "," links+=Link)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{environment::Environment}
 		//'Environment'
 		//'{'
-		//    ('container' '{' container+=Container ( "," container+=Container)* '}' )?
-		//    ('link' '{' link+=Link ( "," link+=Link)* '}' )?
+		//    ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		//    ('link' '{' links+=Link ( "," links+=Link)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -521,7 +521,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('container' '{' container+=Container ( "," container+=Container)* '}' )?
+		//('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'container'
@@ -530,28 +530,28 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
 		
-		//container+=Container
-		public Assignment getContainerAssignment_3_2() { return cContainerAssignment_3_2; }
+		//containers+=Container
+		public Assignment getContainersAssignment_3_2() { return cContainersAssignment_3_2; }
 		
 		//Container
-		public RuleCall getContainerContainerParserRuleCall_3_2_0() { return cContainerContainerParserRuleCall_3_2_0; }
+		public RuleCall getContainersContainerParserRuleCall_3_2_0() { return cContainersContainerParserRuleCall_3_2_0; }
 		
-		//( "," container+=Container)*
+		//( "," containers+=Container)*
 		public Group getGroup_3_3() { return cGroup_3_3; }
 		
 		//","
 		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
-		//container+=Container
-		public Assignment getContainerAssignment_3_3_1() { return cContainerAssignment_3_3_1; }
+		//containers+=Container
+		public Assignment getContainersAssignment_3_3_1() { return cContainersAssignment_3_3_1; }
 		
 		//Container
-		public RuleCall getContainerContainerParserRuleCall_3_3_1_0() { return cContainerContainerParserRuleCall_3_3_1_0; }
+		public RuleCall getContainersContainerParserRuleCall_3_3_1_0() { return cContainersContainerParserRuleCall_3_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
 		
-		//('link' '{' link+=Link ( "," link+=Link)* '}' )?
+		//('link' '{' links+=Link ( "," links+=Link)* '}' )?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'link'
@@ -560,23 +560,23 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
 		
-		//link+=Link
-		public Assignment getLinkAssignment_4_2() { return cLinkAssignment_4_2; }
+		//links+=Link
+		public Assignment getLinksAssignment_4_2() { return cLinksAssignment_4_2; }
 		
 		//Link
-		public RuleCall getLinkLinkParserRuleCall_4_2_0() { return cLinkLinkParserRuleCall_4_2_0; }
+		public RuleCall getLinksLinkParserRuleCall_4_2_0() { return cLinksLinkParserRuleCall_4_2_0; }
 		
-		//( "," link+=Link)*
+		//( "," links+=Link)*
 		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//","
 		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 		
-		//link+=Link
-		public Assignment getLinkAssignment_4_3_1() { return cLinkAssignment_4_3_1; }
+		//links+=Link
+		public Assignment getLinksAssignment_4_3_1() { return cLinksAssignment_4_3_1; }
 		
 		//Link
-		public RuleCall getLinkLinkParserRuleCall_4_3_1_0() { return cLinkLinkParserRuleCall_4_3_1_0; }
+		public RuleCall getLinksLinkParserRuleCall_4_3_1_0() { return cLinksLinkParserRuleCall_4_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
@@ -1055,8 +1055,13 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cEncapsulatedInstancesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cEncapsulatedInstancesAssemblyContextCrossReference_7_2_0 = (CrossReference)cEncapsulatedInstancesAssignment_7_2.eContents().get(0);
 		private final RuleCall cEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_2_0_1 = (RuleCall)cEncapsulatedInstancesAssemblyContextCrossReference_7_2_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
+		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
+		private final Assignment cEncapsulatedInstancesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
+		private final CrossReference cEncapsulatedInstancesAssemblyContextCrossReference_7_3_1_0 = (CrossReference)cEncapsulatedInstancesAssignment_7_3_1.eContents().get(0);
+		private final RuleCall cEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cEncapsulatedInstancesAssemblyContextCrossReference_7_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CompositeComponent returns assembly::CompositeComponent:
 		//    {assembly::CompositeComponent}
@@ -1066,7 +1071,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//        ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 		//        ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		//        ('description' description=BehaviourDescription)?
-		//        ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+ ')'
+		//        ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString] ( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])* ')')?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1077,7 +1082,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 		//    ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		//    ('description' description=BehaviourDescription)?
-		//    ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+ ')'
+		//    ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString] ( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])* ')')?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1180,7 +1185,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//BehaviourDescription
 		public RuleCall getDescriptionBehaviourDescriptionParserRuleCall_6_1_0() { return cDescriptionBehaviourDescriptionParserRuleCall_6_1_0; }
 		
-		//('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+
+		//('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString] ( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])* ')')?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'encapsulatedInstances'
@@ -1198,11 +1203,26 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//EString
 		public RuleCall getEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_2_0_1() { return cEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_2_0_1; }
 		
+		//( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])*
+		public Group getGroup_7_3() { return cGroup_7_3; }
+		
+		//","
+		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		
+		//encapsulatedInstances+=[assembly::AssemblyContext|EString]
+		public Assignment getEncapsulatedInstancesAssignment_7_3_1() { return cEncapsulatedInstancesAssignment_7_3_1; }
+		
+		//[assembly::AssemblyContext|EString]
+		public CrossReference getEncapsulatedInstancesAssemblyContextCrossReference_7_3_1_0() { return cEncapsulatedInstancesAssemblyContextCrossReference_7_3_1_0; }
+		
+		//EString
+		public RuleCall getEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_3_1_0_1() { return cEncapsulatedInstancesAssemblyContextEStringParserRuleCall_7_3_1_0_1; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class InterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kit.mdsd.xtext.dsl.Dsl.Interface");
@@ -2533,10 +2553,10 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cInstanceOfKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cInstanceOfAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cInstanceOfComponentCrossReference_4_0 = (CrossReference)cInstanceOfAssignment_4.eContents().get(0);
-		private final RuleCall cInstanceOfComponentEStringParserRuleCall_4_0_1 = (RuleCall)cInstanceOfComponentCrossReference_4_0.eContents().get(1);
+		private final Keyword cInstantiatedComponentKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInstantiatedComponentAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cInstantiatedComponentComponentCrossReference_4_0 = (CrossReference)cInstantiatedComponentAssignment_4.eContents().get(0);
+		private final RuleCall cInstantiatedComponentComponentEStringParserRuleCall_4_0_1 = (RuleCall)cInstantiatedComponentComponentCrossReference_4_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cAllocationContextKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cAllocationContextAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2568,7 +2588,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    'AssemblyContext'
 		//    name=EString
 		//    '{'
-		//        'instanceOf' instanceOf=[repository::Component|EString]
+		//        'instantiatedComponent' instantiatedComponent=[repository::Component|EString]
 		//        ('allocationContext' allocationContext=[allocation::AllocationContext|EString])?
 		//        ('requires' '{' requires+=RequiredRole ( "," requires+=RequiredRole)* '}' )?
 		//        ('provides' '{' provides+=ProvidedRole ( "," provides+=ProvidedRole)* '}' )?
@@ -2578,7 +2598,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'AssemblyContext'
 		//name=EString
 		//'{'
-		//    'instanceOf' instanceOf=[repository::Component|EString]
+		//    'instantiatedComponent' instantiatedComponent=[repository::Component|EString]
 		//    ('allocationContext' allocationContext=[allocation::AllocationContext|EString])?
 		//    ('requires' '{' requires+=RequiredRole ( "," requires+=RequiredRole)* '}' )?
 		//    ('provides' '{' provides+=ProvidedRole ( "," provides+=ProvidedRole)* '}' )?
@@ -2597,17 +2617,17 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'instanceOf'
-		public Keyword getInstanceOfKeyword_3() { return cInstanceOfKeyword_3; }
+		//'instantiatedComponent'
+		public Keyword getInstantiatedComponentKeyword_3() { return cInstantiatedComponentKeyword_3; }
 		
-		//instanceOf=[repository::Component|EString]
-		public Assignment getInstanceOfAssignment_4() { return cInstanceOfAssignment_4; }
+		//instantiatedComponent=[repository::Component|EString]
+		public Assignment getInstantiatedComponentAssignment_4() { return cInstantiatedComponentAssignment_4; }
 		
 		//[repository::Component|EString]
-		public CrossReference getInstanceOfComponentCrossReference_4_0() { return cInstanceOfComponentCrossReference_4_0; }
+		public CrossReference getInstantiatedComponentComponentCrossReference_4_0() { return cInstantiatedComponentComponentCrossReference_4_0; }
 		
 		//EString
-		public RuleCall getInstanceOfComponentEStringParserRuleCall_4_0_1() { return cInstanceOfComponentEStringParserRuleCall_4_0_1; }
+		public RuleCall getInstantiatedComponentComponentEStringParserRuleCall_4_0_1() { return cInstantiatedComponentComponentEStringParserRuleCall_4_0_1; }
 		
 		//('allocationContext' allocationContext=[allocation::AllocationContext|EString])?
 		public Group getGroup_5() { return cGroup_5; }
@@ -3245,8 +3265,8 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    {environment::Environment}
 	//    'Environment'
 	//    '{'
-	//        ('container' '{' container+=Container ( "," container+=Container)* '}' )?
-	//        ('link' '{' link+=Link ( "," link+=Link)* '}' )?
+	//        ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
+	//        ('link' '{' links+=Link ( "," links+=Link)* '}' )?
 	//    '}';
 	public EnvironmentElements getEnvironmentAccess() {
 		return pEnvironment;
@@ -3312,7 +3332,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//        ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 	//        ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 	//        ('description' description=BehaviourDescription)?
-	//        ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+ ')'
+	//        ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString] ( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])* ')')?
 	//    '}';
 	public CompositeComponentElements getCompositeComponentAccess() {
 		return pCompositeComponent;
@@ -3677,7 +3697,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'AssemblyContext'
 	//    name=EString
 	//    '{'
-	//        'instanceOf' instanceOf=[repository::Component|EString]
+	//        'instantiatedComponent' instantiatedComponent=[repository::Component|EString]
 	//        ('allocationContext' allocationContext=[allocation::AllocationContext|EString])?
 	//        ('requires' '{' requires+=RequiredRole ( "," requires+=RequiredRole)* '}' )?
 	//        ('provides' '{' provides+=ProvidedRole ( "," provides+=ProvidedRole)* '}' )?

@@ -244,7 +244,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         instanceOf=[Component|EString] 
+	 *         instantiatedComponent=[Component|EString] 
 	 *         allocationContext=[AllocationContext|EString]? 
 	 *         (requires+=RequiredRole requires+=RequiredRole*)? 
 	 *         (provides+=ProvidedRole provides+=ProvidedRole*)?
@@ -392,7 +392,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (requires+=[Interface|EString] requires+=[Interface|EString]*)? 
 	 *         (provides+=[Interface|EString] provides+=[Interface|EString]*)? 
 	 *         description=BehaviourDescription? 
-	 *         encapsulatedInstances+=[AssemblyContext|EString]+
+	 *         (encapsulatedInstances+=[AssemblyContext|EString] encapsulatedInstances+=[AssemblyContext|EString]*)?
 	 *     )
 	 * </pre>
 	 */
@@ -495,7 +495,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Environment returns Environment
 	 *
 	 * Constraint:
-	 *     ((container+=Container container+=Container*)? (link+=Link link+=Link*)?)
+	 *     ((containers+=Container containers+=Container*)? (links+=Link links+=Link*)?)
 	 * </pre>
 	 */
 	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {

@@ -61,8 +61,8 @@ Environment returns environment::Environment:
 	{environment::Environment}
 	'Environment'
 	'{'
-		('container' '{' container+=Container ( "," container+=Container)* '}' )?
-		('link' '{' link+=Link ( "," link+=Link)* '}' )?
+		('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		('link' '{' links+=Link ( "," links+=Link)* '}' )?
 	'}';
 
 System returns assembly::System:
@@ -101,7 +101,7 @@ CompositeComponent returns assembly::CompositeComponent:
 		('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 		('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		('description' description=BehaviourDescription)?
-		('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString])+ ')'
+        ('encapsulatedInstances' '(' encapsulatedInstances+=[assembly::AssemblyContext|EString] ( "," encapsulatedInstances+=[assembly::AssemblyContext|EString])* ')')?
 	'}';
 
 Interface returns repository::Interface:
@@ -263,7 +263,7 @@ AssemblyContext returns assembly::AssemblyContext:
 	'AssemblyContext'
 	name=EString
 	'{'
-		'instanceOf' instanceOf=[repository::Component|EString]
+		'instantiatedComponent' instantiatedComponent=[repository::Component|EString]
 		('allocationContext' allocationContext=[allocation::AllocationContext|EString])?
 		('requires' '{' requires+=RequiredRole ( "," requires+=RequiredRole)* '}' )?
 		('provides' '{' provides+=ProvidedRole ( "," provides+=ProvidedRole)* '}' )?

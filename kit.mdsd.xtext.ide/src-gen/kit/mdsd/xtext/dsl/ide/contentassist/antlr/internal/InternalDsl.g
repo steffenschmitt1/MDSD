@@ -3052,9 +3052,9 @@ rule__Environment__Group_3__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_2()); }
-	(rule__Environment__ContainerAssignment_3_2)
-	{ after(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_2()); }
+	{ before(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_2()); }
+	(rule__Environment__ContainersAssignment_3_2)
+	{ after(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_2()); }
 )
 ;
 finally {
@@ -3159,9 +3159,9 @@ rule__Environment__Group_3_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_3_1()); }
-	(rule__Environment__ContainerAssignment_3_3_1)
-	{ after(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_3_1()); }
+	{ before(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_3_1()); }
+	(rule__Environment__ContainersAssignment_3_3_1)
+	{ after(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_3_1()); }
 )
 ;
 finally {
@@ -3241,9 +3241,9 @@ rule__Environment__Group_4__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_2()); }
-	(rule__Environment__LinkAssignment_4_2)
-	{ after(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_2()); }
+	{ before(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_2()); }
+	(rule__Environment__LinksAssignment_4_2)
+	{ after(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_2()); }
 )
 ;
 finally {
@@ -3348,9 +3348,9 @@ rule__Environment__Group_4_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_3_1()); }
-	(rule__Environment__LinkAssignment_4_3_1)
-	{ after(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_3_1()); }
+	{ before(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_3_1()); }
+	(rule__Environment__LinksAssignment_4_3_1)
+	{ after(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_3_1()); }
 )
 ;
 finally {
@@ -9910,9 +9910,9 @@ rule__AssemblyContext__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAssemblyContextAccess().getInstanceOfKeyword_3()); }
-	'instanceOf'
-	{ after(grammarAccess.getAssemblyContextAccess().getInstanceOfKeyword_3()); }
+	{ before(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentKeyword_3()); }
+	'instantiatedComponent'
+	{ after(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentKeyword_3()); }
 )
 ;
 finally {
@@ -9937,9 +9937,9 @@ rule__AssemblyContext__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAssemblyContextAccess().getInstanceOfAssignment_4()); }
-	(rule__AssemblyContext__InstanceOfAssignment_4)
-	{ after(grammarAccess.getAssemblyContextAccess().getInstanceOfAssignment_4()); }
+	{ before(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentAssignment_4()); }
+	(rule__AssemblyContext__InstantiatedComponentAssignment_4)
+	{ after(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentAssignment_4()); }
 )
 ;
 finally {
@@ -11827,60 +11827,60 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Environment__ContainerAssignment_3_2
+rule__Environment__ContainersAssignment_3_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_2_0()); }
+		{ before(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_2_0()); }
 		ruleContainer
-		{ after(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_2_0()); }
+		{ after(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Environment__ContainerAssignment_3_3_1
+rule__Environment__ContainersAssignment_3_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_3_1_0()); }
+		{ before(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_3_1_0()); }
 		ruleContainer
-		{ after(grammarAccess.getEnvironmentAccess().getContainerContainerParserRuleCall_3_3_1_0()); }
+		{ after(grammarAccess.getEnvironmentAccess().getContainersContainerParserRuleCall_3_3_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Environment__LinkAssignment_4_2
+rule__Environment__LinksAssignment_4_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_2_0()); }
+		{ before(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_2_0()); }
 		ruleLink
-		{ after(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_2_0()); }
+		{ after(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Environment__LinkAssignment_4_3_1
+rule__Environment__LinksAssignment_4_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_3_1_0()); }
+		{ before(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_3_1_0()); }
 		ruleLink
-		{ after(grammarAccess.getEnvironmentAccess().getLinkLinkParserRuleCall_4_3_1_0()); }
+		{ after(grammarAccess.getEnvironmentAccess().getLinksLinkParserRuleCall_4_3_1_0()); }
 	)
 ;
 finally {
@@ -12727,19 +12727,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AssemblyContext__InstanceOfAssignment_4
+rule__AssemblyContext__InstantiatedComponentAssignment_4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAssemblyContextAccess().getInstanceOfComponentCrossReference_4_0()); }
+		{ before(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentComponentCrossReference_4_0()); }
 		(
-			{ before(grammarAccess.getAssemblyContextAccess().getInstanceOfComponentEStringParserRuleCall_4_0_1()); }
+			{ before(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentComponentEStringParserRuleCall_4_0_1()); }
 			ruleEString
-			{ after(grammarAccess.getAssemblyContextAccess().getInstanceOfComponentEStringParserRuleCall_4_0_1()); }
+			{ after(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentComponentEStringParserRuleCall_4_0_1()); }
 		)
-		{ after(grammarAccess.getAssemblyContextAccess().getInstanceOfComponentCrossReference_4_0()); }
+		{ after(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentComponentCrossReference_4_0()); }
 	)
 ;
 finally {

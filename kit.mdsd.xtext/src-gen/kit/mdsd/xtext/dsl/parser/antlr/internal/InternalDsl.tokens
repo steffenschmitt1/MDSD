@@ -55,7 +55,7 @@
 'encapsulatedInstances'=29
 'environments'=16
 'externalCalls'=41
-'instanceOf'=77
+'instantiatedComponent'=77
 'interfaces'=21
 'internalActions'=40
 'link'=24

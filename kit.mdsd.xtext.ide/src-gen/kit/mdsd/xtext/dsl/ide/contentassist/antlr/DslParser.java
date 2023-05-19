@@ -77,6 +77,7 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCompositeComponentAccess().getGroup_5_3(), "rule__CompositeComponent__Group_5_3__0");
 			builder.put(grammarAccess.getCompositeComponentAccess().getGroup_6(), "rule__CompositeComponent__Group_6__0");
 			builder.put(grammarAccess.getCompositeComponentAccess().getGroup_7(), "rule__CompositeComponent__Group_7__0");
+			builder.put(grammarAccess.getCompositeComponentAccess().getGroup_7_3(), "rule__CompositeComponent__Group_7_3__0");
 			builder.put(grammarAccess.getInterfaceAccess().getGroup(), "rule__Interface__Group__0");
 			builder.put(grammarAccess.getInterfaceAccess().getGroup_4(), "rule__Interface__Group_4__0");
 			builder.put(grammarAccess.getInterfaceAccess().getGroup_4_3(), "rule__Interface__Group_4_3__0");
@@ -149,10 +150,10 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRepositoryAccess().getComponentsAssignment_3_3_1(), "rule__Repository__ComponentsAssignment_3_3_1");
 			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_4_2(), "rule__Repository__InterfacesAssignment_4_2");
 			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_4_3_1(), "rule__Repository__InterfacesAssignment_4_3_1");
-			builder.put(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_2(), "rule__Environment__ContainerAssignment_3_2");
-			builder.put(grammarAccess.getEnvironmentAccess().getContainerAssignment_3_3_1(), "rule__Environment__ContainerAssignment_3_3_1");
-			builder.put(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_2(), "rule__Environment__LinkAssignment_4_2");
-			builder.put(grammarAccess.getEnvironmentAccess().getLinkAssignment_4_3_1(), "rule__Environment__LinkAssignment_4_3_1");
+			builder.put(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_2(), "rule__Environment__ContainersAssignment_3_2");
+			builder.put(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_3_1(), "rule__Environment__ContainersAssignment_3_3_1");
+			builder.put(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_2(), "rule__Environment__LinksAssignment_4_2");
+			builder.put(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_3_1(), "rule__Environment__LinksAssignment_4_3_1");
 			builder.put(grammarAccess.getSystemAccess().getProvidesAssignment_4(), "rule__System__ProvidesAssignment_4");
 			builder.put(grammarAccess.getSystemAccess().getProvidesAssignment_5_1(), "rule__System__ProvidesAssignment_5_1");
 			builder.put(grammarAccess.getSystemAccess().getEncapsulatedInstancesAssignment_9(), "rule__System__EncapsulatedInstancesAssignment_9");
@@ -177,6 +178,7 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCompositeComponentAccess().getProvidesAssignment_5_3_1(), "rule__CompositeComponent__ProvidesAssignment_5_3_1");
 			builder.put(grammarAccess.getCompositeComponentAccess().getDescriptionAssignment_6_1(), "rule__CompositeComponent__DescriptionAssignment_6_1");
 			builder.put(grammarAccess.getCompositeComponentAccess().getEncapsulatedInstancesAssignment_7_2(), "rule__CompositeComponent__EncapsulatedInstancesAssignment_7_2");
+			builder.put(grammarAccess.getCompositeComponentAccess().getEncapsulatedInstancesAssignment_7_3_1(), "rule__CompositeComponent__EncapsulatedInstancesAssignment_7_3_1");
 			builder.put(grammarAccess.getInterfaceAccess().getNameAssignment_2(), "rule__Interface__NameAssignment_2");
 			builder.put(grammarAccess.getInterfaceAccess().getSignaturesAssignment_4_2(), "rule__Interface__SignaturesAssignment_4_2");
 			builder.put(grammarAccess.getInterfaceAccess().getSignaturesAssignment_4_3_1(), "rule__Interface__SignaturesAssignment_4_3_1");
@@ -212,7 +214,7 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLinkAccess().getContainersAssignment_5(), "rule__Link__ContainersAssignment_5");
 			builder.put(grammarAccess.getLinkAccess().getContainersAssignment_6_1(), "rule__Link__ContainersAssignment_6_1");
 			builder.put(grammarAccess.getAssemblyContextAccess().getNameAssignment_1(), "rule__AssemblyContext__NameAssignment_1");
-			builder.put(grammarAccess.getAssemblyContextAccess().getInstanceOfAssignment_4(), "rule__AssemblyContext__InstanceOfAssignment_4");
+			builder.put(grammarAccess.getAssemblyContextAccess().getInstantiatedComponentAssignment_4(), "rule__AssemblyContext__InstantiatedComponentAssignment_4");
 			builder.put(grammarAccess.getAssemblyContextAccess().getAllocationContextAssignment_5_1(), "rule__AssemblyContext__AllocationContextAssignment_5_1");
 			builder.put(grammarAccess.getAssemblyContextAccess().getRequiresAssignment_6_2(), "rule__AssemblyContext__RequiresAssignment_6_2");
 			builder.put(grammarAccess.getAssemblyContextAccess().getRequiresAssignment_6_3_1(), "rule__AssemblyContext__RequiresAssignment_6_3_1");
