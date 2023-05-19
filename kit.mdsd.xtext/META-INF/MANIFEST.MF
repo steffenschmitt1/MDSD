@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: kit.mdsd.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: kit.mdsd.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: kit.mdsd.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: MDSD.model,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ MDSD,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: kit.mdsd.xtext.dsl.serializer,
+ kit.mdsd.xtext.dsl.scoping,
+ kit.mdsd.xtext.dsl.parser.antlr.internal,
+ kit.mdsd.xtext.dsl.generator,
+ kit.mdsd.xtext.dsl,
+ kit.mdsd.xtext.dsl.services,
+ kit.mdsd.xtext.dsl.validation,
+ kit.mdsd.xtext.dsl.formatting2,
+ kit.mdsd.xtext.dsl.parser.antlr
+Import-Package: org.apache.log4j

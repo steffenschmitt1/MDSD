@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MDSD.model/src" editDirectory="/MDSD.edit/src"
-    editorDirectory="/MDSD.editor/src" modelPluginID="MDSD" modelName="Metamodel"
+    editorDirectory="/MDSD.editor/src" modelPluginID="MDSD.model" modelName="Metamodel"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory="/MDSD.tests/src"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    editPluginID="MDSD.edit" editorPluginID="MDSD.editor" testsPluginID="MDSD.tests"
     operationReflection="true" importOrganizing="true">
   <foreignModel>metamodel.ecore</foreignModel>
   <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
     <genClasses ecoreClass="metamodel.ecore#//ComponentBasedSystem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/repositories"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/enivronments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/environments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/systems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ComponentBasedSystem/allocationContexts"/>
     </genClasses>
-    <nestedGenPackages prefix="ViewType" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType">
+    <nestedGenPackages prefix="ViewType" basePackage="metaModel" disposableProviderFactory="true"
+        ecorePackage="metamodel.ecore#//viewType">
       <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/NamedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//viewType/NamedElement/name"/>
       </genClasses>
-      <nestedGenPackages prefix="Repository" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/repository">
+      <nestedGenPackages prefix="Repository" basePackage="metaModel.viewType" disposableProviderFactory="true"
+          ecorePackage="metamodel.ecore#//viewType/repository">
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Component">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Component/requires"/>
@@ -38,7 +41,7 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Repository">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/components"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/interface"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Repository/interfaces"/>
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/BehaviourDescription">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/BehaviourDescription/internalActions"/>
@@ -84,10 +87,11 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/VoidType"/>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Assembly" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/assembly">
+      <nestedGenPackages prefix="Assembly" basePackage="metaModel.viewType" disposableProviderFactory="true"
+          ecorePackage="metamodel.ecore#//viewType/assembly">
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/AssemblyContext">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/instanceOf"/>
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/instantiatedComponent"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/allocationContext"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/AssemblyContext/requires"/>
@@ -138,7 +142,8 @@
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Environment" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/environment">
+      <nestedGenPackages prefix="Environment" basePackage="metaModel.viewType" disposableProviderFactory="true"
+          ecorePackage="metamodel.ecore#//viewType/environment">
         <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Container">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Container/allocationContext"/>
@@ -149,12 +154,13 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Link/containers"/>
         </genClasses>
-        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Enivronment">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/container"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Enivronment/link"/>
+        <genClasses ecoreClass="metamodel.ecore#//viewType/environment/Environment">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Environment/containers"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/environment/Environment/links"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Allocation" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//viewType/allocation">
+      <nestedGenPackages prefix="Allocation" basePackage="metaModel.viewType" disposableProviderFactory="true"
+          ecorePackage="metamodel.ecore#//viewType/allocation">
         <genClasses ecoreClass="metamodel.ecore#//viewType/allocation/AllocationContext">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference metamodel.ecore#//viewType/allocation/AllocationContext/assemblyContext"/>

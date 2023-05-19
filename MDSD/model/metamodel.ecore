@@ -7,8 +7,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComponentBasedSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//viewType/repository/Repository" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enivronments" upperBound="-1"
-        eType="#//viewType/environment/Enivronment" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environments" upperBound="-1"
+        eType="#//viewType/environment/Environment" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systems" upperBound="-1"
         eType="#//viewType/assembly/System" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" upperBound="-1"
@@ -46,7 +46,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="Repository">
         <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
             eType="#//viewType/repository/Component" containment="true" resolveProxies="false"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
             eType="#//viewType/repository/Interface" containment="true" resolveProxies="false"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="BehaviourDescription">
@@ -124,10 +124,10 @@
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
           <details key="assemblyContextFromInnerComponentsOfCompositeComponentCantBeAllocated"
-              value="self.instanceOf.oclIsTypeOf(assembly::CompositeComponent) implies self.instanceOf.oclAsType(assembly::CompositeComponent).encapsulatedInstances -> forAll(allocationContext = null)"/>
+              value="self.instantiatedComponent.oclIsTypeOf(assembly::CompositeComponent) implies self.instantiatedComponent.oclAsType(assembly::CompositeComponent).encapsulatedInstances -> forAll(allocationContext = null)"/>
         </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="instanceOf" lowerBound="1"
-            eType="#//viewType/repository/Component"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="instantiatedComponent"
+            lowerBound="1" eType="#//viewType/repository/Component"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext"
             eType="#//viewType/allocation/AllocationContext" eOpposite="#//viewType/allocation/AllocationContext/assemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
@@ -142,7 +142,7 @@
           <details key="constraints" value="ofOtherComponent"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-          <details key="ofOtherComponent" value="self.encapsulatedInstances -> select(instance | instance.instanceOf = self)->size() = 0"/>
+          <details key="ofOtherComponent" value="self.encapsulatedInstances -> select(instance | instance.instantiatedComponent = self)->size() = 0"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedInstances"
             lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"/>
@@ -152,7 +152,7 @@
           <details key="constraints" value="providedInterfacesShouldMatchProvidedRolesOfInstances"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-          <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.encapsulatedInstances.instanceOf.provides -> includesAll(self.provides -> asSet())"/>
+          <details key="providedInterfacesShouldMatchProvidedRolesOfInstances" value="self.encapsulatedInstances.instantiatedComponent.provides -> includesAll(self.provides -> asSet())"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedInstances"
             lowerBound="1" upperBound="-1" eType="#//viewType/assembly/AssemblyContext"
@@ -221,10 +221,10 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="containers" lowerBound="2"
             upperBound="-1" eType="#//viewType/environment/Container" eOpposite="#//viewType/environment/Container/links"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Enivronment">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="container" upperBound="-1"
+      <eClassifiers xsi:type="ecore:EClass" name="Environment">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
             eType="#//viewType/environment/Container" containment="true" resolveProxies="false"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
             eType="#//viewType/environment/Link" containment="true" resolveProxies="false"/>
       </eClassifiers>
     </eSubpackages>

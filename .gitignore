@@ -3,3 +3,6 @@
 /MDSD.model.edit/
 /MDSD.edit/
 /MDSD.tests/
+/.metadata/
+*/bin/
+*/test-bin/
