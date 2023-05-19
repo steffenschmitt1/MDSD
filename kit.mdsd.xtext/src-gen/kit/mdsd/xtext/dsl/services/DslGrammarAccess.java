@@ -854,41 +854,43 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class ComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kit.mdsd.xtext.dsl.Dsl.Component");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cComponentAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cComponentKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cRequiresKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cRequiresAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final CrossReference cRequiresInterfaceCrossReference_4_2_0 = (CrossReference)cRequiresAssignment_4_2.eContents().get(0);
-		private final RuleCall cRequiresInterfaceEStringParserRuleCall_4_2_0_1 = (RuleCall)cRequiresInterfaceCrossReference_4_2_0.eContents().get(1);
-		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cRequiresAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final CrossReference cRequiresInterfaceCrossReference_4_3_1_0 = (CrossReference)cRequiresAssignment_4_3_1.eContents().get(0);
-		private final RuleCall cRequiresInterfaceEStringParserRuleCall_4_3_1_0_1 = (RuleCall)cRequiresInterfaceCrossReference_4_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cProvidesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cProvidesAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final CrossReference cProvidesInterfaceCrossReference_5_2_0 = (CrossReference)cProvidesAssignment_5_2.eContents().get(0);
-		private final RuleCall cProvidesInterfaceEStringParserRuleCall_5_2_0_1 = (RuleCall)cProvidesInterfaceCrossReference_5_2_0.eContents().get(1);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cProvidesAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final CrossReference cProvidesInterfaceCrossReference_5_3_1_0 = (CrossReference)cProvidesAssignment_5_3_1.eContents().get(0);
-		private final RuleCall cProvidesInterfaceEStringParserRuleCall_5_3_1_0_1 = (RuleCall)cProvidesInterfaceCrossReference_5_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionBehaviourDescriptionParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cComponentAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cComponentKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cNameAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_0_2_0 = (RuleCall)cNameAssignment_0_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
+		private final Keyword cRequiresKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_4_1 = (Keyword)cGroup_0_4.eContents().get(1);
+		private final Assignment cRequiresAssignment_0_4_2 = (Assignment)cGroup_0_4.eContents().get(2);
+		private final CrossReference cRequiresInterfaceCrossReference_0_4_2_0 = (CrossReference)cRequiresAssignment_0_4_2.eContents().get(0);
+		private final RuleCall cRequiresInterfaceEStringParserRuleCall_0_4_2_0_1 = (RuleCall)cRequiresInterfaceCrossReference_0_4_2_0.eContents().get(1);
+		private final Group cGroup_0_4_3 = (Group)cGroup_0_4.eContents().get(3);
+		private final Keyword cCommaKeyword_0_4_3_0 = (Keyword)cGroup_0_4_3.eContents().get(0);
+		private final Assignment cRequiresAssignment_0_4_3_1 = (Assignment)cGroup_0_4_3.eContents().get(1);
+		private final CrossReference cRequiresInterfaceCrossReference_0_4_3_1_0 = (CrossReference)cRequiresAssignment_0_4_3_1.eContents().get(0);
+		private final RuleCall cRequiresInterfaceEStringParserRuleCall_0_4_3_1_0_1 = (RuleCall)cRequiresInterfaceCrossReference_0_4_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_0_4_4 = (Keyword)cGroup_0_4.eContents().get(4);
+		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
+		private final Keyword cProvidesKeyword_0_5_0 = (Keyword)cGroup_0_5.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_5_1 = (Keyword)cGroup_0_5.eContents().get(1);
+		private final Assignment cProvidesAssignment_0_5_2 = (Assignment)cGroup_0_5.eContents().get(2);
+		private final CrossReference cProvidesInterfaceCrossReference_0_5_2_0 = (CrossReference)cProvidesAssignment_0_5_2.eContents().get(0);
+		private final RuleCall cProvidesInterfaceEStringParserRuleCall_0_5_2_0_1 = (RuleCall)cProvidesInterfaceCrossReference_0_5_2_0.eContents().get(1);
+		private final Group cGroup_0_5_3 = (Group)cGroup_0_5.eContents().get(3);
+		private final Keyword cCommaKeyword_0_5_3_0 = (Keyword)cGroup_0_5_3.eContents().get(0);
+		private final Assignment cProvidesAssignment_0_5_3_1 = (Assignment)cGroup_0_5_3.eContents().get(1);
+		private final CrossReference cProvidesInterfaceCrossReference_0_5_3_1_0 = (CrossReference)cProvidesAssignment_0_5_3_1.eContents().get(0);
+		private final RuleCall cProvidesInterfaceEStringParserRuleCall_0_5_3_1_0_1 = (RuleCall)cProvidesInterfaceCrossReference_0_5_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_0_5_4 = (Keyword)cGroup_0_5.eContents().get(4);
+		private final Group cGroup_0_6 = (Group)cGroup_0.eContents().get(6);
+		private final Keyword cDescriptionKeyword_0_6_0 = (Keyword)cGroup_0_6.eContents().get(0);
+		private final Assignment cDescriptionAssignment_0_6_1 = (Assignment)cGroup_0_6.eContents().get(1);
+		private final RuleCall cDescriptionBehaviourDescriptionParserRuleCall_0_6_1_0 = (RuleCall)cDescriptionAssignment_0_6_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_7 = (Keyword)cGroup_0.eContents().get(7);
+		private final RuleCall cCompositeComponentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Component returns repository::Component:
 		//    {repository::Component}
@@ -898,7 +900,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//        ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 		//        ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		//        ('description' description=BehaviourDescription)?
-		//    '}';
+		//    '}' | CompositeComponent;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{repository::Component}
@@ -908,110 +910,123 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 		//    ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 		//    ('description' description=BehaviourDescription)?
-		//'}'
-		public Group getGroup() { return cGroup; }
+		//'}' | CompositeComponent
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{repository::Component}
-		public Action getComponentAction_0() { return cComponentAction_0; }
+		//'Component'
+		//name=EString
+		//'{'
+		//    ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
+		//    ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
+		//    ('description' description=BehaviourDescription)?
+		//'}'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{repository::Component}
+		public Action getComponentAction_0_0() { return cComponentAction_0_0; }
 		
 		//'Component'
-		public Keyword getComponentKeyword_1() { return cComponentKeyword_1; }
+		public Keyword getComponentKeyword_0_1() { return cComponentKeyword_0_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_0_2() { return cNameAssignment_0_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		public RuleCall getNameEStringParserRuleCall_0_2_0() { return cNameEStringParserRuleCall_0_2_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_0_3() { return cLeftCurlyBracketKeyword_0_3; }
 		
 		//('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_0_4() { return cGroup_0_4; }
 		
 		//'requires'
-		public Keyword getRequiresKeyword_4_0() { return cRequiresKeyword_4_0; }
+		public Keyword getRequiresKeyword_0_4_0() { return cRequiresKeyword_0_4_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_4_1() { return cLeftParenthesisKeyword_4_1; }
+		public Keyword getLeftParenthesisKeyword_0_4_1() { return cLeftParenthesisKeyword_0_4_1; }
 		
 		//requires+=[repository::Interface|EString]
-		public Assignment getRequiresAssignment_4_2() { return cRequiresAssignment_4_2; }
+		public Assignment getRequiresAssignment_0_4_2() { return cRequiresAssignment_0_4_2; }
 		
 		//[repository::Interface|EString]
-		public CrossReference getRequiresInterfaceCrossReference_4_2_0() { return cRequiresInterfaceCrossReference_4_2_0; }
+		public CrossReference getRequiresInterfaceCrossReference_0_4_2_0() { return cRequiresInterfaceCrossReference_0_4_2_0; }
 		
 		//EString
-		public RuleCall getRequiresInterfaceEStringParserRuleCall_4_2_0_1() { return cRequiresInterfaceEStringParserRuleCall_4_2_0_1; }
+		public RuleCall getRequiresInterfaceEStringParserRuleCall_0_4_2_0_1() { return cRequiresInterfaceEStringParserRuleCall_0_4_2_0_1; }
 		
 		//( "," requires+=[repository::Interface|EString])*
-		public Group getGroup_4_3() { return cGroup_4_3; }
+		public Group getGroup_0_4_3() { return cGroup_0_4_3; }
 		
 		//","
-		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		public Keyword getCommaKeyword_0_4_3_0() { return cCommaKeyword_0_4_3_0; }
 		
 		//requires+=[repository::Interface|EString]
-		public Assignment getRequiresAssignment_4_3_1() { return cRequiresAssignment_4_3_1; }
+		public Assignment getRequiresAssignment_0_4_3_1() { return cRequiresAssignment_0_4_3_1; }
 		
 		//[repository::Interface|EString]
-		public CrossReference getRequiresInterfaceCrossReference_4_3_1_0() { return cRequiresInterfaceCrossReference_4_3_1_0; }
+		public CrossReference getRequiresInterfaceCrossReference_0_4_3_1_0() { return cRequiresInterfaceCrossReference_0_4_3_1_0; }
 		
 		//EString
-		public RuleCall getRequiresInterfaceEStringParserRuleCall_4_3_1_0_1() { return cRequiresInterfaceEStringParserRuleCall_4_3_1_0_1; }
+		public RuleCall getRequiresInterfaceEStringParserRuleCall_0_4_3_1_0_1() { return cRequiresInterfaceEStringParserRuleCall_0_4_3_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4_4() { return cRightParenthesisKeyword_4_4; }
+		public Keyword getRightParenthesisKeyword_0_4_4() { return cRightParenthesisKeyword_0_4_4; }
 		
 		//('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_0_5() { return cGroup_0_5; }
 		
 		//'provides'
-		public Keyword getProvidesKeyword_5_0() { return cProvidesKeyword_5_0; }
+		public Keyword getProvidesKeyword_0_5_0() { return cProvidesKeyword_0_5_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_5_1() { return cLeftParenthesisKeyword_5_1; }
+		public Keyword getLeftParenthesisKeyword_0_5_1() { return cLeftParenthesisKeyword_0_5_1; }
 		
 		//provides+=[repository::Interface|EString]
-		public Assignment getProvidesAssignment_5_2() { return cProvidesAssignment_5_2; }
+		public Assignment getProvidesAssignment_0_5_2() { return cProvidesAssignment_0_5_2; }
 		
 		//[repository::Interface|EString]
-		public CrossReference getProvidesInterfaceCrossReference_5_2_0() { return cProvidesInterfaceCrossReference_5_2_0; }
+		public CrossReference getProvidesInterfaceCrossReference_0_5_2_0() { return cProvidesInterfaceCrossReference_0_5_2_0; }
 		
 		//EString
-		public RuleCall getProvidesInterfaceEStringParserRuleCall_5_2_0_1() { return cProvidesInterfaceEStringParserRuleCall_5_2_0_1; }
+		public RuleCall getProvidesInterfaceEStringParserRuleCall_0_5_2_0_1() { return cProvidesInterfaceEStringParserRuleCall_0_5_2_0_1; }
 		
 		//( "," provides+=[repository::Interface|EString])*
-		public Group getGroup_5_3() { return cGroup_5_3; }
+		public Group getGroup_0_5_3() { return cGroup_0_5_3; }
 		
 		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
+		public Keyword getCommaKeyword_0_5_3_0() { return cCommaKeyword_0_5_3_0; }
 		
 		//provides+=[repository::Interface|EString]
-		public Assignment getProvidesAssignment_5_3_1() { return cProvidesAssignment_5_3_1; }
+		public Assignment getProvidesAssignment_0_5_3_1() { return cProvidesAssignment_0_5_3_1; }
 		
 		//[repository::Interface|EString]
-		public CrossReference getProvidesInterfaceCrossReference_5_3_1_0() { return cProvidesInterfaceCrossReference_5_3_1_0; }
+		public CrossReference getProvidesInterfaceCrossReference_0_5_3_1_0() { return cProvidesInterfaceCrossReference_0_5_3_1_0; }
 		
 		//EString
-		public RuleCall getProvidesInterfaceEStringParserRuleCall_5_3_1_0_1() { return cProvidesInterfaceEStringParserRuleCall_5_3_1_0_1; }
+		public RuleCall getProvidesInterfaceEStringParserRuleCall_0_5_3_1_0_1() { return cProvidesInterfaceEStringParserRuleCall_0_5_3_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5_4() { return cRightParenthesisKeyword_5_4; }
+		public Keyword getRightParenthesisKeyword_0_5_4() { return cRightParenthesisKeyword_0_5_4; }
 		
 		//('description' description=BehaviourDescription)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_0_6() { return cGroup_0_6; }
 		
 		//'description'
-		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
+		public Keyword getDescriptionKeyword_0_6_0() { return cDescriptionKeyword_0_6_0; }
 		
 		//description=BehaviourDescription
-		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
+		public Assignment getDescriptionAssignment_0_6_1() { return cDescriptionAssignment_0_6_1; }
 		
 		//BehaviourDescription
-		public RuleCall getDescriptionBehaviourDescriptionParserRuleCall_6_1_0() { return cDescriptionBehaviourDescriptionParserRuleCall_6_1_0; }
+		public RuleCall getDescriptionBehaviourDescriptionParserRuleCall_0_6_1_0() { return cDescriptionBehaviourDescriptionParserRuleCall_0_6_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_0_7() { return cRightCurlyBracketKeyword_0_7; }
+		
+		//CompositeComponent
+		public RuleCall getCompositeComponentParserRuleCall_1() { return cCompositeComponentParserRuleCall_1; }
 	}
 	public class CompositeComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kit.mdsd.xtext.dsl.Dsl.CompositeComponent");
@@ -3315,7 +3330,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//        ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
 	//        ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
 	//        ('description' description=BehaviourDescription)?
-	//    '}';
+	//    '}' | CompositeComponent;
 	public ComponentElements getComponentAccess() {
 		return pComponent;
 	}

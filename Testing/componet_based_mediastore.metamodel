@@ -10,31 +10,31 @@
   <repositories>
     <components
         name="WebBrowser"
-        requires="//@repositories.0/@interface.0"/>
+        requires="//@repositories.0/@interfaces.0"/>
     <components
         name="WebGUI"
-        requires="//@repositories.0/@interface.3"
-        provides="//@repositories.0/@interface.0"/>
+        requires="//@repositories.0/@interfaces.3"
+        provides="//@repositories.0/@interfaces.0"/>
     <components
         xsi:type="metaModel.viewType.assembly:CompositeComponent"
         name="MediaStore"
-        requires="//@repositories.0/@interface.2"
-        provides="//@repositories.0/@interface.3"
+        requires="//@repositories.0/@interfaces.2"
+        provides="//@repositories.0/@interfaces.3"
         encapsulatedInstances="//@systems.0/@encapsulatedInstances.2 //@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.1 //@systems.0/@encapsulatedInstances.4"/>
     <components
         name="MediaManager"
-        requires="//@repositories.0/@interface.1 //@repositories.0/@interface.2"/>
+        requires="//@repositories.0/@interfaces.1 //@repositories.0/@interfaces.2"/>
     <components
         name="DigitalWatermarking"
-        provides="//@repositories.0/@interface.1"/>
+        provides="//@repositories.0/@interfaces.1"/>
     <components
         name="DBCache"
-        requires="//@repositories.0/@interface.2"
-        provides="//@repositories.0/@interface.2"/>
+        requires="//@repositories.0/@interfaces.2"
+        provides="//@repositories.0/@interfaces.2"/>
     <components
         name="PoolingAudioDB"
-        provides="//@repositories.0/@interface.2"/>
-    <interface
+        provides="//@repositories.0/@interfaces.2"/>
+    <interfaces
         name="HTTP">
       <signatures
           name="HTTPDownload">
@@ -46,16 +46,16 @@
         <returnType
             xsi:type="metaModel.viewType.repository:VoidType"/>
       </signatures>
-    </interface>
-    <interface
+    </interfaces>
+    <interfaces
         name="Sound">
       <signatures
           name="Watermark">
         <returnType
             xsi:type="metaModel.viewType.repository:VoidType"/>
       </signatures>
-    </interface>
-    <interface
+    </interfaces>
+    <interfaces
         name="AudioDB">
       <signatures
           name="QueryDB">
@@ -67,8 +67,8 @@
         <returnType
             xsi:type="metaModel.viewType.repository:VoidType"/>
       </signatures>
-    </interface>
-    <interface
+    </interfaces>
+    <interfaces
         name="MediaStore">
       <signatures
           name="download">
@@ -80,24 +80,24 @@
         <returnType
             xsi:type="metaModel.viewType.repository:VoidType"/>
       </signatures>
-    </interface>
+    </interfaces>
   </repositories>
-  <enivronments>
-    <container
+  <environments>
+    <containers
         name="ApplicationServer"
         allocationContext="//@allocationContexts.0 //@allocationContexts.2"
-        links="//@enivronments.0/@link.0"/>
-    <container
+        links="//@environments.0/@links.0"/>
+    <containers
         name="DatabaseServer"
         allocationContext="//@allocationContexts.1"
-        links="//@enivronments.0/@link.0"/>
-    <link name="ServerDBServer"
-        containers="//@enivronments.0/@container.1 //@enivronments.0/@container.0"/>
-  </enivronments>
-  <systems provides="//@repositories.0/@interface.0">
+        links="//@environments.0/@links.0"/>
+    <links name="ServerDBServer"
+        containers="//@environments.0/@containers.1 //@environments.0/@containers.0"/>
+  </environments>
+  <systems provides="//@repositories.0/@interfaces.0">
     <encapsulatedInstances
         name="AssemblyContextWebGUI"
-        instanceOf="//@repositories.0/@components.1"
+        instantiatedComponent="//@repositories.0/@components.1"
         allocationContext="//@allocationContexts.0">
       <requires
           name="WebGUI"
@@ -108,7 +108,7 @@
     </encapsulatedInstances>
     <encapsulatedInstances
         name="MediaManager"
-        instanceOf="//@repositories.0/@components.3">
+        instantiatedComponent="//@repositories.0/@components.3">
       <requires
           name="MediaManagerDB"
           assemblyConnector="//@systems.0/@assemblyConnectors.1"/>
@@ -120,7 +120,7 @@
     </encapsulatedInstances>
     <encapsulatedInstances
         name="DBCache"
-        instanceOf="//@repositories.0/@components.5">
+        instantiatedComponent="//@repositories.0/@components.5">
       <requires
           name="DBCache"/>
       <provides
@@ -129,14 +129,14 @@
     </encapsulatedInstances>
     <encapsulatedInstances
         name="DigitalWatermarking"
-        instanceOf="//@repositories.0/@components.4">
+        instantiatedComponent="//@repositories.0/@components.4">
       <provides
           name="DigitalWatermarking"
           assemblyConnector="//@systems.0/@assemblyConnectors.0"/>
     </encapsulatedInstances>
     <encapsulatedInstances
         name="MediaStore"
-        instanceOf="//@repositories.0/@components.2"
+        instantiatedComponent="//@repositories.0/@components.2"
         allocationContext="//@allocationContexts.2">
       <requires
           name="MediasstoreDBServer"
@@ -147,7 +147,7 @@
     </encapsulatedInstances>
     <encapsulatedInstances
         name="DBServer"
-        instanceOf="//@repositories.0/@components.6"
+        instantiatedComponent="//@repositories.0/@components.6"
         allocationContext="//@allocationContexts.1">
       <provides
           name="DBServer"
@@ -156,11 +156,11 @@
     </encapsulatedInstances>
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorProvided"
-        linkedInterface="//@repositories.0/@interface.2"
+        linkedInterface="//@repositories.0/@interfaces.2"
         linkdedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
     <delegationConnectors
         xsi:type="metaModel.viewType.assembly:DelegationConnectorRequired"
-        linkedInterface="//@repositories.0/@interface.3"
+        linkedInterface="//@repositories.0/@interfaces.3"
         linkedRole="//@systems.0/@encapsulatedInstances.0/@requires.0"/>
     <assemblyConnectors
         requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.1"
@@ -178,13 +178,13 @@
   <allocationContexts
       name="Server WebGUI"
       assemblyContext="//@systems.0/@encapsulatedInstances.0"
-      container="//@enivronments.0/@container.0"/>
+      container="//@environments.0/@containers.0"/>
   <allocationContexts
       name="DBServer"
       assemblyContext="//@systems.0/@encapsulatedInstances.5"
-      container="//@enivronments.0/@container.1"/>
+      container="//@environments.0/@containers.1"/>
   <allocationContexts
       name="Server MediaStore"
       assemblyContext="//@systems.0/@encapsulatedInstances.4"
-      container="//@enivronments.0/@container.0"/>
+      container="//@environments.0/@containers.0"/>
 </metaModel:ComponentBasedSystem>

@@ -384,6 +384,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Component returns CompositeComponent
 	 *     CompositeComponent returns CompositeComponent
 	 *
 	 * Constraint:

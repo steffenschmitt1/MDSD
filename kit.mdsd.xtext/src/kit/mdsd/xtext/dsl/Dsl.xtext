@@ -83,14 +83,14 @@ AllocationContext returns allocation::AllocationContext:
 	'}';
 
 Component returns repository::Component:
-	{repository::Component}
-	'Component'
-	name=EString
-	'{'
-		('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
-		('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
-		('description' description=BehaviourDescription)?
-	'}';
+    {repository::Component}
+    'Component'
+    name=EString
+    '{'
+        ('requires' '(' requires+=[repository::Interface|EString] ( "," requires+=[repository::Interface|EString])* ')' )?
+        ('provides' '(' provides+=[repository::Interface|EString] ( "," provides+=[repository::Interface|EString])* ')' )?
+        ('description' description=BehaviourDescription)?
+    '}' | CompositeComponent;
 	
 	
 CompositeComponent returns assembly::CompositeComponent:
