@@ -777,9 +777,9 @@ ruleEnvironment returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getEnvironmentAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
-			otherlv_3='container'
+			otherlv_3='containers'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getEnvironmentAccess().getContainerKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getEnvironmentAccess().getContainersKeyword_3_0());
 			}
 			otherlv_4='{'
 			{
@@ -835,9 +835,9 @@ ruleEnvironment returns [EObject current=null]
 			}
 		)?
 		(
-			otherlv_9='link'
+			otherlv_9='links'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getEnvironmentAccess().getLinkKeyword_4_0());
+				newLeafNode(otherlv_9, grammarAccess.getEnvironmentAccess().getLinksKeyword_4_0());
 			}
 			otherlv_10='{'
 			{
