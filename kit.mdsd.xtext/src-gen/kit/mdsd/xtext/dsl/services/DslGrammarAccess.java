@@ -474,7 +474,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cEnvironmentKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cContainerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cContainersKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cContainersAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cContainersContainerParserRuleCall_3_2_0 = (RuleCall)cContainersAssignment_3_2.eContents().get(0);
@@ -484,7 +484,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cContainersContainerParserRuleCall_3_3_1_0 = (RuleCall)cContainersAssignment_3_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLinkKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLinksKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cLinksAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
 		private final RuleCall cLinksLinkParserRuleCall_4_2_0 = (RuleCall)cLinksAssignment_4_2.eContents().get(0);
@@ -499,16 +499,16 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    {environment::Environment}
 		//    'Environment'
 		//    '{'
-		//        ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
-		//        ('link' '{' links+=Link ( "," links+=Link)* '}' )?
+		//        ('containers' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		//        ('links' '{' links+=Link ( "," links+=Link)* '}' )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{environment::Environment}
 		//'Environment'
 		//'{'
-		//    ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
-		//    ('link' '{' links+=Link ( "," links+=Link)* '}' )?
+		//    ('containers' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		//    ('links' '{' links+=Link ( "," links+=Link)* '}' )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -521,11 +521,11 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
+		//('containers' '{' containers+=Container ( "," containers+=Container)* '}' )?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'container'
-		public Keyword getContainerKeyword_3_0() { return cContainerKeyword_3_0; }
+		//'containers'
+		public Keyword getContainersKeyword_3_0() { return cContainersKeyword_3_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
@@ -551,11 +551,11 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
 		
-		//('link' '{' links+=Link ( "," links+=Link)* '}' )?
+		//('links' '{' links+=Link ( "," links+=Link)* '}' )?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'link'
-		public Keyword getLinkKeyword_4_0() { return cLinkKeyword_4_0; }
+		//'links'
+		public Keyword getLinksKeyword_4_0() { return cLinksKeyword_4_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
@@ -3280,8 +3280,8 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    {environment::Environment}
 	//    'Environment'
 	//    '{'
-	//        ('container' '{' containers+=Container ( "," containers+=Container)* '}' )?
-	//        ('link' '{' links+=Link ( "," links+=Link)* '}' )?
+	//        ('containers' '{' containers+=Container ( "," containers+=Container)* '}' )?
+	//        ('links' '{' links+=Link ( "," links+=Link)* '}' )?
 	//    '}';
 	public EnvironmentElements getEnvironmentAccess() {
 		return pEnvironment;

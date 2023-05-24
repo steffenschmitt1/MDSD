@@ -3044,9 +3044,9 @@ rule__Environment__Group_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getContainerKeyword_3_0()); }
-	'container'
-	{ after(grammarAccess.getEnvironmentAccess().getContainerKeyword_3_0()); }
+	{ before(grammarAccess.getEnvironmentAccess().getContainersKeyword_3_0()); }
+	'containers'
+	{ after(grammarAccess.getEnvironmentAccess().getContainersKeyword_3_0()); }
 )
 ;
 finally {
@@ -3233,9 +3233,9 @@ rule__Environment__Group_4__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnvironmentAccess().getLinkKeyword_4_0()); }
-	'link'
-	{ after(grammarAccess.getEnvironmentAccess().getLinkKeyword_4_0()); }
+	{ before(grammarAccess.getEnvironmentAccess().getLinksKeyword_4_0()); }
+	'links'
+	{ after(grammarAccess.getEnvironmentAccess().getLinksKeyword_4_0()); }
 )
 ;
 finally {
