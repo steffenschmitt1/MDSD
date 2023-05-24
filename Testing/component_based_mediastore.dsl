@@ -69,11 +69,11 @@ ComponentBasedSystem{
 	}
 	environments {
 		Environment {
-			container{
+			containers{
 				Container "Application Server" {},
 				Container "DatabaseServer" {}
 			}
-			link{
+			links{
 				Link "ServerDBServer" {
 					containers ("Application Server","DatabaseServer") 
 				}
