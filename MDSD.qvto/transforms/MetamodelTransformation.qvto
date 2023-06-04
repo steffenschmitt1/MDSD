@@ -1,0 +1,17 @@
+modeltype source uses "platform:/resource/MDSD/model/metamodel.ecore";
+modeltype target uses "platform:/resource/MDSD.qvto/target/pcm.ecore";
+
+transformation myTransformation(in sourceModel: source, out targetModel: target){
+    main() {
+        sourceModel.objectsOfType(source::viewType::repository::Repository)->map mapToPCM();
+        sourceModel.objectsOfType(source::viewType::repository::Interface)->map mapToPCM();
+    }
+    
+    mapping source::viewType::repository::Repository::mapToPCM() : target::repository::Repository {
+    	interfaces__Repository := (self.interfaces).map mapToPCM();
+    }
+    
+    mapping source::viewType::repository::Interface::mapToPCM() : target::repository::InfrastructureInterface {
+    	repository__Interface := (self.repository).map mapToPCM();
+    }
+}
