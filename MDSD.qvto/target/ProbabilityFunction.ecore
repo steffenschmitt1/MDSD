@@ -9,7 +9,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" abstract="true"
       eSuperTypes="#//ProbabilityFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true"
-      eSuperTypes="../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
+      eSuperTypes="Units.ecore#//UnitCarryingElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContinuousSample">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
