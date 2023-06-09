@@ -1,0 +1,7 @@
+import CBS2PCM_Lib;
+
+transformation CBSAlloc2PCMAlloc() access CBS2PCM_Lib;
+
+main() {
+
+}

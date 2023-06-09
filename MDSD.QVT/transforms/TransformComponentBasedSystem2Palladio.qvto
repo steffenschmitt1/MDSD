@@ -4,6 +4,15 @@ modeltype CBS uses 'http://metaModel';
 modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
 
 
+//Palladio Models:
+//----- Component Specifications
+//----- Assembly Model
+//----- Allocation Model
+//----- Usage Model
+
+
+
+
 
 
 transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM

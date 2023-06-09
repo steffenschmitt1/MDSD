@@ -43,7 +43,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
             eType="#//viewType/repository/ParameterType" containment="true" resolveProxies="false"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Repository">
+      <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//viewType/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
             eType="#//viewType/repository/Component" containment="true" resolveProxies="false"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"

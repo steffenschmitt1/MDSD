@@ -1,0 +1,7 @@
+import CBS2PCM_Lib;
+
+transformation CBSAssembly2PCMSystem() access CBS2PCM_Lib;
+
+main() {
+
+}
