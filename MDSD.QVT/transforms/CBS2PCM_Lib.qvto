@@ -110,18 +110,19 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 //Assembly
 mapping mapAssemplyContext2AssemblyContext(){}
 mapping mapSystem2System() {}
-mapping RequiredRole() {}
 mapping DelegationConnectorRequired() {}
 mapping AssemblyConnector() {}
+//Valerii
 mapping Role() {}
+mapping RequiredRole() {}
 mapping ProvidedRole() {}
 mapping DelegationConnector() {}
 mapping DelegationConnectorProvided() {}
 
-//Environment
+//Environment - Stefen
 mapping Container() {}
 mapping Link() {}
 mapping Environment() {}
 
-//Allocation
+//Allocation - Valerii
 mapping AllocationContext() {}
