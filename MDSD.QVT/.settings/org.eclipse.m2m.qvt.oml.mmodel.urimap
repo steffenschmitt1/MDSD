@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
   <mapping sourceURI="http://metaModel" targetURI="platform:/resource/MDSD/model/metamodel.ecore"/>
-  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/5.2" targetURI="platform:/resource/MDSD.QVT/model/pcm.ecore"/>
+  <mapping sourceURI="http://palladiosimulator.org/PalladioComponentModel/5.2" targetURI="platform:/resource/MDSD.QVT/target/pcm.ecore"/>
 </uriMap:MappingContainer>

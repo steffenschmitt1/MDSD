@@ -1,7 +1,7 @@
 library CBS2PCM_Lib;
 
-modeltype CBS uses 'http://metaModel';
-modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
+modeltype CBS uses "http://metaModel";
+modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 
 
 abstract mapping CBS::viewType::NamedElement::mapNamedElement() : PCM::core::entity::NamedElement {
@@ -30,10 +30,7 @@ mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : P
  
 
 mapping CBS::viewType::repository::BehaviourDescription::mapBehaviorToSeff() : PCM::seff::ResourceDemandingSEFF {
-	var internalAction = self.internalActions.forEach (e | e -> mapInternalAction());
-	var externalCalls = self.externalCalls -> mapExternalCall();
-	var branch = self.branches -> mapBranch();
-	var loop = self.loops -> mapLoop();
+	
 }
 
 mapping CBS::viewType::repository::InternalAction::mapInternalAction() : PCM::seff::InternalAction{}
@@ -109,3 +106,22 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
     	}
     }
 }
+
+//Assembly
+mapping mapAssemplyContext2AssemblyContext(){}
+mapping mapSystem2System() {}
+mapping RequiredRole() {}
+mapping DelegationConnectorRequired() {}
+mapping AssemblyConnector() {}
+mapping Role() {}
+mapping ProvidedRole() {}
+mapping DelegationConnector() {}
+mapping DelegationConnectorProvided() {}
+
+//Environment
+mapping Container() {}
+mapping Link() {}
+mapping Environment() {}
+
+//Allocation
+mapping AllocationContext() {}

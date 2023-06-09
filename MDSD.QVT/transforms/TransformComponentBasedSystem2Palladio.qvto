@@ -1,7 +1,7 @@
 import CBS2PCM_Lib;
 
-modeltype CBS uses 'http://metaModel';
-modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
+modeltype CBS uses "platform:/resource/MDSD/model/metamodel.ecore";
+modeltype PCM uses "platform:/resource/MDSD.qvto/target/pcm.ecore";
 
 
 //Palladio Models:
@@ -21,10 +21,10 @@ transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
  
 	main() {
 		//Access root element and call transformation
-		CBSRepo.rootObjects()[ComponentBasedSystem]->map Model2Model();
+		log ("entering main",CBSRepo.objectsOfType(CBS::viewType::repository::Repository),1);
 	
 	}
-	
+
 
 	
 }

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metaModel:ComponentBasedSystem xmi:version="2.0" 
-	xmlns:xmi="http://www.omg.org/XMI"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:metaModel="http://metaModel"
-	xmlns:metaModel.viewType="http://metaModel/viewType" 
-	xmlns:metaModel.viewType.allocation="http://metaModel/viewType/allocation"
-	xmlns:metaModel.viewType.assembly="http://metaModel/viewType/assembly" 
-	xmlns:metaModel.viewType.environment="http://metaModel/viewType/environment" 
-	xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" 
-	xsi:schemaLocation="http://metaModel/viewType/assembly http://metaModel#//viewType/assembly http://metaModel/viewType/repository http://metaModel#//viewType/repository">
-  <repositories>
+<metaModel:ComponentBasedSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metaModel="http://metaModel" xmlns:metaModel.viewType.assembly="http://metaModel/viewType/assembly" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" xsi:schemaLocation="http://metaModel/viewType/assembly http://metaModel#//viewType/assembly http://metaModel/viewType/repository http://metaModel#//viewType/repository">
+  <repositories name="Test">
     <components name="WebBrowser" requires="//@repositories.0/@interfaces.0"/>
     <components name="WebGUI" requires="//@repositories.0/@interfaces.3" provides="//@repositories.0/@interfaces.0"/>
     <components xsi:type="metaModel.viewType.assembly:CompositeComponent" name="MediaStore" requires="//@repositories.0/@interfaces.2" provides="//@repositories.0/@interfaces.3" encapsulatedInstances="//@systems.0/@encapsulatedInstances.2 //@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.1 //@systems.0/@encapsulatedInstances.4"/>
