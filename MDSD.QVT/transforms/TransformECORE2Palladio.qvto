@@ -1,0 +1,21 @@
+import CBS2PCM_Lib;
+
+modeltype CBS uses 'http://metaModel';
+modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
+
+
+
+
+transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
+										) 
+										access CBS2PCM_Lib{
+ 
+	main() {
+		//Access root element and call transformation
+		CBSRepo.rootObjects()[ComponentBasedSystem]->map Model2Model();
+	
+	}
+	
+
+	
+}

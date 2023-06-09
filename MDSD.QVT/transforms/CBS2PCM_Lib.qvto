@@ -1,0 +1,15 @@
+library CBS2PCM_Lib;
+
+modeltype CBS uses 'http://metaModel';
+modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
+
+
+
+
+abstract mapping CBS::viewType::NamedElement::NamedElement2NamedElement() : PCM::core::entity::NamedElement {
+	entityName := self.name;
+}
+
+mapping CBS::ComponentBasedSystem::Model2Model() : PCM::DummyClass {
+	
+}
