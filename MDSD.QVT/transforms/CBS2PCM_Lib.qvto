@@ -110,18 +110,43 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 //Assembly
 mapping mapAssemplyContext2AssemblyContext(){}
 mapping mapSystem2System() {}
-mapping RequiredRole() {}
-mapping DelegationConnectorRequired() {}
 mapping AssemblyConnector() {}
-mapping Role() {}
-mapping ProvidedRole() {}
-mapping DelegationConnector() {}
-mapping DelegationConnectorProvided() {}
 
-//Environment
+//Valerii
+abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
+
+
+mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole {
+	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+}
+
+mapping CBS::viewType::assembly::RequiredRole::mapProvidedRole() : PCM::repository::OperationProvidedRole inherits CBS::viewType::assembly::Role::mapRole {
+	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+}
+
+abstract mapping CBS::viewType::assembly::DelegationConnector::mapDelegationConnector() : PCM::core::composition::DelegationConnector {}
+
+mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConnectorProvided() :
+		PCM::core::composition::ProvidedDelegationConnector inherits CBS::viewType::assembly::DelegationConnector::mapDelegationConnector{
+	// TODO TYPO FIX
+	innerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
+	outerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
+}
+
+mapping CBS::viewType::assembly::DelegationConnectorRequired::mapDelegationConnectorRequired() :
+		PCM::core::composition::RequiredDelegationConnector inherits CBS::viewType::assembly::DelegationConnector::mapDelegationConnector{
+	innerRequiredRole_RequiredDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationRequiredRole);
+	outerRequiredRole_RequiredDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationRequiredRole);
+}
+
+//Environment - Stefen
 mapping Container() {}
 mapping Link() {}
 mapping Environment() {}
 
-//Allocation
-mapping AllocationContext() {}
+//Allocation - Valerii
+mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext():
+		PCM::allocation::AllocationContext inherits CBS::viewType::NamedElement::mapNamedElement{
+	assemblyContext_AllocationContext := self.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
+	resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
+}
