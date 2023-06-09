@@ -1330,7 +1330,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall_OutputParameterUsage"
           ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference__VariableUsage"
-          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
+          ordered="false" lowerBound="1" eType="ecore:EClass stoex.ecore#//AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="#//PCMBaseClass">
@@ -1353,7 +1353,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_VariableCharacterisation"
           ordered="false" eType="#//parameter/VariableUsage" eOpposite="#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable #//PCMBaseClass">
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="stoex.ecore#//Variable #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are &quot;a.NUMBER_OF_ELEMENTS&quot; or &quot;array.STRUCTURE&quot;."/>
       </eAnnotations>
