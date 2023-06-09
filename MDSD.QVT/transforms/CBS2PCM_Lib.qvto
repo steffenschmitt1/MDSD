@@ -4,12 +4,62 @@ modeltype CBS uses 'http://metaModel';
 modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
 
 
-
-
-abstract mapping CBS::viewType::NamedElement::NamedElement2NamedElement() : PCM::core::entity::NamedElement {
+abstract mapping CBS::viewType::NamedElement::mapNamedElement() : PCM::core::entity::NamedElement {
 	entityName := self.name;
 }
 
+
+mapping CBS::viewType::repository::Repository::mapRepo() : PCM::repository::Repository inherits CBS::viewType::NamedElement::mapNamedElement {
+	interfaces__Repository := self.interfaces -> mapInterface();
+	components__Repository := self.components -> mapComponent();
+	//TODO
+}
+
 mapping CBS::ComponentBasedSystem::Model2Model() : PCM::DummyClass {
+	//TODO
+}
+
+mapping CBS::viewType::repository::Component::mapComponent() : PCM::repository::ImplementationComponentType 
+disjuncts CBS::viewType::assembly::CompositeComponent::mapCompositeComponent, CBS::viewType::repository::Component::mapSimpleComponent;
+
+mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::repository::BasicComponent {
+	--Use ResDemanding SEFF because it's not abstract
+	serviceEffectSpecifications__BasicComponent := self.description -> mapBehaviorToSeff();
+}
+
+mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : PCM::repository::CompositeComponent {
+	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext();
 	
+}
+ 
+
+mapping CBS::viewType::repository::BehaviourDescription::mapBehaviorToSeff() : PCM::seff::ResourceDemandingSEFF {
+	var internalAction = self.internalActions.forEach (e | e -> mapInternalAction());
+	var externalCalls = self.externalCalls -> mapExternalCall();
+	var branch = self.branches -> mapBranch();
+	var loop = self.loops -> mapLoop();
+}
+
+mapping CBS::viewType::repository::InternalAction::mapInternalAction() : PCM::seff::InternalAction{}
+mapping CBS::viewType::repository::Loop::mapLoop() : PCM::seff::LoopAction{}
+mapping CBS::viewType::repository::ExternalCall::mapExternalCall() : PCM::seff::ExternalCallAction{}
+mapping CBS::viewType::repository::Branch::mapBranch() : PCM::seff::BranchAction{}
+
+mapping CBS::viewType::assembly::AssemblyContext::mapAssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement {
+	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
+}
+
+mapping CBS::viewType::repository::Interface::mapInterface() : PCM::repository::OperationInterface inherits CBS::viewType::NamedElement::mapNamedElement {
+	signatures__OperationInterface := self.signatures -> map mapSignature();
+}
+
+mapping CBS::viewType::repository::Signature::mapSignature() : PCM::repository::OperationSignature inherits CBS::viewType::NamedElement::mapNamedElement {
+	parameters__OperationSignature = self.parameters -> map mapParameter() -> asSet();
+	returnType__OperationSignature = self.returnType.resolveone(PCM::repository::DataType);	
+}
+
+
+
+mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::Parameter {
+	//TODO
 }
