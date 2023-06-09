@@ -12,11 +12,7 @@ abstract mapping CBS::viewType::NamedElement::mapNamedElement() : PCM::core::ent
 mapping CBS::viewType::repository::Repository::mapRepo() : PCM::repository::Repository inherits CBS::viewType::NamedElement::mapNamedElement {
 	interfaces__Repository := self.interfaces -> mapInterface();
 	components__Repository := self.components -> mapComponent();
-	//TODO
-}
 
-mapping CBS::ComponentBasedSystem::Model2Model() : PCM::DummyClass {
-	//TODO
 }
 
 mapping CBS::viewType::repository::Component::mapComponent() : PCM::repository::ImplementationComponentType 
@@ -61,5 +57,55 @@ mapping CBS::viewType::repository::Signature::mapSignature() : PCM::repository::
 
 
 mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::Parameter {
-	//TODO
+    switch {
+    	//primitives
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::StringType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::STRING;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::BooleanType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::BOOL;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::IntType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::INT;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::LongType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::LONG;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::FloatType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::DOUBLE;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::CharType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::CHAR;
+    		};
+    	}
+    	// collections
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::ListType)) {
+    		dataType__Parameter := object PCM::repository::CollectionDataType {};
+    	}
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::MapType)) {
+    		dataType__Parameter := object PCM::repository::CollectionDataType {};
+
+    	}
+    	// no date in palladio, use string
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::DateType)) {
+    		dataType__Parameter := object PCM::repository::PrimitiveDataType {
+    			type := PCM::repository::PrimitiveTypeEnum::STRING;
+    		};
+    	}
+    	// no void in palladio, use null
+    	case(self.type.oclIsTypeOf(CBS::viewType::repository::VoidType)) {
+    		dataType__Parameter := null;
+    	}
+    }
 }
