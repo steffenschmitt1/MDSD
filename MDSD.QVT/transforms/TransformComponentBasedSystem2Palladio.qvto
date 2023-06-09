@@ -1,7 +1,7 @@
 import CBS2PCM_Lib;
 
-modeltype CBS uses "platform:/resource/MDSD/model/metamodel.ecore";
-modeltype PCM uses "platform:/resource/MDSD.qvto/target/pcm.ecore";
+modeltype CBS uses "http://metaModel";
+modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 
 
 //Palladio Models:
