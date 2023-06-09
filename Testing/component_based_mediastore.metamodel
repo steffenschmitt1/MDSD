@@ -3,7 +3,7 @@
   <repositories name="Test">
     <components name="WebBrowser" requires="//@repositories.0/@interfaces.0"/>
     <components name="WebGUI" requires="//@repositories.0/@interfaces.3" provides="//@repositories.0/@interfaces.0"/>
-    <components xsi:type="metaModel.viewType.assembly:CompositeComponent" name="MediaStore" requires="//@repositories.0/@interfaces.2" provides="//@repositories.0/@interfaces.3" encapsulatedInstances="//@systems.0/@encapsulatedInstances.2 //@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.1 //@systems.0/@encapsulatedInstances.4"/>
+    <components xsi:type="metaModel.viewType.assembly:CompositeComponent" name="MediaStore" requires="//@repositories.0/@interfaces.2" provides="//@repositories.0/@interfaces.3" encapsulatedInstances="//@systems.0/@encapsulatedInstances.2 //@systems.0/@encapsulatedInstances.3 //@systems.0/@encapsulatedInstances.1"/>
     <components name="MediaManager" requires="//@repositories.0/@interfaces.1 //@repositories.0/@interfaces.2"/>
     <components name="DigitalWatermarking" provides="//@repositories.0/@interfaces.1"/>
     <components name="DBCache" requires="//@repositories.0/@interfaces.2" provides="//@repositories.0/@interfaces.2"/>
@@ -41,7 +41,6 @@
   <environments>
     <containers name="ApplicationServer" allocationContext="//@allocationContexts.0 //@allocationContexts.2" links="//@environments.0/@links.0"/>
     <containers name="DatabaseServer" allocationContext="//@allocationContexts.1" links="//@environments.0/@links.0"/>
-    <containers/>
     <links name="ServerDBServer" containers="//@environments.0/@containers.1 //@environments.0/@containers.0"/>
   </environments>
   <systems provides="//@repositories.0/@interfaces.0">
