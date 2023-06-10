@@ -146,7 +146,13 @@ mapping CBS::viewType::environment::Link::mapLink() : PCM::resourceenvironment::
 		linkingResource_CommunicationLinkResourceSpecification := result;
 		latency_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
 		throughput_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
-		communicationLinkResourceType_CommunicationLinkResourceSpecification := object pcm::resourcetype::CommunicationLinkResourceType{};
+		communicationLinkResourceType_CommunicationLinkResourceSpecification := object pcm::resourcetype::CommunicationLinkResourceType{
+			resourceRepository_ResourceType := object pcm::resourcetype::ResourceRepository {
+				availableResourceTypes_ResourceRepository += result.communicationLinkResourceSpecifications_LinkingResource.communicationLinkResourceType_CommunicationLinkResourceSpecification;
+			};
+			id := "";
+			entityName := "";
+		};
 	};
 }
 
