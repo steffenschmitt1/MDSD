@@ -122,9 +122,8 @@ mapping DelegationConnectorProvided() {}
 //Environment - Steffen
 mapping  CBS::viewType::environment::Environment::mapEnvironment() : PCM::resourceenvironment::ResourceEnvironment {
 	entityName := "";
-	linkingResources__ResourceEnvironment := self.links->mapLink();	
 	resourceContainer_ResourceEnvironment := self.containers->mapContainer();
-	
+	linkingResources__ResourceEnvironment := self.links->mapLink();	
 	linkingResources__ResourceEnvironment->forEach(link) {
 		link.oclAsType(PCM::resourceenvironment::LinkingResource).resourceEnvironment_LinkingResource := result;
 	};
@@ -139,7 +138,7 @@ mapping CBS::viewType::environment::Container::mapContainer() : PCM::resourceenv
 
 mapping CBS::viewType::environment::Link::mapLink() : PCM::resourceenvironment::LinkingResource inherits CBS::viewType::NamedElement::mapNamedElement{
 	id := self.name;
-	connectedResourceContainers_LinkingResource := self.containers->mapContainer();
+	connectedResourceContainers_LinkingResource := self.containers.resolve(PCM::resourceenvironment::ResourceContainer);
 	communicationLinkResourceSpecifications_LinkingResource := object PCM::resourceenvironment::CommunicationLinkResourceSpecification{
 		id := "1337";
 		failureProbability := 0.0;
