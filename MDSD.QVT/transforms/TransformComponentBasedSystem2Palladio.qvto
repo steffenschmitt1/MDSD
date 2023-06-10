@@ -22,7 +22,7 @@ transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
 	main() {
 		//Access root element and call transformation
 		log ("entering main",CBSRepo.objectsOfType(CBS::viewType::repository::Repository),1);
-	
+		CBSRepo.objectsOfType(CBS::viewType::environment::Environment)->mapEnvironment()
 	}
 
 
