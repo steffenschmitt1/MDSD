@@ -1,7 +1,13 @@
 import CBS2PCM_Lib;
 
-transformation CBSRepo2PCMRepo() access CBS2PCM_Lib;
+modeltype CBS uses "http://metaModel";
+modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 
-main() {
+transformation CBSRepo2PCMRepo(in CBSRepo: CBS, out PCMRepo: PCM) access CBS2PCM_Lib {
 
+	main() {
+		log ("entering main of repo2rep");
+		CBSRepo.objectsOfType(CBS::viewType::repository::Repository) -> map mapRepo();		
+		log ("leaving main of repo2rep");
+	}
 }

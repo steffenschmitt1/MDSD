@@ -18,12 +18,12 @@ mapping CBS::viewType::repository::Repository::mapRepo() : PCM::repository::Repo
 mapping CBS::viewType::repository::Component::mapComponent() : PCM::repository::ImplementationComponentType 
 disjuncts CBS::viewType::assembly::CompositeComponent::mapCompositeComponent, CBS::viewType::repository::Component::mapSimpleComponent;
 
-mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::repository::BasicComponent {
+mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::repository::BasicComponent inherits CBS::viewType::NamedElement::mapNamedElement{
 	--Use ResDemanding SEFF because it's not abstract
 	serviceEffectSpecifications__BasicComponent := self.description -> mapBehaviorToSeff();
 }
 
-mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : PCM::repository::CompositeComponent {
+mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : PCM::repository::CompositeComponent inherits CBS::viewType::NamedElement::mapNamedElement{
 	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext();
 	
 }
