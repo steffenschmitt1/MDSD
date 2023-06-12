@@ -1,7 +1,0 @@
-import TransformationMappingLibrary;
-
-transformation CBSEnvironment2PCMResEnvironment() access TransformationMappingLibrary;
-
-main() {
-
-}
