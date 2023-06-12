@@ -47,8 +47,8 @@ mapping CBS::viewType::repository::Interface::mapInterface() : PCM::repository::
 }
 
 mapping CBS::viewType::repository::Signature::mapSignature() : PCM::repository::OperationSignature inherits CBS::viewType::NamedElement::mapNamedElement {
-	parameters__OperationSignature = self.parameters -> map mapParameter() -> asSet();
-	returnType__OperationSignature = self.returnType.resolveone(PCM::repository::DataType);	
+	parameters__OperationSignature := self.parameters -> map mapParameter() -> asSet();
+	returnType__OperationSignature := self.returnType.resolveone(PCM::repository::DataType);	
 }
 
 
@@ -184,12 +184,6 @@ mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2Assembl
 	providedRole_AssemblyConnector := self.providedRole.assemblyConnector.resolveone(PCM::repository::OperationProvidedRole);
 	requiredRole_AssemblyConnector := self.requiredRole.assemblyConnector.resolveone(PCM::repository::OperationRequiredRole);
 }
-//Valerii
-mapping Role() {}
-mapping RequiredRole() {}
-mapping ProvidedRole() {}
-mapping DelegationConnector() {}
-mapping DelegationConnectorProvided() {}
 
 //Environment - Steffen
 mapping  CBS::viewType::environment::Environment::mapEnvironment() : PCM::resourceenvironment::ResourceEnvironment {
