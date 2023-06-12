@@ -67,7 +67,7 @@
     <encapsulatedInstances name="DBServer" instantiatedComponent="//@repositories.0/@components.6" allocationContext="//@allocationContexts.1">
       <provides name="DBServer" delegationConnector="//@systems.0/@delegationConnectors.0" assemblyConnector="//@systems.0/@assemblyConnectors.3"/>
     </encapsulatedInstances>
-    <delegationConnectors xsi:type="metaModel.viewType.assembly:DelegationConnectorProvided" linkedInterface="//@repositories.0/@interfaces.2" linkdedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
+    <delegationConnectors xsi:type="metaModel.viewType.assembly:DelegationConnectorProvided" linkedInterface="//@repositories.0/@interfaces.2" linkedRole="//@systems.0/@encapsulatedInstances.5/@provides.0"/>
     <delegationConnectors xsi:type="metaModel.viewType.assembly:DelegationConnectorRequired" linkedInterface="//@repositories.0/@interfaces.3" linkedRole="//@systems.0/@encapsulatedInstances.0/@requires.0"/>
     <assemblyConnectors requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.1" providedRole="//@systems.0/@encapsulatedInstances.3/@provides.0"/>
     <assemblyConnectors requiredRole="//@systems.0/@encapsulatedInstances.1/@requires.0" providedRole="//@systems.0/@encapsulatedInstances.2/@provides.0"/>
