@@ -155,10 +155,42 @@ mapping ProvidedRole() {}
 mapping DelegationConnector() {}
 mapping DelegationConnectorProvided() {}
 
-//Environment - Stefen
-mapping Container() {}
-mapping Link() {}
-mapping Environment() {}
+//Environment - Steffen
+mapping  CBS::viewType::environment::Environment::mapEnvironment() : PCM::resourceenvironment::ResourceEnvironment {
+	entityName := "";
+	resourceContainer_ResourceEnvironment := self.containers->mapContainer();
+	linkingResources__ResourceEnvironment := self.links->mapLink();	
+	linkingResources__ResourceEnvironment->forEach(link) {
+		link.oclAsType(PCM::resourceenvironment::LinkingResource).resourceEnvironment_LinkingResource := result;
+	};
+	resourceContainer_ResourceEnvironment->forEach(container) {
+		container.oclAsType(PCM::resourceenvironment::ResourceContainer).resourceEnvironment_ResourceContainer := result;
+	};
+}
+
+mapping CBS::viewType::environment::Container::mapContainer() : PCM::resourceenvironment::ResourceContainer inherits CBS::viewType::NamedElement::mapNamedElement{
+	id := self.name;
+}
+
+mapping CBS::viewType::environment::Link::mapLink() : PCM::resourceenvironment::LinkingResource inherits CBS::viewType::NamedElement::mapNamedElement{
+	id := self.name;
+	connectedResourceContainers_LinkingResource := self.containers.resolve(PCM::resourceenvironment::ResourceContainer);
+	communicationLinkResourceSpecifications_LinkingResource := object PCM::resourceenvironment::CommunicationLinkResourceSpecification{
+		id := "1337";
+		failureProbability := 0.0;
+		linkingResource_CommunicationLinkResourceSpecification := result;
+		latency_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
+		throughput_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
+		communicationLinkResourceType_CommunicationLinkResourceSpecification := object pcm::resourcetype::CommunicationLinkResourceType{
+			resourceRepository_ResourceType := object pcm::resourcetype::ResourceRepository {
+				availableResourceTypes_ResourceRepository += result.communicationLinkResourceSpecifications_LinkingResource.communicationLinkResourceType_CommunicationLinkResourceSpecification;
+			};
+			id := "";
+			entityName := "";
+		};
+	};
+}
+
 
 //Allocation - Valerii
 mapping AllocationContext() {}
