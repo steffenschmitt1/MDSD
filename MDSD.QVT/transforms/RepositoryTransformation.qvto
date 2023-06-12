@@ -3,7 +3,7 @@ import TransformationMappingLibrary;
 modeltype CBS uses "http://metaModel";
 modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 
-transformation CBSRepo2PCMRepo(in CBSRepo: CBS, out PCMRepo: PCM) access TransformationMappingLibrary {
+transformation RepositoryTransformation(in CBSRepo: CBS, out PCMRepo: PCM) access TransformationMappingLibrary {
 
 	main() {
 		log ("entering main of repo2rep");

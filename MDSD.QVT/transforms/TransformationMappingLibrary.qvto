@@ -111,14 +111,17 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 
 
 //Valerii
-abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
+//abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
 
 
-mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole {
+mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole //inherits CBS::viewType::assembly::Role::mapRole 
+{
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+	
 }
 
-mapping CBS::viewType::assembly::RequiredRole::mapProvidedRole() : PCM::repository::OperationProvidedRole inherits CBS::viewType::assembly::Role::mapRole {
+mapping CBS::viewType::assembly::RequiredRole::mapProvidedRole() : PCM::repository::OperationProvidedRole // inherits CBS::viewType::assembly::Role::mapRole 
+{
 	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
 }
 
@@ -146,8 +149,9 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext():
 
 mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement{
 	//delayed mapping allocation context from exisiting object
-	parentStructure__AssemblyContext := self.allocationContext.late resolveone(PCM::core::composition::ComposedStructure);
-	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
+	parentStructure__AssemblyContext := self.allocationContext.resolveone(PCM::core::composition::ComposedStructure);
+	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.resolveone(PCM::repository::RepositoryComponent);
+	
 
 }
 
@@ -179,10 +183,10 @@ mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConne
 	assemblyContext_ProvidedDelegationConnector := self.linkedRole.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
 }
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
-	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
-	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
-	providedRole_AssemblyConnector := self.providedRole.assemblyConnector.resolveone(PCM::repository::OperationProvidedRole);
-	requiredRole_AssemblyConnector := self.requiredRole.assemblyConnector.resolveone(PCM::repository::OperationRequiredRole);
+	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
+	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
+	providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole();
+	requiredRole_AssemblyConnector := self.requiredRole -> mapReqiredRole();
 }
 
 //Environment - Steffen
