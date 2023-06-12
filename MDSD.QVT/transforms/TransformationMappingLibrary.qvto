@@ -111,16 +111,16 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 
 
 //Valerii
-//abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
+abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
 
 
-mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole //inherits CBS::viewType::assembly::Role::mapRole 
+mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole 
 {
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
 	
 }
 
-mapping CBS::viewType::assembly::RequiredRole::mapProvidedRole() : PCM::repository::OperationProvidedRole // inherits CBS::viewType::assembly::Role::mapRole 
+mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::repository::OperationProvidedRole  inherits CBS::viewType::assembly::Role::mapRole 
 {
 	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
 }
@@ -185,8 +185,8 @@ mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConne
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
 	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
 	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
-	providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole();
-	requiredRole_AssemblyConnector := self.requiredRole -> mapReqiredRole();
+	providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole() -> asSequence() -> first();
+	requiredRole_AssemblyConnector := self.requiredRole -> map mapReqiredRole() -> asSequence() -> first();
 }
 
 //Environment - Steffen
