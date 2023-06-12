@@ -1,4 +1,4 @@
-library CBS2PCM_Lib;
+library TransformationMappingLibrary;
 
 modeltype CBS uses "http://metaModel";
 modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";

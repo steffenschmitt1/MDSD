@@ -1,0 +1,7 @@
+import TransformationMappingLibrary;
+
+transformation CBSAlloc2PCMAlloc() access TransformationMappingLibrary;
+
+main() {
+
+}

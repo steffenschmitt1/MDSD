@@ -1,0 +1,15 @@
+import TransformationMappingLibrary;
+
+modeltype CBS uses "http://metaModel";
+modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
+
+transformation CBSRepo2PCMRepo(in CBSAssembly: CBS, out PCMSystem: PCM) access TransformationMappingLibrary {
+
+	main() {
+		log ("entering main of assembly2system");
+		var copy = CBSAssembly.copy();
+		new CBSRepo2PCMRepo(CBSAssembly, PCMSystem).transform();
+		copy.objectsOfType(CBS::viewType::assembly::System) -> map mapSystem2System();
+		log ("leaving main of assembly2system");
+	}
+}

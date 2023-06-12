@@ -1,4 +1,4 @@
-import CBS2PCM_Lib;
+import TransformationMappingLibrary;
 
 modeltype CBS uses "http://metaModel";
 modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
@@ -17,7 +17,7 @@ modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 
 transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
 										) 
-										access CBS2PCM_Lib{
+										access TransformationMappingLibrary{
  
 	main() {
 		//Access root element and call transformation
