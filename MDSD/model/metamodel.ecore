@@ -195,7 +195,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//viewType/NamedElement"/>
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//viewType/assembly/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="delegationConnector"
-            eType="#//viewType/assembly/DelegationConnectorProvided" eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+            eType="#//viewType/assembly/DelegationConnectorProvided" eOpposite="#//viewType/assembly/DelegationConnectorProvided/linkedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnector"
             eType="#//viewType/assembly/AssemblyConnector" eOpposite="#//viewType/assembly/AssemblyConnector/providedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext" lowerBound="1"
@@ -206,7 +206,7 @@
             eType="#//viewType/repository/Interface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnectorProvided" eSuperTypes="#//viewType/assembly/DelegationConnector">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="linkdedRole" lowerBound="1"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="linkedRole" lowerBound="1"
             eType="#//viewType/assembly/ProvidedRole" eOpposite="#//viewType/assembly/ProvidedRole/delegationConnector"/>
       </eClassifiers>
     </eSubpackages>

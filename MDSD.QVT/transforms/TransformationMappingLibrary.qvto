@@ -127,8 +127,8 @@ abstract mapping CBS::viewType::assembly::DelegationConnector::mapDelegationConn
 mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConnectorProvided() :
 		PCM::core::composition::ProvidedDelegationConnector inherits CBS::viewType::assembly::DelegationConnector::mapDelegationConnector{
 	// TODO TYPO FIX
-	innerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
-	outerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
+	innerProvidedRole_ProvidedDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationProvidedRole);
+	outerProvidedRole_ProvidedDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationProvidedRole);
 }
 
 mapping CBS::viewType::assembly::DelegationConnectorRequired::mapDelegationConnectorRequired() :
@@ -174,9 +174,9 @@ mapping CBS::viewType::assembly::DelegationConnectorRequired::mapDelegationConne
 	assemblyContext_RequiredDelegationConnector := self.linkedRole.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
 }
 mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConnectorProvided2ProvidedDelegationConnector() : PCM::core::composition::ProvidedDelegationConnector {
-	innerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
-	outerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole); //TODO
-	assemblyContext_ProvidedDelegationConnector := self.linkdedRole.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
+	innerProvidedRole_ProvidedDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationProvidedRole);
+	outerProvidedRole_ProvidedDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationProvidedRole); //TODO
+	assemblyContext_ProvidedDelegationConnector := self.linkedRole.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
 }
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
 	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
