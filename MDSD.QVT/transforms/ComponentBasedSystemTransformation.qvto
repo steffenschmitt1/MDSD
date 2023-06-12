@@ -1,0 +1,42 @@
+import TransformationMappingLibrary;
+
+modeltype CBS uses "http://metaModel";
+modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
+
+
+//Palladio Models:
+//----- Component Specifications
+//----- Assembly Model
+//----- Allocation Model
+//----- Usage Model
+
+
+
+
+
+
+transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
+										) 
+										access TransformationMappingLibrary{
+ 
+	main() {
+		//Access root element and call transformation
+		log ("mapping repo");
+		CBSRepo.objectsOfType(CBS::viewType::repository::Repository) -> map mapRepo();		
+		log ("mapping system");
+
+		CBSRepo.objectsOfType(CBS::viewType::assembly::System) -> map mapSystem();
+
+		log ("mapping environment");
+		CBSRepo.objectsOfType(CBS::viewType::environment::Environment) -> map mapEnvironment();
+
+		log ("mapping allocation");
+		CBSRepo.objectsOfType(CBS::viewType::allocation::AllocationContext) -> map mapAllocationContext();
+		log ("done");
+		
+		
+	}
+
+
+	
+}

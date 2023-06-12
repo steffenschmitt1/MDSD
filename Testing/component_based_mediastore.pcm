@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" xmlns:resourcetype="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2 ../MDSD.QVT/target/pcm.ecore#//allocation http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2 ../MDSD.QVT/target/pcm.ecore#//core/composition http://palladiosimulator.org/PalladioComponentModel/Repository/5.2 ../MDSD.QVT/target/pcm.ecore#//repository http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2 ../MDSD.QVT/target/pcm.ecore#//resourceenvironment http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2 ../MDSD.QVT/target/pcm.ecore#//resourcetype http://palladiosimulator.org/PalladioComponentModel/System/5.2 ../MDSD.QVT/target/pcm.ecore#//system">
+  <repository:Repository entityName="Test">
+    <components__Repository xsi:type="repository:BasicComponent" entityName="DBCache"/>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="MediaManager"/>
+    <components__Repository xsi:type="repository:CompositeComponent" entityName="MediaStore">
+      <assemblyContexts__ComposedStructure entityName="MediaManager" encapsulatedComponent__AssemblyContext="/0/@components__Repository.1"/>
+      <assemblyContexts__ComposedStructure entityName="DBCache" encapsulatedComponent__AssemblyContext="/0/@components__Repository.0"/>
+      <assemblyContexts__ComposedStructure entityName="DigitalWatermarking" encapsulatedComponent__AssemblyContext="/0/@components__Repository.5"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="WebBrowser"/>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="WebGUI"/>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="DigitalWatermarking"/>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="PoolingAudioDB"/>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="Sound">
+      <signatures__OperationInterface entityName="Watermark"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="MediaStore">
+      <signatures__OperationInterface entityName="download"/>
+      <signatures__OperationInterface entityName="upload"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="AudioDB">
+      <signatures__OperationInterface entityName="AddFile"/>
+      <signatures__OperationInterface entityName="QueryDB"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="HTTP">
+      <signatures__OperationInterface entityName="HTTPDownload"/>
+      <signatures__OperationInterface entityName="HTTPUpload"/>
+    </interfaces__Repository>
+  </repository:Repository>
+  <system:System>
+    <assemblyContexts__ComposedStructure entityName="AssemblyContextWebGUI" encapsulatedComponent__AssemblyContext="/0/@components__Repository.4"/>
+    <assemblyContexts__ComposedStructure entityName="DBServer" encapsulatedComponent__AssemblyContext="/0/@components__Repository.6"/>
+    <assemblyContexts__ComposedStructure entityName="MediaManager" encapsulatedComponent__AssemblyContext="/0/@components__Repository.1"/>
+    <assemblyContexts__ComposedStructure entityName="DigitalWatermarking" encapsulatedComponent__AssemblyContext="/0/@components__Repository.5"/>
+    <assemblyContexts__ComposedStructure entityName="DBCache" encapsulatedComponent__AssemblyContext="/0/@components__Repository.0"/>
+    <assemblyContexts__ComposedStructure entityName="MediaStore" encapsulatedComponent__AssemblyContext="/0/@components__Repository.2"/>
+    <eventChannel__ComposedStructure/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="/8" outerProvidedRole_ProvidedDelegationConnector="/8" assemblyContext_ProvidedDelegationConnector="/1/@assemblyContexts__ComposedStructure.1"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="/7" outerRequiredRole_RequiredDelegationConnector="/7" assemblyContext_RequiredDelegationConnector="/1/@assemblyContexts__ComposedStructure.0"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.2" providedRole_AssemblyConnector="/2" requiredRole_AssemblyConnector="/3"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.1" providedRole_AssemblyConnector="/4" requiredRole_AssemblyConnector="/5"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.5" providedRole_AssemblyConnector="/6" requiredRole_AssemblyConnector="/7"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.5" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.1" providedRole_AssemblyConnector="/8" requiredRole_AssemblyConnector="/9"/>
+  </system:System>
+  <repository:OperationProvidedRole entityName="DigitalWatermarking"/>
+  <repository:OperationRequiredRole entityName="MediaManagerWatermarking"/>
+  <repository:OperationProvidedRole entityName="DBCache"/>
+  <repository:OperationRequiredRole entityName="MediaManagerDB"/>
+  <repository:OperationProvidedRole entityName="WebGUIMediaStore"/>
+  <repository:OperationRequiredRole entityName="WebGUI" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.1"/>
+  <repository:OperationProvidedRole entityName="DBServer" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.2"/>
+  <repository:OperationRequiredRole entityName="MediasstoreDBServer"/>
+  <resourceenvironment:ResourceEnvironment entityName="">
+    <linkingResources__ResourceEnvironment id="ServerDBServer" entityName="ServerDBServer" connectedResourceContainers_LinkingResource="ApplicationServer DatabaseServer">
+      <communicationLinkResourceSpecifications_LinkingResource id="1337" communicationLinkResourceType_CommunicationLinkResourceSpecification="">
+        <latency_CommunicationLinkResourceSpecification/>
+        <throughput_CommunicationLinkResourceSpecification/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="ApplicationServer" entityName="ApplicationServer"/>
+    <resourceContainer_ResourceEnvironment id="DatabaseServer" entityName="DatabaseServer"/>
+  </resourceenvironment:ResourceEnvironment>
+  <resourcetype:ResourceRepository>
+    <availableResourceTypes_ResourceRepository xsi:type="resourcetype:CommunicationLinkResourceType" id="" entityName=""/>
+  </resourcetype:ResourceRepository>
+  <allocation:AllocationContext entityName="Server WebGUI" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.0"/>
+  <allocation:AllocationContext entityName="DBServer" resourceContainer_AllocationContext="DatabaseServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.1"/>
+  <allocation:AllocationContext entityName="Server MediaStore" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.5"/>
+</xmi:XMI>

@@ -1,0 +1,126 @@
+modeltype source uses "platform:/resource/MDSD/model/metamodel.ecore";
+modeltype target uses "platform:/resource/MDSD.qvto/target/pcm.ecore";
+
+library Transformations;
+	
+    
+abstract mapping source::viewType::NamedElement::mapNamedElement() : target::core::entity::NamedElement {
+	entityName := self.name;
+}
+
+mapping source::viewType::repository::Repository::mapToPCM() : target::repository::Repository inherits source::viewType::NamedElement::mapNamedElement {
+	interfaces__Repository := self.interfaces -> mapInterface();
+	components__Repository := self.components -> collect(c | 
+    switch {
+        case (c.oclIsKindOf(source::viewType::repository::Component)) {
+        	c.oclAsType(source::viewType::repository::Component) -> toBasicComponent();
+        };
+        case (c.oclIsKindOf(source::viewType::assembly::CompositeComponent)) {
+            c.oclAsType(source::viewType::assembly::CompositeComponent) -> toCompositeComponent();
+        };
+    }  
+	);	
+}
+
+mapping source::viewType::repository::Interface::mapInterface() : target::repository::OperationInterface inherits source::viewType::NamedElement::mapNamedElement {
+	signatures__OperationInterface := self.signatures -> map mapSignature();
+}
+
+mapping source::viewType::repository::Signature::mapSignature() : target::repository::OperationSignature inherits source::viewType::NamedElement::mapNamedElement {
+	parameters__OperationSignature = self.parameters -> map mapParameter() -> asSet();
+	returnType__OperationSignature = self.returnType.resolveone(target::repository::DataType);	
+}
+    
+mapping source::viewType::repository::Parameter::mapParameter() : target::repository::Parameter {
+    switch {
+    	//primitives
+    	case(self.type.oclIsTypeOf(source::viewType::repository::StringType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::STRING;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::BooleanType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::BOOL;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::IntType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::INT;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::LongType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::LONG;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::FloatType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::DOUBLE;
+    		};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::CharType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::CHAR;
+    		};
+    	}
+    	// collections
+    	case(self.type.oclIsTypeOf(source::viewType::repository::ListType)) {
+    		dataType__Parameter := object target::repository::CollectionDataType {};
+    	}
+    	case(self.type.oclIsTypeOf(source::viewType::repository::MapType)) {
+    		dataType__Parameter := object target::repository::CollectionDataType {};
+
+    	}
+    	// no date in palladio, use string
+    	case(self.type.oclIsTypeOf(source::viewType::repository::DateType)) {
+    		dataType__Parameter := object target::repository::PrimitiveDataType {
+    			type := target::repository::PrimitiveTypeEnum::STRING;
+    		};
+    	}
+    	// no void in palladio, use null
+    	case(self.type.oclIsTypeOf(source::viewType::repository::VoidType)) {
+    		dataType__Parameter := null;
+    	}
+    }
+}
+    
+mapping source::viewType::repository::Component::toBasicComponent() : target::repository::BasicComponent inherits source::viewType::NamedElement::mapNamedElement {
+	serviceEffectSpecifications__BasicComponent := object target::seff::ResourceDemandingSEFF{
+		steps_Behaviour := self.description -> mapBehaviourToSeffAction();
+	}
+}
+
+
+mapping source::viewType::repository::BehaviourDescription::mapBehaviourToSeffAction() : target::seff::AbstractAction {		
+		init {
+			switch {
+	        	//internal action
+	        	case(self.oclIsTypeOf(source::viewType::repository::InternalAction)) {
+	        		 result := object target::seff::InternalAction{};
+	        	}
+	        	// loop
+	        	case(self.oclIsTypeOf(source::viewType::repository::Loop)) {
+	        		result := object target::seff::LoopAction{};
+	        	}
+	        	// external call
+	        	case(self.oclIsTypeOf(source::viewType::repository::ExternalCall)) {
+	        		result := object target::seff::ExternalCallAction{};
+	        	}
+	        	// branch
+	        	case(self.oclIsTypeOf(source::viewType::repository::Branch)) {
+	        	    result := object target::seff::BranchAction{};
+	        	}
+        	};  
+		}
+	}
+
+
+mapping source::viewType::assembly::CompositeComponent::toCompositeComponent() : target::repository::CompositeComponent inherits source::viewType::NamedElement::mapNamedElement {
+    	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext();
+}
+	
+mapping source::viewType::assembly::AssemblyContext::mapAssemblyContext() : target::core::composition::AssemblyContext inherits source::viewType::NamedElement::mapNamedElement {
+	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(target::repository::RepositoryComponent);
+
+}

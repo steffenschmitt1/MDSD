@@ -30,6 +30,8 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Interface">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/signatures"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/repository/Interface/repository"/>
         </genClasses>
         <genClasses image="false" ecoreClass="metamodel.ecore#//viewType/repository/ParameterType"/>
         <genClasses ecoreClass="metamodel.ecore#//viewType/repository/Signature">
@@ -139,7 +141,7 @@
         </genClasses>
         <genClasses ecoreClass="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+              ecoreFeature="ecore:EReference metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkedRole"/>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Environment" basePackage="metaModel.viewType" disposableProviderFactory="true"

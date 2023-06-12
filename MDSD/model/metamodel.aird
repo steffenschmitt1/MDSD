@@ -5,7 +5,7 @@
     <semanticResources>metamodel.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_4k6EgOysEe25zO4MTdYlLQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Jj7U8OyuEe25zO4MTdYlLQ" name="assembly class diagram" repPath="#_Jj4RoOyuEe25zO4MTdYlLQ" changeId="666f53f6-7260-4879-8465-51cf5b875570">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Jj7U8OyuEe25zO4MTdYlLQ" name="assembly class diagram" repPath="#_Jj4RoOyuEe25zO4MTdYlLQ" changeId="e6fdf6e6-8459-4e4f-8cef-247df19fc2cc">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="metamodel.ecore#//viewType/assembly"/>
       </ownedRepresentationDescriptors>
@@ -42,9 +42,9 @@
         <children xmi:type="notation:Node" xmi:id="_KZENMOyuEe25zO4MTdYlLQ" type="2003" element="_JzQxcOyuEe25zO4MTdYlLQ">
           <children xmi:type="notation:Node" xmi:id="_KZENM-yuEe25zO4MTdYlLQ" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_KZENNOyuEe25zO4MTdYlLQ" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_KZGpcOyuEe25zO4MTdYlLQ" type="3010" element="_KY7qW-yuEe25zO4MTdYlLQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_KZGpceyuEe25zO4MTdYlLQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_KZGpcuyuEe25zO4MTdYlLQ"/>
+            <children xmi:type="notation:Node" xmi:id="_JIuqwAkKEe6QyZqpAJ0YwQ" type="3010" element="_JIJb8AkKEe6QyZqpAJ0YwQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_JIuqwQkKEe6QyZqpAJ0YwQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_JIuqwgkKEe6QyZqpAJ0YwQ"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_KZGpc-yuEe25zO4MTdYlLQ" type="3010" element="_KY8RYuyuEe25zO4MTdYlLQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_KZGpdOyuEe25zO4MTdYlLQ" fontName="Segoe UI" fontHeight="8"/>
@@ -450,10 +450,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_KY7qW-yuEe25zO4MTdYlLQ" name=" instanceOf : Component" tooltipText="">
-        <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyContext/instanceOf"/>
-        <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyContext/instanceOf"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_KY8RYeyuEe25zO4MTdYlLQ" labelAlignment="LEFT" description="_KY8RYOyuEe25zO4MTdYlLQ" color="114,159,207">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_JIJb8AkKEe6QyZqpAJ0YwQ" name=" instantiatedComponent : Component" tooltipText="">
+        <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyContext/instantiatedComponent"/>
+        <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/AssemblyContext/instantiatedComponent"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_JIMfQAkKEe6QyZqpAJ0YwQ" labelAlignment="LEFT" description="_KY8RYOyuEe25zO4MTdYlLQ" color="114,159,207">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
@@ -754,10 +754,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QigsJuy4Ee24JooHPokzQQ" sourceNode="_KW9UYuyuEe25zO4MTdYlLQ" targetNode="_KY3Y4uyuEe25zO4MTdYlLQ" beginLabel="[0..1] delegationConnector" endLabel="[1..1] linkdedRole">
-      <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QigsJuy4Ee24JooHPokzQQ" sourceNode="_KW9UYuyuEe25zO4MTdYlLQ" targetNode="_KY3Y4uyuEe25zO4MTdYlLQ" beginLabel="[0..1] delegationConnector" endLabel="[1..1] linkedRole">
+      <target xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkedRole"/>
       <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/ProvidedRole/delegationConnector"/>
-      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkdedRole"/>
+      <semanticElements xmi:type="ecore:EReference" href="metamodel.ecore#//viewType/assembly/DelegationConnectorProvided/linkedRole"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QigsJ-y4Ee24JooHPokzQQ" description="_KZBJ6-yuEe25zO4MTdYlLQ" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_QigsKOy4Ee24JooHPokzQQ" showIcon="false">
           <labelFormat>bold</labelFormat>
