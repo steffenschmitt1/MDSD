@@ -108,6 +108,42 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 }
 
 //Assembly
+
+
+//Valerii
+abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
+
+
+mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole {
+	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+}
+
+mapping CBS::viewType::assembly::RequiredRole::mapProvidedRole() : PCM::repository::OperationProvidedRole inherits CBS::viewType::assembly::Role::mapRole {
+	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+}
+
+abstract mapping CBS::viewType::assembly::DelegationConnector::mapDelegationConnector() : PCM::core::composition::DelegationConnector {}
+
+mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConnectorProvided() :
+		PCM::core::composition::ProvidedDelegationConnector inherits CBS::viewType::assembly::DelegationConnector::mapDelegationConnector{
+	// TODO TYPO FIX
+	innerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
+	outerProvidedRole_ProvidedDelegationConnector := self.linkdedRole.resolveone(PCM::repository::OperationProvidedRole);
+}
+
+mapping CBS::viewType::assembly::DelegationConnectorRequired::mapDelegationConnectorRequired() :
+		PCM::core::composition::RequiredDelegationConnector inherits CBS::viewType::assembly::DelegationConnector::mapDelegationConnector{
+	innerRequiredRole_RequiredDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationRequiredRole);
+	outerRequiredRole_RequiredDelegationConnector := self.linkedRole.resolveone(PCM::repository::OperationRequiredRole);
+}
+
+//Allocation - Valerii
+mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext():
+		PCM::allocation::AllocationContext inherits CBS::viewType::NamedElement::mapNamedElement{
+	assemblyContext_AllocationContext := self.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
+	resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
+}
+
 mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement{
 	//delayed mapping allocation context from exisiting object
 	parentStructure__AssemblyContext := self.allocationContext.late resolveone(PCM::core::composition::ComposedStructure);
@@ -192,5 +228,3 @@ mapping CBS::viewType::environment::Link::mapLink() : PCM::resourceenvironment::
 }
 
 
-//Allocation - Valerii
-mapping AllocationContext() {}
