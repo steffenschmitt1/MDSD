@@ -305,5 +305,5 @@ DelegationConnectorProvided returns assembly::DelegationConnectorProvided:
 	'DelegationConnectorProvided'
 	'{'
 		'linkedInterface' linkedInterface=[repository::Interface|EString]
-		'linkdedRole' linkdedRole=[assembly::ProvidedRole|EString]
+		'linkdedRole' linkedRole=[assembly::ProvidedRole|EString]
 	'}';

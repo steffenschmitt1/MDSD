@@ -9754,7 +9754,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0());
+            					newCompositeNode(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0());
             				
             pushFollow(FOLLOW_13);
             ruleEString();

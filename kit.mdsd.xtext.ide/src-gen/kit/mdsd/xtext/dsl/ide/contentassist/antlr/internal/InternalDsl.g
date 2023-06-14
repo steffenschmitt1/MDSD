@@ -12521,9 +12521,9 @@ rule__DelegationConnectorProvided__Group__5__Impl
 	}
 :
 (
-	{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleAssignment_5()); }
-	(rule__DelegationConnectorProvided__LinkdedRoleAssignment_5)
-	{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleAssignment_5()); }
+	{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleAssignment_5()); }
+	(rule__DelegationConnectorProvided__LinkedRoleAssignment_5)
+	{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleAssignment_5()); }
 )
 ;
 finally {
@@ -14080,19 +14080,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DelegationConnectorProvided__LinkdedRoleAssignment_5
+rule__DelegationConnectorProvided__LinkedRoleAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0()); }
+		{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0()); }
 		(
-			{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1()); }
+			{ before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1()); }
 			ruleEString
-			{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1()); }
+			{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1()); }
 		)
-		{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0()); }
+		{ after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0()); }
 	)
 ;
 finally {

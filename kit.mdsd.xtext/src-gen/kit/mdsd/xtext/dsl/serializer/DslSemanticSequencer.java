@@ -449,19 +449,19 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DelegationConnectorProvided returns DelegationConnectorProvided
 	 *
 	 * Constraint:
-	 *     (linkedInterface=[Interface|EString] linkdedRole=[ProvidedRole|EString])
+	 *     (linkedInterface=[Interface|EString] linkedRole=[ProvidedRole|EString])
 	 * </pre>
 	 */
 	protected void sequence_DelegationConnectorProvided(ISerializationContext context, DelegationConnectorProvided semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR__LINKED_INTERFACE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR__LINKED_INTERFACE));
-			if (transientValues.isValueTransient(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKDED_ROLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKDED_ROLE));
+			if (transientValues.isValueTransient(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKED_ROLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKED_ROLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedInterfaceInterfaceEStringParserRuleCall_3_0_1(), semanticObject.eGet(AssemblyPackage.Literals.DELEGATION_CONNECTOR__LINKED_INTERFACE, false));
-		feeder.accept(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1(), semanticObject.eGet(AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKDED_ROLE, false));
+		feeder.accept(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1(), semanticObject.eGet(AssemblyPackage.Literals.DELEGATION_CONNECTOR_PROVIDED__LINKED_ROLE, false));
 		feeder.finish();
 	}
 	

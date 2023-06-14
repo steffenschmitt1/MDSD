@@ -232,7 +232,7 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDelegationConnectorRequiredAccess().getLinkedInterfaceAssignment_3(), "rule__DelegationConnectorRequired__LinkedInterfaceAssignment_3");
 			builder.put(grammarAccess.getDelegationConnectorRequiredAccess().getLinkedRoleAssignment_5(), "rule__DelegationConnectorRequired__LinkedRoleAssignment_5");
 			builder.put(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedInterfaceAssignment_3(), "rule__DelegationConnectorProvided__LinkedInterfaceAssignment_3");
-			builder.put(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleAssignment_5(), "rule__DelegationConnectorProvided__LinkdedRoleAssignment_5");
+			builder.put(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleAssignment_5(), "rule__DelegationConnectorProvided__LinkedRoleAssignment_5");
 		}
 	}
 	
