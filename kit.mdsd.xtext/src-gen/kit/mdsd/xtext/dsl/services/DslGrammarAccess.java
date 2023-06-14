@@ -3032,23 +3032,23 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final CrossReference cLinkedInterfaceInterfaceCrossReference_3_0 = (CrossReference)cLinkedInterfaceAssignment_3.eContents().get(0);
 		private final RuleCall cLinkedInterfaceInterfaceEStringParserRuleCall_3_0_1 = (RuleCall)cLinkedInterfaceInterfaceCrossReference_3_0.eContents().get(1);
 		private final Keyword cLinkdedRoleKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cLinkdedRoleAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cLinkdedRoleProvidedRoleCrossReference_5_0 = (CrossReference)cLinkdedRoleAssignment_5.eContents().get(0);
-		private final RuleCall cLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1 = (RuleCall)cLinkdedRoleProvidedRoleCrossReference_5_0.eContents().get(1);
+		private final Assignment cLinkedRoleAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cLinkedRoleProvidedRoleCrossReference_5_0 = (CrossReference)cLinkedRoleAssignment_5.eContents().get(0);
+		private final RuleCall cLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1 = (RuleCall)cLinkedRoleProvidedRoleCrossReference_5_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//DelegationConnectorProvided returns assembly::DelegationConnectorProvided:
 		//    'DelegationConnectorProvided'
 		//    '{'
 		//        'linkedInterface' linkedInterface=[repository::Interface|EString]
-		//        'linkdedRole' linkdedRole=[assembly::ProvidedRole|EString]
+		//        'linkdedRole' linkedRole=[assembly::ProvidedRole|EString]
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'DelegationConnectorProvided'
 		//'{'
 		//    'linkedInterface' linkedInterface=[repository::Interface|EString]
-		//    'linkdedRole' linkdedRole=[assembly::ProvidedRole|EString]
+		//    'linkdedRole' linkedRole=[assembly::ProvidedRole|EString]
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -3073,14 +3073,14 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'linkdedRole'
 		public Keyword getLinkdedRoleKeyword_4() { return cLinkdedRoleKeyword_4; }
 		
-		//linkdedRole=[assembly::ProvidedRole|EString]
-		public Assignment getLinkdedRoleAssignment_5() { return cLinkdedRoleAssignment_5; }
+		//linkedRole=[assembly::ProvidedRole|EString]
+		public Assignment getLinkedRoleAssignment_5() { return cLinkedRoleAssignment_5; }
 		
 		//[assembly::ProvidedRole|EString]
-		public CrossReference getLinkdedRoleProvidedRoleCrossReference_5_0() { return cLinkdedRoleProvidedRoleCrossReference_5_0; }
+		public CrossReference getLinkedRoleProvidedRoleCrossReference_5_0() { return cLinkedRoleProvidedRoleCrossReference_5_0; }
 		
 		//EString
-		public RuleCall getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1() { return cLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1; }
+		public RuleCall getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1() { return cLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -3789,7 +3789,7 @@ public class DslGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'DelegationConnectorProvided'
 	//    '{'
 	//        'linkedInterface' linkedInterface=[repository::Interface|EString]
-	//        'linkdedRole' linkdedRole=[assembly::ProvidedRole|EString]
+	//        'linkdedRole' linkedRole=[assembly::ProvidedRole|EString]
 	//    '}';
 	public DelegationConnectorProvidedElements getDelegationConnectorProvidedAccess() {
 		return pDelegationConnectorProvided;

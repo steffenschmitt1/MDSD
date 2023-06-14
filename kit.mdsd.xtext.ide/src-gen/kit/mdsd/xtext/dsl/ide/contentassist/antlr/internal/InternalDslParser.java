@@ -37417,31 +37417,31 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegationConnectorProvided__Group__5__Impl"
-    // InternalDsl.g:12518:1: rule__DelegationConnectorProvided__Group__5__Impl : ( ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 ) ) ;
+    // InternalDsl.g:12518:1: rule__DelegationConnectorProvided__Group__5__Impl : ( ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 ) ) ;
     public final void rule__DelegationConnectorProvided__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDsl.g:12522:1: ( ( ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 ) ) )
-            // InternalDsl.g:12523:1: ( ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 ) )
+            // InternalDsl.g:12522:1: ( ( ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 ) ) )
+            // InternalDsl.g:12523:1: ( ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 ) )
             {
-            // InternalDsl.g:12523:1: ( ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 ) )
-            // InternalDsl.g:12524:2: ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 )
+            // InternalDsl.g:12523:1: ( ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 ) )
+            // InternalDsl.g:12524:2: ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 )
             {
-             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleAssignment_5()); 
-            // InternalDsl.g:12525:2: ( rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 )
-            // InternalDsl.g:12525:3: rule__DelegationConnectorProvided__LinkdedRoleAssignment_5
+             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleAssignment_5()); 
+            // InternalDsl.g:12525:2: ( rule__DelegationConnectorProvided__LinkedRoleAssignment_5 )
+            // InternalDsl.g:12525:3: rule__DelegationConnectorProvided__LinkedRoleAssignment_5
             {
             pushFollow(FOLLOW_2);
-            rule__DelegationConnectorProvided__LinkdedRoleAssignment_5();
+            rule__DelegationConnectorProvided__LinkedRoleAssignment_5();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleAssignment_5()); 
+             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleAssignment_5()); 
 
             }
 
@@ -41598,9 +41598,9 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DelegationConnectorProvided__LinkedInterfaceAssignment_3"
 
 
-    // $ANTLR start "rule__DelegationConnectorProvided__LinkdedRoleAssignment_5"
-    // InternalDsl.g:14083:1: rule__DelegationConnectorProvided__LinkdedRoleAssignment_5 : ( ( ruleEString ) ) ;
-    public final void rule__DelegationConnectorProvided__LinkdedRoleAssignment_5() throws RecognitionException {
+    // $ANTLR start "rule__DelegationConnectorProvided__LinkedRoleAssignment_5"
+    // InternalDsl.g:14083:1: rule__DelegationConnectorProvided__LinkedRoleAssignment_5 : ( ( ruleEString ) ) ;
+    public final void rule__DelegationConnectorProvided__LinkedRoleAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -41611,21 +41611,21 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // InternalDsl.g:14088:2: ( ( ruleEString ) )
             // InternalDsl.g:14089:3: ( ruleEString )
             {
-             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0()); 
+             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0()); 
             // InternalDsl.g:14090:3: ( ruleEString )
             // InternalDsl.g:14091:4: ruleEString
             {
-             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1()); 
+             before(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleEStringParserRuleCall_5_0_1()); 
+             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleEStringParserRuleCall_5_0_1()); 
 
             }
 
-             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0()); 
+             after(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0()); 
 
             }
 
@@ -41644,7 +41644,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DelegationConnectorProvided__LinkdedRoleAssignment_5"
+    // $ANTLR end "rule__DelegationConnectorProvided__LinkedRoleAssignment_5"
 
     // Delegated rules
 

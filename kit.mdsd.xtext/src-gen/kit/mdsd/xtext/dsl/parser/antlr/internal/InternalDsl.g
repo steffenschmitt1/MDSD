@@ -4038,7 +4038,7 @@ ruleDelegationConnectorProvided returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getDelegationConnectorProvidedAccess().getLinkdedRoleProvidedRoleCrossReference_5_0());
+					newCompositeNode(grammarAccess.getDelegationConnectorProvidedAccess().getLinkedRoleProvidedRoleCrossReference_5_0());
 				}
 				ruleEString
 				{
