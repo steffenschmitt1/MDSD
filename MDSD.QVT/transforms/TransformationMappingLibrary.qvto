@@ -152,6 +152,7 @@ mapping CBS::viewType::assembly::System::mapSystem() : PCM::system::System {
 	eventChannel__ComposedStructure := object PCM::core::composition::EventChannel {};
 	connectors__ComposedStructure += self.delegationConnectors -> map mapDelegationConnector2DelegationConnector();
 	connectors__ComposedStructure += self.assemblyConnectors -> map mapAssemblyConnector2AssemblyConnector();
+	//providedRoles_InterfaceProvidingEntity := self.encapsulatedInstances.provides.late resolveone(pcm::repository::OperationProvidedRole);
 	
 	
 }
@@ -172,8 +173,10 @@ mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConne
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
 	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
 	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
-	providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole() -> asSequence() -> first();
-	requiredRole_AssemblyConnector := self.requiredRole -> map mapReqiredRole() -> asSequence() -> first();
+	providedRole_AssemblyConnector := self.providedRole.late resolveone(pcm::repository::OperationProvidedRole); 
+	//-> map mapProvidedRole() -> asSequence() -> first();
+	requiredRole_AssemblyConnector := self.requiredRole.late resolveone(pcm::repository::OperationRequiredRole);
+	//-> map mapReqiredRole() -> asSequence() -> first();
 }
 
 //Environment - Steffen
