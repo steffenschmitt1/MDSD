@@ -16,6 +16,7 @@ import metaModel.viewType.repository.IntType;
 import metaModel.viewType.repository.Interface;
 import metaModel.viewType.repository.LongType;
 import metaModel.viewType.repository.Parameter;
+import metaModel.viewType.repository.Repository;
 import metaModel.viewType.repository.Signature;
 import metaModel.viewType.repository.StringType;
 import metaModel.viewType.repository.Type;
@@ -44,23 +45,31 @@ public class DslGenerator extends AbstractGenerator {
 
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    Iterable<Interface> _filter = Iterables.<Interface>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Interface.class);
-    for (final Interface interface_ : _filter) {
-      String _replace = this.getPackage(interface_).replace(".", "/");
+    Iterable<Repository> _filter = Iterables.<Repository>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Repository.class);
+    for (final Repository repository : _filter) {
+      String _replace = this.getPackage(repository).replace(".", "/");
       String _plus = (_replace + "/");
-      String _interfaceName = this.getInterfaceName(interface_);
-      String _plus_1 = (_plus + _interfaceName);
+      String _plus_1 = (_plus + "Helper");
       String _plus_2 = (_plus_1 + this.JAVA_SUFFIX);
-      fsa.generateFile(_plus_2, this.compile(interface_));
+      fsa.generateFile(_plus_2, this.compile(repository));
     }
-    Iterable<Component> _filter_1 = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
-    for (final Component component : _filter_1) {
-      String _replace_1 = this.getPackage(component).replace(".", "/");
+    Iterable<Interface> _filter_1 = Iterables.<Interface>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Interface.class);
+    for (final Interface interface_ : _filter_1) {
+      String _replace_1 = this.getPackage(interface_).replace(".", "/");
       String _plus_3 = (_replace_1 + "/");
-      String _componentName = this.getComponentName(component);
-      String _plus_4 = (_plus_3 + _componentName);
+      String _interfaceName = this.getInterfaceName(interface_);
+      String _plus_4 = (_plus_3 + _interfaceName);
       String _plus_5 = (_plus_4 + this.JAVA_SUFFIX);
-      fsa.generateFile(_plus_5, this.compile(component));
+      fsa.generateFile(_plus_5, this.compile(interface_));
+    }
+    Iterable<Component> _filter_2 = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
+    for (final Component component : _filter_2) {
+      String _replace_2 = this.getPackage(component).replace(".", "/");
+      String _plus_6 = (_replace_2 + "/");
+      String _componentName = this.getComponentName(component);
+      String _plus_7 = (_plus_6 + _componentName);
+      String _plus_8 = (_plus_7 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_8, this.compile(component));
     }
   }
 
@@ -98,14 +107,25 @@ public class DslGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    {
+      int _size = component.getRequires().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("import ");
+        String _package_3 = this.getPackage(component.eContainer());
+        _builder.append(_package_3);
+        _builder.append(".Helper;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     _builder.append("public class ");
     String _componentName = this.getComponentName(component);
     _builder.append(_componentName);
     _builder.append(" ");
     String _xifexpression = null;
-    int _size = component.getProvides().size();
-    boolean _equals = (_size == 0);
+    int _size_1 = component.getProvides().size();
+    boolean _equals = (_size_1 == 0);
     if (_equals) {
       _xifexpression = "";
     } else {
@@ -137,7 +157,6 @@ public class DslGenerator extends AbstractGenerator {
         {
           EList<Signature> _signatures = interfaceElement_3.getSignatures();
           for(final Signature method : _signatures) {
-            _builder.append("\t");
             _builder.newLine();
             _builder.append("//Implementing ");
             String _name = method.getName();
@@ -165,6 +184,16 @@ public class DslGenerator extends AbstractGenerator {
             _builder.append(_join_1);
             _builder.append(") {");
             _builder.newLineIfNotEmpty();
+            {
+              EList<Interface> _requires_2 = component.getRequires();
+              for(final Interface interfaceElement2 : _requires_2) {
+                _builder.append("Helper.assertNotNull(");
+                String _firstLower_1 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement2));
+                _builder.append(_firstLower_1);
+                _builder.append(");");
+                _builder.newLineIfNotEmpty();
+              }
+            }
             _builder.append("\t");
             _builder.append("// TODO: Insert code here");
             _builder.newLine();
@@ -176,8 +205,8 @@ public class DslGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
-      EList<Interface> _requires_2 = component.getRequires();
-      for(final Interface interfaceElement_4 : _requires_2) {
+      EList<Interface> _requires_3 = component.getRequires();
+      for(final Interface interfaceElement_4 : _requires_3) {
         _builder.append("public void set");
         String _interfaceName_4 = this.getInterfaceName(interfaceElement_4);
         _builder.append(_interfaceName_4);
@@ -185,17 +214,23 @@ public class DslGenerator extends AbstractGenerator {
         String _interfaceName_5 = this.getInterfaceName(interfaceElement_4);
         _builder.append(_interfaceName_5);
         _builder.append(" ");
-        String _firstLower_1 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
-        _builder.append(_firstLower_1);
+        String _firstLower_2 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_2);
         _builder.append(") {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
-        _builder.append("this.");
-        String _firstLower_2 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
-        _builder.append(_firstLower_2, "\t");
-        _builder.append(" = ");
+        _builder.append("Helper.assertNull(");
         String _firstLower_3 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
         _builder.append(_firstLower_3, "\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("this.");
+        String _firstLower_4 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_4, "\t");
+        _builder.append(" = ");
+        String _firstLower_5 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_5, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("}");
@@ -238,6 +273,57 @@ public class DslGenerator extends AbstractGenerator {
     return _builder;
   }
 
+  public CharSequence compile(final Repository repository) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(repository);
+    _builder.append(_package);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public class Helper {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void assertNotNull(Object object) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(object == null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new NullPointerException();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void assertNull(Object object) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(object != null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
   public CharSequence compile(final Signature signature) {
     StringConcatenation _builder = new StringConcatenation();
     String _type = this.getType(signature.getReturnType());
@@ -265,6 +351,10 @@ public class DslGenerator extends AbstractGenerator {
     } else {
       if ((object instanceof Component)) {
         return ((Component)object).getName();
+      } else {
+        if ((object instanceof Repository)) {
+          return "repository";
+        }
       }
     }
     return "unsupportetElement";
