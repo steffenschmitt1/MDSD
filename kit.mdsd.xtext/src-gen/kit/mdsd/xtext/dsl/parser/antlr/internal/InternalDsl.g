@@ -618,25 +618,44 @@ ruleRepository returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getRepositoryAccess().getRepositoryKeyword_1());
 		}
-		otherlv_2='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRepositoryAccess().getNameEStringParserRuleCall_2_0());
+				}
+				lv_name_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRepositoryRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_2_0,
+						"kit.mdsd.xtext.dsl.Dsl.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
-			otherlv_3='components'
+			otherlv_4='components'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getRepositoryAccess().getComponentsKeyword_3_0());
+				newLeafNode(otherlv_4, grammarAccess.getRepositoryAccess().getComponentsKeyword_4_0());
 			}
-			otherlv_4='{'
+			otherlv_5='{'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_3_1());
+				newLeafNode(otherlv_5, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_4_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRepositoryAccess().getComponentsComponentParserRuleCall_3_2_0());
+						newCompositeNode(grammarAccess.getRepositoryAccess().getComponentsComponentParserRuleCall_4_2_0());
 					}
-					lv_components_5_0=ruleComponent
+					lv_components_6_0=ruleComponent
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRepositoryRule());
@@ -644,23 +663,23 @@ ruleRepository returns [EObject current=null]
 						add(
 							$current,
 							"components",
-							lv_components_5_0,
+							lv_components_6_0,
 							"kit.mdsd.xtext.dsl.Dsl.Component");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_6=','
+				otherlv_7=','
 				{
-					newLeafNode(otherlv_6, grammarAccess.getRepositoryAccess().getCommaKeyword_3_3_0());
+					newLeafNode(otherlv_7, grammarAccess.getRepositoryAccess().getCommaKeyword_4_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRepositoryAccess().getComponentsComponentParserRuleCall_3_3_1_0());
+							newCompositeNode(grammarAccess.getRepositoryAccess().getComponentsComponentParserRuleCall_4_3_1_0());
 						}
-						lv_components_7_0=ruleComponent
+						lv_components_8_0=ruleComponent
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRepositoryRule());
@@ -668,33 +687,33 @@ ruleRepository returns [EObject current=null]
 							add(
 								$current,
 								"components",
-								lv_components_7_0,
+								lv_components_8_0,
 								"kit.mdsd.xtext.dsl.Dsl.Component");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_8='}'
+			otherlv_9='}'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_3_4());
+				newLeafNode(otherlv_9, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_4_4());
 			}
 		)?
 		(
-			otherlv_9='interfaces'
+			otherlv_10='interfaces'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getRepositoryAccess().getInterfacesKeyword_4_0());
+				newLeafNode(otherlv_10, grammarAccess.getRepositoryAccess().getInterfacesKeyword_5_0());
 			}
-			otherlv_10='{'
+			otherlv_11='{'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_4_1());
+				newLeafNode(otherlv_11, grammarAccess.getRepositoryAccess().getLeftCurlyBracketKeyword_5_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRepositoryAccess().getInterfacesInterfaceParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getRepositoryAccess().getInterfacesInterfaceParserRuleCall_5_2_0());
 					}
-					lv_interfaces_11_0=ruleInterface
+					lv_interfaces_12_0=ruleInterface
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRepositoryRule());
@@ -702,23 +721,23 @@ ruleRepository returns [EObject current=null]
 						add(
 							$current,
 							"interfaces",
-							lv_interfaces_11_0,
+							lv_interfaces_12_0,
 							"kit.mdsd.xtext.dsl.Dsl.Interface");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_12=','
+				otherlv_13=','
 				{
-					newLeafNode(otherlv_12, grammarAccess.getRepositoryAccess().getCommaKeyword_4_3_0());
+					newLeafNode(otherlv_13, grammarAccess.getRepositoryAccess().getCommaKeyword_5_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRepositoryAccess().getInterfacesInterfaceParserRuleCall_4_3_1_0());
+							newCompositeNode(grammarAccess.getRepositoryAccess().getInterfacesInterfaceParserRuleCall_5_3_1_0());
 						}
-						lv_interfaces_13_0=ruleInterface
+						lv_interfaces_14_0=ruleInterface
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRepositoryRule());
@@ -726,21 +745,21 @@ ruleRepository returns [EObject current=null]
 							add(
 								$current,
 								"interfaces",
-								lv_interfaces_13_0,
+								lv_interfaces_14_0,
 								"kit.mdsd.xtext.dsl.Dsl.Interface");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_14='}'
+			otherlv_15='}'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_4_4());
+				newLeafNode(otherlv_15, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_5_4());
 			}
 		)?
-		otherlv_15='}'
+		otherlv_16='}'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_16, grammarAccess.getRepositoryAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

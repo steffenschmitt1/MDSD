@@ -48,10 +48,10 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComponentBasedSystemAccess().getGroup_6(), "rule__ComponentBasedSystem__Group_6__0");
 			builder.put(grammarAccess.getComponentBasedSystemAccess().getGroup_6_3(), "rule__ComponentBasedSystem__Group_6_3__0");
 			builder.put(grammarAccess.getRepositoryAccess().getGroup(), "rule__Repository__Group__0");
-			builder.put(grammarAccess.getRepositoryAccess().getGroup_3(), "rule__Repository__Group_3__0");
-			builder.put(grammarAccess.getRepositoryAccess().getGroup_3_3(), "rule__Repository__Group_3_3__0");
 			builder.put(grammarAccess.getRepositoryAccess().getGroup_4(), "rule__Repository__Group_4__0");
 			builder.put(grammarAccess.getRepositoryAccess().getGroup_4_3(), "rule__Repository__Group_4_3__0");
+			builder.put(grammarAccess.getRepositoryAccess().getGroup_5(), "rule__Repository__Group_5__0");
+			builder.put(grammarAccess.getRepositoryAccess().getGroup_5_3(), "rule__Repository__Group_5_3__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup(), "rule__Environment__Group__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_3(), "rule__Environment__Group_3__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_3_3(), "rule__Environment__Group_3_3__0");
@@ -147,10 +147,11 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getComponentBasedSystemAccess().getSystemsAssignment_5_3_1(), "rule__ComponentBasedSystem__SystemsAssignment_5_3_1");
 			builder.put(grammarAccess.getComponentBasedSystemAccess().getAllocationContextsAssignment_6_2(), "rule__ComponentBasedSystem__AllocationContextsAssignment_6_2");
 			builder.put(grammarAccess.getComponentBasedSystemAccess().getAllocationContextsAssignment_6_3_1(), "rule__ComponentBasedSystem__AllocationContextsAssignment_6_3_1");
-			builder.put(grammarAccess.getRepositoryAccess().getComponentsAssignment_3_2(), "rule__Repository__ComponentsAssignment_3_2");
-			builder.put(grammarAccess.getRepositoryAccess().getComponentsAssignment_3_3_1(), "rule__Repository__ComponentsAssignment_3_3_1");
-			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_4_2(), "rule__Repository__InterfacesAssignment_4_2");
-			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_4_3_1(), "rule__Repository__InterfacesAssignment_4_3_1");
+			builder.put(grammarAccess.getRepositoryAccess().getNameAssignment_2(), "rule__Repository__NameAssignment_2");
+			builder.put(grammarAccess.getRepositoryAccess().getComponentsAssignment_4_2(), "rule__Repository__ComponentsAssignment_4_2");
+			builder.put(grammarAccess.getRepositoryAccess().getComponentsAssignment_4_3_1(), "rule__Repository__ComponentsAssignment_4_3_1");
+			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_5_2(), "rule__Repository__InterfacesAssignment_5_2");
+			builder.put(grammarAccess.getRepositoryAccess().getInterfacesAssignment_5_3_1(), "rule__Repository__InterfacesAssignment_5_3_1");
 			builder.put(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_2(), "rule__Environment__ContainersAssignment_3_2");
 			builder.put(grammarAccess.getEnvironmentAccess().getContainersAssignment_3_3_1(), "rule__Environment__ContainersAssignment_3_3_1");
 			builder.put(grammarAccess.getEnvironmentAccess().getLinksAssignment_4_2(), "rule__Environment__LinksAssignment_4_2");

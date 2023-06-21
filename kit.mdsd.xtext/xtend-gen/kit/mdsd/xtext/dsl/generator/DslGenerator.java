@@ -3,10 +3,20 @@
  */
 package kit.mdsd.xtext.dsl.generator;
 
+import com.google.common.collect.Iterables;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import metaModel.viewType.NamedElement;
+import metaModel.viewType.repository.Interface;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +25,75 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class DslGenerator extends AbstractGenerator {
+  private final String JAVA_SUFFIX = ".java";
+
+  private EObject result;
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Interface> _filter = Iterables.<Interface>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Interface.class);
+    for (final Interface interface_ : _filter) {
+      String _name = interface_.getName();
+      String _plus = (_name + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus, this.compile(interface_));
+    }
+  }
+
+  public CharSequence compile(final Interface interfaceElement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(interfaceElement);
+    _builder.append(_package);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public interface ");
+    String _name = interfaceElement.getName();
+    _builder.append(_name);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  public String getPackage(final EObject object) {
+    String result = "";
+    EObject element = object.eContainer();
+    while ((element != null)) {
+      {
+        if ((element instanceof NamedElement)) {
+          result = this.addSegment(result, ((NamedElement)element).getName());
+        } else {
+          result = this.addSegment(result, element.eClass().getName());
+        }
+        element = element.eContainer();
+      }
+    }
+    String _lowerCase = this.reversePackage(result).toLowerCase();
+    return ((String) _lowerCase);
+  }
+
+  public String addSegment(final String packageElement, final String segment) {
+    String result = packageElement;
+    if (((segment != null) && (!segment.isBlank()))) {
+      boolean _isEmpty = result.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        String _result = result;
+        result = (_result + ".");
+      }
+      String _result_1 = result;
+      String _trim = segment.trim();
+      result = (_result_1 + _trim);
+    }
+    return result;
+  }
+
+  public String reversePackage(final String name) {
+    List<String> elements = Arrays.<String>asList(name.split("\\."));
+    Collections.reverse(elements);
+    return IterableExtensions.join(elements, ".");
   }
 }

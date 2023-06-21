@@ -7,6 +7,13 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import metaModel.viewType.repository.Interface
+import org.eclipse.xtext.naming.QualifiedName
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EPackage
+import metaModel.viewType.NamedElement
+import java.util.Arrays
+import java.util.Collections
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +21,61 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class DslGenerator extends AbstractGenerator {
+	
+	final String JAVA_SUFFIX = ".java";
+	
+	EObject result
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for(interface: resource.allContents.toIterable.filter(Interface)) {
+			fsa.generateFile(interface.name + JAVA_SUFFIX, interface.compile)
+			
+		}
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
 	}
+	
+	def compile(Interface interfaceElement) '''
+		package «getPackage(interfaceElement)»
+		
+		public interface «interfaceElement.name» {
+			
+		}
+	'''
+	
+	def String getPackage(EObject object) {
+		var result = "";
+		var element = object.eContainer;
+		while(element !== null) {
+			if(element instanceof NamedElement) {
+				result = addSegment(result, element.name);
+			} else {
+				result = addSegment(result, element.eClass.name);
+			}
+			element  = element.eContainer;
+		}
+		
+		return reversePackage(result).toLowerCase() as String
+	}
+	
+	def String addSegment(String packageElement, String segment)  {
+		var result = packageElement;
+		if(segment !== null && !segment.isBlank()) {
+			if(!result.isEmpty()) {
+				result += ".";
+			}
+			result += segment.trim();
+		}
+		return result;
+	}
+	
+	def String reversePackage(String name) {
+		var elements = Arrays.asList(name.split("\\."));
+		Collections.reverse(elements); 
+		return elements.join(".");
+	}
+	
 }

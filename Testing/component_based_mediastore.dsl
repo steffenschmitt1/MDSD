@@ -1,6 +1,6 @@
 ComponentBasedSystem{
-	repositories{
-		Repository {
+	repositories{ 
+		Repository "Repository" {
 			components {
 				Component "WebBrowser" {},
 				Component "WebGUI" {
@@ -82,10 +82,10 @@ ComponentBasedSystem{
 	}
 	systems{
 		System {
-			provides ("HTTP")
+			provides ("Repository.HTTP")
 			encapsulatedInstances{
 				AssemblyContext "WebGUI" {
-					instantiatedComponent "WebGUI"
+					instantiatedComponent "Repository.WebGUI"
 					requires {
 						RequiredRole "WebGUI" {}
 					}
@@ -94,7 +94,7 @@ ComponentBasedSystem{
 					}
 				},
 				AssemblyContext "MediaManager" {
-					instantiatedComponent "MediaManager"
+					instantiatedComponent "Repository.MediaManager"
 					requires {
 						RequiredRole "MediaManagerDB" {},
 						RequiredRole "MediaManagerWaterMarking" {}
@@ -104,7 +104,7 @@ ComponentBasedSystem{
 					}
 				},
 				AssemblyContext "DBCache" {
-					instantiatedComponent "DBCache"
+					instantiatedComponent "Repository.DBCache"
 					requires {
 						RequiredRole "DBCache" {}
 					}
@@ -113,13 +113,13 @@ ComponentBasedSystem{
 					}
 				},
 				AssemblyContext "DigitalWatermarking" {
-					instantiatedComponent "DigitalWatermarking"
+					instantiatedComponent "Repository.DigitalWatermarking"
 					provides {
 						ProvidedRole "DigitalWatermarking" {}
 					}
 				},
 				AssemblyContext "MediaStore" {
-					instantiatedComponent "MediaStore"
+					instantiatedComponent "Repository.MediaStore"
 					requires {
 						RequiredRole "MediaStore" {}
 					}
@@ -128,7 +128,7 @@ ComponentBasedSystem{
 					}
 				},
 				AssemblyContext "PoolingAudioDB" {
-					instantiatedComponent "PoolingAudioDB"
+					instantiatedComponent "Repository.PoolingAudioDB"
 					requires {
 						RequiredRole "PoolingAudioDB" {}
 					}
@@ -139,11 +139,11 @@ ComponentBasedSystem{
 			}
 			delegationConnectors {
 				DelegationConnectorProvided {
-					linkedInterface "AudioDB"
+					linkedInterface "Repository.AudioDB"
 					linkdedRole "DBCache.DBCache"
 				},
 				DelegationConnectorRequired {
-					linkedInterface "MediaStore"
+					linkedInterface "Repository.MediaStore"
 					linkedRole "WebGUI.WebGUI"
 				}
 			}
