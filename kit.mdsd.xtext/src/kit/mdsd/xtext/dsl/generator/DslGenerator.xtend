@@ -40,33 +40,45 @@ class DslGenerator extends AbstractGenerator {
 			fsa.generateFile(getPackage(interface).replace(".", "/") + "/" +  getInterfaceName(interface) + JAVA_SUFFIX, interface.compile)	
 		}
 		for(component: resource.allContents.toIterable.filter(Component)) {
-			fsa.generateFile(getPackage(component).replace(".", "/") + "/" +  component.name + JAVA_SUFFIX, component.compile)	
+			fsa.generateFile(getPackage(component).replace(".", "/") + "/" +  getComponentName(component) + JAVA_SUFFIX, component.compile)	
 		}
 	}
 	
 	def compile(Component component) '''
-		package «component.name»;
-		public class «component.name»Impl «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
-			
-			«FOR interfaceElement:component.provides»
-				«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower»;
-			«ENDFOR»
-			«FOR interfaceElement:component.provides»
-				«FOR method:interfaceElement.signatures»
-					
-					//Implementing «method.name» from interface «getInterfaceName(interfaceElement)»
-					@Override 
-					public «getType(method.returnType)» «method.name»(«ListExtensions.map(method.parameters)[p | getType(p.type) + " " + p.name].join(", ")») {
-						// TODO: Insert code here
-					}
-				«ENDFOR»
-			«ENDFOR»
+		package «getPackage(component)»;
 		
-			«FOR interfaceElement:component.provides»
-				public void set«getInterfaceName(interfaceElement)»(«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower») {
-					this.«getInterfaceName(interfaceElement).toFirstLower» = «getInterfaceName(interfaceElement).toFirstLower»;
+		««« Imports
+		«FOR interfaceElement:component.requires»
+			import «getPackage(interfaceElement)».«getInterfaceName(interfaceElement)»;
+		«ENDFOR»
+		«FOR interfaceElement:component.provides»
+			import «getPackage(interfaceElement)».«getInterfaceName(interfaceElement)»;
+		«ENDFOR»
+		
+		public class «getComponentName(component)» «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
+		
+		««« Attributes
+		«FOR interfaceElement:component.requires»
+			«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower»;
+		«ENDFOR»
+		««« Methods
+		«FOR interfaceElement:component.provides»
+			«FOR method:interfaceElement.signatures»
+					
+				//Implementing «method.name» from interface «getInterfaceName(interfaceElement)»
+				@Override 
+				public «getType(method.returnType)» «method.name»(«ListExtensions.map(method.parameters)[p | getType(p.type) + " " + p.name].join(", ")») {
+					// TODO: Insert code here
 				}
 			«ENDFOR»
+		«ENDFOR»
+		
+		««« Setter
+		«FOR interfaceElement:component.requires»
+			public void set«getInterfaceName(interfaceElement)»(«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower») {
+				this.«getInterfaceName(interfaceElement).toFirstLower» = «getInterfaceName(interfaceElement).toFirstLower»;
+			}
+		«ENDFOR»
 		}
 	'''
 	
@@ -88,6 +100,15 @@ class DslGenerator extends AbstractGenerator {
 	'''
 	
 	def String getPackage(EObject object) {
+		if(object instanceof Interface) {
+			return "repository";
+		} else if (object instanceof Component) {
+			return object.name;
+		}
+		return "unsupportetElement"
+	}
+	
+	def String getPackageFull(EObject object) {
 		var result = "";
 		var element = object.eContainer;
 		while(element !== null) {
@@ -98,8 +119,12 @@ class DslGenerator extends AbstractGenerator {
 			}
 			element  = element.eContainer;
 		}
+		result = reversePackage(result);
+		if(object instanceof NamedElement) {
+			result = addSegment(result, object.name)
+		}
 		
-		return reversePackage(result).toLowerCase() as String
+		return result.toLowerCase() as String
 	}
 	
 	def String addSegment(String packageElement, String segment)  {
@@ -140,5 +165,9 @@ class DslGenerator extends AbstractGenerator {
 	
 	def String getInterfaceName(Interface interfaceElement) {
 		return "I" + interfaceElement.name;
+	}
+	
+	def String getComponentName(Component component) {
+		return component.name + "Impl";
 	}
 }
