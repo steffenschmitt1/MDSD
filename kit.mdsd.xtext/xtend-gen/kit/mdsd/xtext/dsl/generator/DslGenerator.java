@@ -8,7 +8,18 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import metaModel.viewType.NamedElement;
+import metaModel.viewType.repository.BooleanType;
+import metaModel.viewType.repository.CharType;
+import metaModel.viewType.repository.FloatType;
+import metaModel.viewType.repository.IntType;
 import metaModel.viewType.repository.Interface;
+import metaModel.viewType.repository.LongType;
+import metaModel.viewType.repository.Parameter;
+import metaModel.viewType.repository.Signature;
+import metaModel.viewType.repository.StringType;
+import metaModel.viewType.repository.Type;
+import metaModel.viewType.repository.VoidType;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -27,15 +38,16 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class DslGenerator extends AbstractGenerator {
   private final String JAVA_SUFFIX = ".java";
 
-  private EObject result;
-
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<Interface> _filter = Iterables.<Interface>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Interface.class);
     for (final Interface interface_ : _filter) {
+      String _replace = this.getPackage(interface_).replace(".", "/");
+      String _plus = (_replace + "/");
       String _name = interface_.getName();
-      String _plus = (_name + this.JAVA_SUFFIX);
-      fsa.generateFile(_plus, this.compile(interface_));
+      String _plus_1 = (_plus + _name);
+      String _plus_2 = (_plus_1 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_2, this.compile(interface_));
     }
   }
 
@@ -53,8 +65,36 @@ public class DslGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
+    {
+      EList<Signature> _signatures = interfaceElement.getSignatures();
+      for(final Signature signature : _signatures) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(signature);
+        _builder.append(_compile, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence compile(final Signature signature) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _type = this.getType(signature.getReturnType());
+    _builder.append(_type);
+    _builder.append(" ");
+    String _name = signature.getName();
+    _builder.append(_name);
+    _builder.append(" (");
+    String _parameters = this.getParameters(signature.getParameters());
+    _builder.append(_parameters);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
 
@@ -95,5 +135,57 @@ public class DslGenerator extends AbstractGenerator {
     List<String> elements = Arrays.<String>asList(name.split("\\."));
     Collections.reverse(elements);
     return IterableExtensions.join(elements, ".");
+  }
+
+  public String getType(final Type type) {
+    if ((type instanceof StringType)) {
+      return "String";
+    } else {
+      if ((type instanceof VoidType)) {
+        return "void";
+      } else {
+        if ((type instanceof BooleanType)) {
+          return "boolean";
+        } else {
+          if ((type instanceof IntType)) {
+            return "int";
+          } else {
+            if ((type instanceof FloatType)) {
+              return "float";
+            } else {
+              if ((type instanceof LongType)) {
+                return "long";
+              } else {
+                if ((type instanceof CharType)) {
+                  return "char";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return "undefinedType";
+  }
+
+  public String getParameters(final EList<Parameter> parameters) {
+    String result = "";
+    for (int i = 0; (i < parameters.size()); i++) {
+      {
+        String _result = result;
+        String _type = this.getType(parameters.get(i).getType());
+        String _plus = (_type + " ");
+        String _name = parameters.get(i).getName();
+        String _plus_1 = (_plus + _name);
+        result = (_result + _plus_1);
+        int _size = parameters.size();
+        boolean _lessThan = ((i + 1) < _size);
+        if (_lessThan) {
+          String _result_1 = result;
+          result = (_result_1 + ", ");
+        }
+      }
+    }
+    return result;
   }
 }

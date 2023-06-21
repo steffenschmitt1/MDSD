@@ -8,12 +8,21 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import metaModel.viewType.repository.Interface
-import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EPackage
 import metaModel.viewType.NamedElement
 import java.util.Arrays
 import java.util.Collections
+import metaModel.viewType.repository.Signature
+import metaModel.viewType.repository.Type
+import metaModel.viewType.repository.BooleanType
+import metaModel.viewType.repository.StringType
+import metaModel.viewType.repository.IntType
+import metaModel.viewType.repository.VoidType
+import metaModel.viewType.repository.Parameter
+import org.eclipse.emf.common.util.EList
+import metaModel.viewType.repository.FloatType
+import metaModel.viewType.repository.LongType
+import metaModel.viewType.repository.CharType
 
 /**
  * Generates code from your model files on save.
@@ -24,18 +33,10 @@ class DslGenerator extends AbstractGenerator {
 	
 	final String JAVA_SUFFIX = ".java";
 	
-	EObject result
-
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for(interface: resource.allContents.toIterable.filter(Interface)) {
-			fsa.generateFile(interface.name + JAVA_SUFFIX, interface.compile)
-			
+			fsa.generateFile(getPackage(interface).replace(".", "/") + "/" +  interface.name + JAVA_SUFFIX, interface.compile)	
 		}
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
 	}
 	
 	def compile(Interface interfaceElement) '''
@@ -43,7 +44,16 @@ class DslGenerator extends AbstractGenerator {
 		
 		public interface «interfaceElement.name» {
 			
+			«FOR signature:interfaceElement.signatures»
+			 	«signature.compile»
+			 	
+			«ENDFOR»
+			
 		}
+	'''
+	
+	def compile(Signature signature) '''
+		«getType(signature.returnType)» «signature.name» («getParameters(signature.parameters)»);
 	'''
 	
 	def String getPackage(EObject object) {
@@ -76,6 +86,37 @@ class DslGenerator extends AbstractGenerator {
 		var elements = Arrays.asList(name.split("\\."));
 		Collections.reverse(elements); 
 		return elements.join(".");
+	}
+	
+	def String getType(Type type) {
+		if( type instanceof StringType) {
+			return "String"
+		} else if(type instanceof VoidType) {
+			return "void";
+		} else if(type instanceof BooleanType) {
+			return "boolean";
+		} else if(type instanceof IntType) {
+			return "int";
+		} else if(type instanceof FloatType) {
+			return "float";
+		} else if(type instanceof LongType) {
+			return "long";
+		} else if(type instanceof CharType) {
+			return "char";
+		}
+		return "undefinedType"
+	}
+	
+	def String getParameters(EList<Parameter> parameters) {
+		var result = "";
+		for(var i = 0; i < parameters.size(); i++) {
+			result += getType(parameters.get(i).type) + " " + parameters.get(i).name;
+			if(i + 1 < parameters.size()) {
+				result += ", ";
+			}
+		}
+		
+		return result;
 	}
 	
 }

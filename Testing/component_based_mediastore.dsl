@@ -1,5 +1,5 @@
 ComponentBasedSystem{
-	repositories{ 
+	repositories{
 		Repository "Repository" {
 			components {
 				Component "WebBrowser" {},
@@ -27,11 +27,19 @@ ComponentBasedSystem{
 				}
 			}
 			interfaces {
-				Interface "HTTP" {
+				Interface "HTTP" { 
 					signatures {
-						Signature "HTTPDownload" {
+						Signature "HTTPDownload" {	
 							returnType VoidType
-						},
+							parameters {
+								Parameter "testparam" {
+									type StringType {}
+								},
+								Parameter "testparam2" {
+									type IntType {}
+								}
+							}
+						}, 
 						Signature "HTTPUpload" {
 							returnType VoidType
 						}
