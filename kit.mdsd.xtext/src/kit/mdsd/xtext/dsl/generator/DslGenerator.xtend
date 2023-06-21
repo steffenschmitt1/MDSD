@@ -45,8 +45,8 @@ class DslGenerator extends AbstractGenerator {
 	}
 	
 	def compile(Component component) '''
-		package «getPackage(component)»;
-		public class «component.name» «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
+		package «component.name»;
+		public class «component.name»Impl «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
 			
 			«FOR interfaceElement:component.provides»
 				«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower»;
