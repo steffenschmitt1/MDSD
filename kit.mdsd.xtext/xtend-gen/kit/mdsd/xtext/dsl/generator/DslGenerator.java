@@ -10,6 +10,7 @@ import java.util.List;
 import metaModel.viewType.NamedElement;
 import metaModel.viewType.repository.BooleanType;
 import metaModel.viewType.repository.CharType;
+import metaModel.viewType.repository.Component;
 import metaModel.viewType.repository.FloatType;
 import metaModel.viewType.repository.IntType;
 import metaModel.viewType.repository.Interface;
@@ -26,8 +27,11 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -44,11 +48,145 @@ public class DslGenerator extends AbstractGenerator {
     for (final Interface interface_ : _filter) {
       String _replace = this.getPackage(interface_).replace(".", "/");
       String _plus = (_replace + "/");
-      String _name = interface_.getName();
-      String _plus_1 = (_plus + _name);
+      String _interfaceName = this.getInterfaceName(interface_);
+      String _plus_1 = (_plus + _interfaceName);
       String _plus_2 = (_plus_1 + this.JAVA_SUFFIX);
       fsa.generateFile(_plus_2, this.compile(interface_));
     }
+    Iterable<Component> _filter_1 = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
+    for (final Component component : _filter_1) {
+      String _replace_1 = this.getPackage(component).replace(".", "/");
+      String _plus_3 = (_replace_1 + "/");
+      String _name = component.getName();
+      String _plus_4 = (_plus_3 + _name);
+      String _plus_5 = (_plus_4 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_5, this.compile(component));
+    }
+  }
+
+  public CharSequence compile(final Component component) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(component);
+    _builder.append(_package);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public class ");
+    String _name = component.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    String _xifexpression = null;
+    int _size = component.getProvides().size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      _xifexpression = "";
+    } else {
+      final Function1<Interface, String> _function = (Interface i) -> {
+        return this.getInterfaceName(i);
+      };
+      String _join = IterableExtensions.join(ListExtensions.<Interface, String>map(component.getProvides(), _function), ", ");
+      _xifexpression = ("implements " + _join);
+    }
+    _builder.append(_xifexpression);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Interface> _provides = component.getProvides();
+      for(final Interface interfaceElement : _provides) {
+        _builder.append("\t");
+        String _interfaceName = this.getInterfaceName(interfaceElement);
+        _builder.append(_interfaceName, "\t");
+        _builder.append(" ");
+        String _firstLower = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement));
+        _builder.append(_firstLower, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Interface> _provides_1 = component.getProvides();
+      for(final Interface interfaceElement_1 : _provides_1) {
+        {
+          EList<Signature> _signatures = interfaceElement_1.getSignatures();
+          for(final Signature method : _signatures) {
+            _builder.append("\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("//Implementing ");
+            String _name_1 = method.getName();
+            _builder.append(_name_1, "\t");
+            _builder.append(" from interface ");
+            String _interfaceName_1 = this.getInterfaceName(interfaceElement_1);
+            _builder.append(_interfaceName_1, "\t");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("@Override ");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("public ");
+            String _type = this.getType(method.getReturnType());
+            _builder.append(_type, "\t");
+            _builder.append(" ");
+            String _name_2 = method.getName();
+            _builder.append(_name_2, "\t");
+            _builder.append("(");
+            final Function1<Parameter, String> _function_1 = (Parameter p) -> {
+              String _type_1 = this.getType(p.getType());
+              String _plus = (_type_1 + " ");
+              String _name_3 = p.getName();
+              return (_plus + _name_3);
+            };
+            String _join_1 = IterableExtensions.join(ListExtensions.<Parameter, String>map(method.getParameters(), _function_1), ", ");
+            _builder.append(_join_1, "\t");
+            _builder.append(") {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("// TODO: Insert code here");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("}");
+            _builder.newLine();
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    {
+      EList<Interface> _provides_2 = component.getProvides();
+      for(final Interface interfaceElement_2 : _provides_2) {
+        _builder.append("\t");
+        _builder.append("public void set");
+        String _interfaceName_2 = this.getInterfaceName(interfaceElement_2);
+        _builder.append(_interfaceName_2, "\t");
+        _builder.append("(");
+        String _interfaceName_3 = this.getInterfaceName(interfaceElement_2);
+        _builder.append(_interfaceName_3, "\t");
+        _builder.append(" ");
+        String _firstLower_1 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_2));
+        _builder.append(_firstLower_1, "\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _firstLower_2 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_2));
+        _builder.append(_firstLower_2, "\t\t");
+        _builder.append(" = ");
+        String _firstLower_3 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_2));
+        _builder.append(_firstLower_3, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
 
   public CharSequence compile(final Interface interfaceElement) {
@@ -56,11 +194,12 @@ public class DslGenerator extends AbstractGenerator {
     _builder.append("package ");
     String _package = this.getPackage(interfaceElement);
     _builder.append(_package);
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public interface ");
-    String _name = interfaceElement.getName();
-    _builder.append(_name);
+    String _interfaceName = this.getInterfaceName(interfaceElement);
+    _builder.append(_interfaceName);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -76,8 +215,6 @@ public class DslGenerator extends AbstractGenerator {
         _builder.newLine();
       }
     }
-    _builder.append("\t");
-    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -91,8 +228,14 @@ public class DslGenerator extends AbstractGenerator {
     String _name = signature.getName();
     _builder.append(_name);
     _builder.append(" (");
-    String _parameters = this.getParameters(signature.getParameters());
-    _builder.append(_parameters);
+    final Function1<Parameter, String> _function = (Parameter p) -> {
+      String _type_1 = this.getType(p.getType());
+      String _plus = (_type_1 + " ");
+      String _name_1 = p.getName();
+      return (_plus + _name_1);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Parameter, String>map(signature.getParameters(), _function), ", ");
+    _builder.append(_join);
     _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -168,24 +311,8 @@ public class DslGenerator extends AbstractGenerator {
     return "undefinedType";
   }
 
-  public String getParameters(final EList<Parameter> parameters) {
-    String result = "";
-    for (int i = 0; (i < parameters.size()); i++) {
-      {
-        String _result = result;
-        String _type = this.getType(parameters.get(i).getType());
-        String _plus = (_type + " ");
-        String _name = parameters.get(i).getName();
-        String _plus_1 = (_plus + _name);
-        result = (_result + _plus_1);
-        int _size = parameters.size();
-        boolean _lessThan = ((i + 1) < _size);
-        if (_lessThan) {
-          String _result_1 = result;
-          result = (_result_1 + ", ");
-        }
-      }
-    }
-    return result;
+  public String getInterfaceName(final Interface interfaceElement) {
+    String _name = interfaceElement.getName();
+    return ("I" + _name);
   }
 }

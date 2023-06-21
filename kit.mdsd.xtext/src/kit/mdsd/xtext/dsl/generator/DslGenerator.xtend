@@ -23,6 +23,8 @@ import org.eclipse.emf.common.util.EList
 import metaModel.viewType.repository.FloatType
 import metaModel.viewType.repository.LongType
 import metaModel.viewType.repository.CharType
+import metaModel.viewType.repository.Component
+import java.awt.Component.BaselineResizeBehavior
 
 /**
  * Generates code from your model files on save.
@@ -35,25 +37,54 @@ class DslGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for(interface: resource.allContents.toIterable.filter(Interface)) {
-			fsa.generateFile(getPackage(interface).replace(".", "/") + "/" +  interface.name + JAVA_SUFFIX, interface.compile)	
+			fsa.generateFile(getPackage(interface).replace(".", "/") + "/" +  getInterfaceName(interface) + JAVA_SUFFIX, interface.compile)	
+		}
+		for(component: resource.allContents.toIterable.filter(Component)) {
+			fsa.generateFile(getPackage(component).replace(".", "/") + "/" +  component.name + JAVA_SUFFIX, component.compile)	
 		}
 	}
 	
-	def compile(Interface interfaceElement) '''
-		package «getPackage(interfaceElement)»
+	def compile(Component component) '''
+		package «getPackage(component)»;
+		public class «component.name» «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
+			
+			«FOR interfaceElement:component.provides»
+				«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower»;
+			«ENDFOR»
+			«FOR interfaceElement:component.provides»
+				«FOR method:interfaceElement.signatures»
+					
+					//Implementing «method.name» from interface «getInterfaceName(interfaceElement)»
+					@Override 
+					public «getType(method.returnType)» «method.name»(«ListExtensions.map(method.parameters)[p | getType(p.type) + " " + p.name].join(", ")») {
+						// TODO: Insert code here
+					}
+				«ENDFOR»
+			«ENDFOR»
 		
-		public interface «interfaceElement.name» {
+			«FOR interfaceElement:component.provides»
+				public void set«getInterfaceName(interfaceElement)»(«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower») {
+					this.«getInterfaceName(interfaceElement).toFirstLower» = «getInterfaceName(interfaceElement).toFirstLower»;
+				}
+			«ENDFOR»
+		}
+	'''
+	
+	
+	def compile(Interface interfaceElement) '''
+		package «getPackage(interfaceElement)»;
+		
+		public interface «getInterfaceName(interfaceElement)» {
 			
 			«FOR signature:interfaceElement.signatures»
 			 	«signature.compile»
 			 	
 			«ENDFOR»
-			
 		}
 	'''
 	
 	def compile(Signature signature) '''
-		«getType(signature.returnType)» «signature.name» («getParameters(signature.parameters)»);
+		«getType(signature.returnType)» «signature.name» («ListExtensions.map(signature.parameters)[p | getType(p.type) + " " + p.name].join(", ")»);
 	'''
 	
 	def String getPackage(EObject object) {
@@ -107,16 +138,7 @@ class DslGenerator extends AbstractGenerator {
 		return "undefinedType"
 	}
 	
-	def String getParameters(EList<Parameter> parameters) {
-		var result = "";
-		for(var i = 0; i < parameters.size(); i++) {
-			result += getType(parameters.get(i).type) + " " + parameters.get(i).name;
-			if(i + 1 < parameters.size()) {
-				result += ", ";
-			}
-		}
-		
-		return result;
+	def String getInterfaceName(Interface interfaceElement) {
+		return "I" + interfaceElement.name;
 	}
-	
 }

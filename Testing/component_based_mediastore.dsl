@@ -5,7 +5,7 @@ ComponentBasedSystem{
 				Component "WebBrowser" {},
 				Component "WebGUI" {
 					requires("MediaStore")
-					provides ("HTTP") 
+					provides ("HTTP")
 				},
 				Component "MediaManager" {
 					requires("Sound", "AudioDB")
@@ -27,7 +27,7 @@ ComponentBasedSystem{
 				}
 			}
 			interfaces {
-				Interface "HTTP" { 
+				Interface "HTTP" {
 					signatures {
 						Signature "HTTPDownload" {	
 							returnType VoidType
@@ -39,7 +39,7 @@ ComponentBasedSystem{
 									type IntType {}
 								}
 							}
-						}, 
+						},
 						Signature "HTTPUpload" {
 							returnType VoidType
 						}
@@ -83,7 +83,7 @@ ComponentBasedSystem{
 			}
 			links{
 				Link "ServerDBServer" {
-					containers ("Application Server","DatabaseServer") 
+					containers ("Application Server","DatabaseServer")
 				}
 			}
 		}
