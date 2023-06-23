@@ -3,10 +3,36 @@
  */
 package kit.mdsd.xtext.dsl.generator;
 
+import com.google.common.collect.Iterables;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import metaModel.viewType.NamedElement;
+import metaModel.viewType.repository.BooleanType;
+import metaModel.viewType.repository.CharType;
+import metaModel.viewType.repository.Component;
+import metaModel.viewType.repository.FloatType;
+import metaModel.viewType.repository.IntType;
+import metaModel.viewType.repository.Interface;
+import metaModel.viewType.repository.LongType;
+import metaModel.viewType.repository.Parameter;
+import metaModel.viewType.repository.Repository;
+import metaModel.viewType.repository.Signature;
+import metaModel.viewType.repository.StringType;
+import metaModel.viewType.repository.Type;
+import metaModel.viewType.repository.VoidType;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +41,406 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class DslGenerator extends AbstractGenerator {
+  private final String JAVA_SUFFIX = ".java";
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Repository> _filter = Iterables.<Repository>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Repository.class);
+    for (final Repository repository : _filter) {
+      String _replace = this.getPackage(repository).replace(".", "/");
+      String _plus = (_replace + "/");
+      String _plus_1 = (_plus + "Helper");
+      String _plus_2 = (_plus_1 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_2, this.compile(repository));
+    }
+    Iterable<Interface> _filter_1 = Iterables.<Interface>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Interface.class);
+    for (final Interface interface_ : _filter_1) {
+      String _replace_1 = this.getPackage(interface_).replace(".", "/");
+      String _plus_3 = (_replace_1 + "/");
+      String _interfaceName = this.getInterfaceName(interface_);
+      String _plus_4 = (_plus_3 + _interfaceName);
+      String _plus_5 = (_plus_4 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_5, this.compile(interface_));
+    }
+    Iterable<Component> _filter_2 = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
+    for (final Component component : _filter_2) {
+      String _replace_2 = this.getPackage(component).replace(".", "/");
+      String _plus_6 = (_replace_2 + "/");
+      String _componentName = this.getComponentName(component);
+      String _plus_7 = (_plus_6 + _componentName);
+      String _plus_8 = (_plus_7 + this.JAVA_SUFFIX);
+      fsa.generateFile(_plus_8, this.compile(component));
+    }
+  }
+
+  public CharSequence compile(final Component component) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(component);
+    _builder.append(_package);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    {
+      EList<Interface> _requires = component.getRequires();
+      for(final Interface interfaceElement : _requires) {
+        _builder.append("import ");
+        String _package_1 = this.getPackage(interfaceElement);
+        _builder.append(_package_1);
+        _builder.append(".");
+        String _interfaceName = this.getInterfaceName(interfaceElement);
+        _builder.append(_interfaceName);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Interface> _provides = component.getProvides();
+      for(final Interface interfaceElement_1 : _provides) {
+        _builder.append("import ");
+        String _package_2 = this.getPackage(interfaceElement_1);
+        _builder.append(_package_2);
+        _builder.append(".");
+        String _interfaceName_1 = this.getInterfaceName(interfaceElement_1);
+        _builder.append(_interfaceName_1);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      int _size = component.getRequires().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("import ");
+        String _package_3 = this.getPackage(component.eContainer());
+        _builder.append(_package_3);
+        _builder.append(".Helper;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    _builder.append("public class ");
+    String _componentName = this.getComponentName(component);
+    _builder.append(_componentName);
+    _builder.append(" ");
+    String _xifexpression = null;
+    int _size_1 = component.getProvides().size();
+    boolean _equals = (_size_1 == 0);
+    if (_equals) {
+      _xifexpression = "";
+    } else {
+      final Function1<Interface, String> _function = (Interface i) -> {
+        return this.getInterfaceName(i);
+      };
+      String _join = IterableExtensions.join(ListExtensions.<Interface, String>map(component.getProvides(), _function), ", ");
+      _xifexpression = ("implements " + _join);
+    }
+    _builder.append(_xifexpression);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    {
+      EList<Interface> _requires_1 = component.getRequires();
+      for(final Interface interfaceElement_2 : _requires_1) {
+        String _interfaceName_2 = this.getInterfaceName(interfaceElement_2);
+        _builder.append(_interfaceName_2);
+        _builder.append(" ");
+        String _firstLower = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_2));
+        _builder.append(_firstLower);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Interface> _provides_1 = component.getProvides();
+      for(final Interface interfaceElement_3 : _provides_1) {
+        {
+          EList<Signature> _signatures = interfaceElement_3.getSignatures();
+          for(final Signature method : _signatures) {
+            _builder.newLine();
+            _builder.append("//Implementing ");
+            String _name = method.getName();
+            _builder.append(_name);
+            _builder.append(" from interface ");
+            String _interfaceName_3 = this.getInterfaceName(interfaceElement_3);
+            _builder.append(_interfaceName_3);
+            _builder.newLineIfNotEmpty();
+            _builder.append("@Override ");
+            _builder.newLine();
+            _builder.append("public ");
+            String _type = this.getType(method.getReturnType());
+            _builder.append(_type);
+            _builder.append(" ");
+            String _name_1 = method.getName();
+            _builder.append(_name_1);
+            _builder.append("(");
+            final Function1<Parameter, String> _function_1 = (Parameter p) -> {
+              String _type_1 = this.getType(p.getType());
+              String _plus = (_type_1 + " ");
+              String _name_2 = p.getName();
+              return (_plus + _name_2);
+            };
+            String _join_1 = IterableExtensions.join(ListExtensions.<Parameter, String>map(method.getParameters(), _function_1), ", ");
+            _builder.append(_join_1);
+            _builder.append(") {");
+            _builder.newLineIfNotEmpty();
+            {
+              EList<Interface> _requires_2 = component.getRequires();
+              for(final Interface interfaceElement2 : _requires_2) {
+                _builder.append("Helper.assertNotNull(");
+                String _firstLower_1 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement2));
+                _builder.append(_firstLower_1);
+                _builder.append(");");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t");
+            _builder.append("// TODO: Insert code here");
+            _builder.newLine();
+            _builder.append("}");
+            _builder.newLine();
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    {
+      EList<Interface> _requires_3 = component.getRequires();
+      for(final Interface interfaceElement_4 : _requires_3) {
+        _builder.append("public void set");
+        String _interfaceName_4 = this.getInterfaceName(interfaceElement_4);
+        _builder.append(_interfaceName_4);
+        _builder.append("(");
+        String _interfaceName_5 = this.getInterfaceName(interfaceElement_4);
+        _builder.append(_interfaceName_5);
+        _builder.append(" ");
+        String _firstLower_2 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_2);
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("Helper.assertNull(");
+        String _firstLower_3 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_3, "\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("this.");
+        String _firstLower_4 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_4, "\t");
+        _builder.append(" = ");
+        String _firstLower_5 = StringExtensions.toFirstLower(this.getInterfaceName(interfaceElement_4));
+        _builder.append(_firstLower_5, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence compile(final Interface interfaceElement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(interfaceElement);
+    _builder.append(_package);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public interface ");
+    String _interfaceName = this.getInterfaceName(interfaceElement);
+    _builder.append(_interfaceName);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Signature> _signatures = interfaceElement.getSignatures();
+      for(final Signature signature : _signatures) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(signature);
+        _builder.append(_compile, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence compile(final Repository repository) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    String _package = this.getPackage(repository);
+    _builder.append(_package);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public class Helper {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void assertNotNull(Object object) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(object == null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new NullPointerException();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static void assertNull(Object object) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if(object != null) {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("throw new IllegalArgumentException();");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence compile(final Signature signature) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _type = this.getType(signature.getReturnType());
+    _builder.append(_type);
+    _builder.append(" ");
+    String _name = signature.getName();
+    _builder.append(_name);
+    _builder.append(" (");
+    final Function1<Parameter, String> _function = (Parameter p) -> {
+      String _type_1 = this.getType(p.getType());
+      String _plus = (_type_1 + " ");
+      String _name_1 = p.getName();
+      return (_plus + _name_1);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Parameter, String>map(signature.getParameters(), _function), ", ");
+    _builder.append(_join);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  public String getPackage(final EObject object) {
+    if ((object instanceof Interface)) {
+      return "repository";
+    } else {
+      if ((object instanceof Component)) {
+        return ((Component)object).getName();
+      } else {
+        if ((object instanceof Repository)) {
+          return "repository";
+        }
+      }
+    }
+    return "unsupportetElement";
+  }
+
+  public String getPackageFull(final EObject object) {
+    String result = "";
+    EObject element = object.eContainer();
+    while ((element != null)) {
+      {
+        if ((element instanceof NamedElement)) {
+          result = this.addSegment(result, ((NamedElement)element).getName());
+        } else {
+          result = this.addSegment(result, element.eClass().getName());
+        }
+        element = element.eContainer();
+      }
+    }
+    result = this.reversePackage(result);
+    if ((object instanceof NamedElement)) {
+      result = this.addSegment(result, ((NamedElement)object).getName());
+    }
+    String _lowerCase = result.toLowerCase();
+    return ((String) _lowerCase);
+  }
+
+  public String addSegment(final String packageElement, final String segment) {
+    String result = packageElement;
+    if (((segment != null) && (!segment.isBlank()))) {
+      boolean _isEmpty = result.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        String _result = result;
+        result = (_result + ".");
+      }
+      String _result_1 = result;
+      String _trim = segment.trim();
+      result = (_result_1 + _trim);
+    }
+    return result;
+  }
+
+  public String reversePackage(final String name) {
+    List<String> elements = Arrays.<String>asList(name.split("\\."));
+    Collections.reverse(elements);
+    return IterableExtensions.join(elements, ".");
+  }
+
+  public String getType(final Type type) {
+    if ((type instanceof StringType)) {
+      return "String";
+    } else {
+      if ((type instanceof VoidType)) {
+        return "void";
+      } else {
+        if ((type instanceof BooleanType)) {
+          return "boolean";
+        } else {
+          if ((type instanceof IntType)) {
+            return "int";
+          } else {
+            if ((type instanceof FloatType)) {
+              return "float";
+            } else {
+              if ((type instanceof LongType)) {
+                return "long";
+              } else {
+                if ((type instanceof CharType)) {
+                  return "char";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return "undefinedType";
+  }
+
+  public String getInterfaceName(final Interface interfaceElement) {
+    String _name = interfaceElement.getName();
+    return ("I" + _name);
+  }
+
+  public String getComponentName(final Component component) {
+    String _name = component.getName();
+    return (_name + "Impl");
   }
 }

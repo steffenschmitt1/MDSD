@@ -709,7 +709,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Repository returns Repository
 	 *
 	 * Constraint:
-	 *     ((components+=Component components+=Component*)? (interfaces+=Interface interfaces+=Interface*)?)
+	 *     (name=EString (components+=Component components+=Component*)? (interfaces+=Interface interfaces+=Interface*)?)
 	 * </pre>
 	 */
 	protected void sequence_Repository(ISerializationContext context, Repository semanticObject) {

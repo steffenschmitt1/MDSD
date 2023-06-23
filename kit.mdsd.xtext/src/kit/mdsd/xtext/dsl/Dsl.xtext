@@ -52,6 +52,7 @@ ParameterType returns repository::ParameterType:
 Repository returns repository::Repository:
 	{repository::Repository}
 	'Repository'
+	name=EString
 	'{'
 		('components' '{' components+=Component ( "," components+=Component)* '}' )?
 		('interfaces' '{' interfaces+=Interface ( "," interfaces+=Interface)* '}' )?
