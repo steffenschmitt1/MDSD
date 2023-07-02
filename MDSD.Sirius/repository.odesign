@@ -9,7 +9,7 @@
         <nodeMappings label="Interface" domainClass="Interface"/>
         <nodeMappings label="Signature" domainClass="Signature"/>
         <nodeMappings label="ProvidedRole" domainClass="ProvidedRole"/>
-        <nodeMappings/>
+        <nodeMappings label="RequiredRole" domainClass="RequiredRole"/>
       </additionalLayers>
     </ownedRepresentations>
   </ownedViewpoints>
