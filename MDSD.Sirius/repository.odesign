@@ -1,15 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" name="repository" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="repository" version="12.0.0.2017041100">
   <ownedViewpoints>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
       <defaultLayer name="Default"/>
       <additionalLayers label="Repository">
-        <nodeMappings label="Component" domainClass="Component"/>
-        <nodeMappings label="CompositeComponent" domainClass="CompositeComponent"/>
-        <nodeMappings label="Interface" domainClass="Interface"/>
-        <nodeMappings label="Signature" domainClass="Signature"/>
-        <nodeMappings label="ProvidedRole" domainClass="ProvidedRole"/>
-        <nodeMappings label="RequiredRole" domainClass="RequiredRole"/>
+        <nodeMappings name="node-Component" label="Component" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-Component']" semanticCandidatesExpression="aql:self.eAllContents(repository::Component)" domainClass="repository::Component"/>
+        <nodeMappings name="node-CompositeComponent" label="CompositeComponent" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-CompositeComponent']" semanticCandidatesExpression="aql:self.eAllContents(assembly::CompositeComponent)" domainClass="assembly::CompositeComponent"/>
+        <nodeMappings name="node-Interface" label="Interface" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-Interface']" semanticCandidatesExpression="aql:self.eAllContents(repository::Interface)" domainClass="repository::Interface"/>
+        <nodeMappings name="node-Signature" label="Signature" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-Signature']" semanticCandidatesExpression="aql:self.eAllContents(repository::Signature)" domainClass="repository::Signature"/>
+        <nodeMappings name="node-ProvidedRole" label="ProvidedRole" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-ProvidedRole']" semanticCandidatesExpression="aql:self.eAllContents(assembly::ProvidedRole)" domainClass="assembly::ProvidedRole"/>
+        <nodeMappings name="node-RequiredRole" label="RequiredRole" deletionDescription="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@toolSections.0/@ownedTools[name='delete-RequiredRole']" semanticCandidatesExpression="aql:self.eAllContents(assembly::RequiredRole)" domainClass="assembly::RequiredRole"/>
+        <toolSections>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Component" label="create-Component" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-Component']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-CompositeComponent" label="create-CompositeComponent" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-CompositeComponent']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Interface" label="create-Interface" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-Interface']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Signature" label="create-Signature" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-Signature']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-ProvidedRole" label="create-ProvidedRole" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-ProvidedRole']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-RequiredRole" label="create-RequiredRole" nodeMappings="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@additionalLayers[name='']/@nodeMappings[name='node-RequiredRole']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Component">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-CompositeComponent">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Interface">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Signature">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-ProvidedRole">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-RequiredRole">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
     </ownedRepresentations>
   </ownedViewpoints>
