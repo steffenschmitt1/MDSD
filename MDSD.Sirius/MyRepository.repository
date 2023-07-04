@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="ASCII"?>
-<metaModel.viewType.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository"/>
+<metaModel.viewType.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" name="New Container"/>
