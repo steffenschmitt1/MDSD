@@ -4,7 +4,7 @@
     <semanticResources>MyRepository.repository</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Ra33wBp8Ee6Es_SjV3cWPg">
       <viewpoint xmi:type="description:Viewpoint" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ti1oABp8Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_tig34Bp8Ee6Es_SjV3cWPg" changeId="1688485524654">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ti1oABp8Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_tig34Bp8Ee6Es_SjV3cWPg" changeId="1688485581904">
         <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
         <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
       </ownedRepresentationDescriptors>
