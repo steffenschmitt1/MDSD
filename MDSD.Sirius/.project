@@ -3,6 +3,7 @@
 	<name>MDSD.Sirius</name>
 	<comment></comment>
 	<projects>
+		<project>MDSD</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
