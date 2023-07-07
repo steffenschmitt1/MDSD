@@ -18,14 +18,13 @@ import metaModel.viewType.repository.BooleanType
 import metaModel.viewType.repository.StringType
 import metaModel.viewType.repository.IntType
 import metaModel.viewType.repository.VoidType
-import metaModel.viewType.repository.Parameter
-import org.eclipse.emf.common.util.EList
 import metaModel.viewType.repository.FloatType
 import metaModel.viewType.repository.LongType
 import metaModel.viewType.repository.CharType
 import metaModel.viewType.repository.Component
-import java.awt.Component.BaselineResizeBehavior
 import metaModel.viewType.repository.Repository
+import java.util.Collection
+import java.util.HashSet
 
 /**
  * Generates code from your model files on save.
@@ -48,14 +47,11 @@ class DslGenerator extends AbstractGenerator {
 		}
 	}
 	
-	def compile(Component component) '''
+    def compile(Component component) '''
 		package «getPackage(component)»;
 		
 		««« Imports
-		«FOR interfaceElement:component.requires»
-			import «getPackage(interfaceElement)».«getInterfaceName(interfaceElement)»;
-		«ENDFOR»
-		«FOR interfaceElement:component.provides»
+		«FOR interfaceElement:getRequiredInterfaces(component)»
 			import «getPackage(interfaceElement)».«getInterfaceName(interfaceElement)»;
 		«ENDFOR»
 		«IF component.requires.size > 0»
@@ -63,28 +59,28 @@ class DslGenerator extends AbstractGenerator {
 		«ENDIF»
 		
 		public class «getComponentName(component)» «component.provides.size() == 0 ? "" : ("implements " + ListExtensions.map(component.provides)[i | getInterfaceName(i)].join(", "))» {
-		
 			««« Attributes
 			«FOR interfaceElement:component.requires»
+			
 				«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower»;
 			«ENDFOR»
 			««« Methods
-			«FOR interfaceElement:component.provides»
-				«FOR method:interfaceElement.signatures»
+				«FOR interfaceElement:component.provides»
+					«FOR method:interfaceElement.signatures»
 					
-					//Implementing «method.name» from interface «getInterfaceName(interfaceElement)»
-					@Override 
-					public «getType(method.returnType)» «method.name»(«ListExtensions.map(method.parameters)[p | getType(p.type) + " " + p.name].join(", ")») {
-					«FOR interfaceElement2:component.requires»
-						Helper.assertNotNull(«getInterfaceName(interfaceElement2).toFirstLower»);
-					«ENDFOR»
-						// TODO: Insert code here
-					}
+						//Implementing «method.name» from interface «getInterfaceName(interfaceElement)»
+						@Override 
+						public «getType(method.returnType)» «method.name»(«ListExtensions.map(method.parameters)[p | getType(p.type) + " " + p.name].join(", ")») {
+							«FOR interfaceElement2:component.requires»
+								Helper.assertNotNull(«getInterfaceName(interfaceElement2).toFirstLower»);
+							«ENDFOR»
+							// TODO: Insert code here
+						}
 				«ENDFOR»
 			«ENDFOR»
-		
 			««« Setter
 			«FOR interfaceElement:component.requires»
+			
 				public void set«getInterfaceName(interfaceElement)»(«getInterfaceName(interfaceElement)» «getInterfaceName(interfaceElement).toFirstLower») {
 					Helper.assertNull(«getInterfaceName(interfaceElement).toFirstLower»);
 					this.«getInterfaceName(interfaceElement).toFirstLower» = «getInterfaceName(interfaceElement).toFirstLower»;
@@ -202,5 +198,12 @@ class DslGenerator extends AbstractGenerator {
 	
 	def String getComponentName(Component component) {
 		return component.name + "Impl";
+	}
+	
+	def Collection<Interface> getRequiredInterfaces(Component component) {
+		var interfaces = new HashSet<Interface>();
+		interfaces.addAll(component.requires);
+		interfaces.addAll(component.provides);
+		return interfaces;
 	}
 }
