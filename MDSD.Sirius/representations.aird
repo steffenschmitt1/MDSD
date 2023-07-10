@@ -1,332 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://metaModel/viewType/repository http://metaModel#//viewType/repository">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:metaModel.viewType.assembly="http://metaModel/viewType/assembly" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://metaModel/viewType/assembly http://metaModel#//viewType/assembly http://metaModel/viewType/repository http://metaModel#//viewType/repository http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_LV1zMBp8Ee6Es_SjV3cWPg" selectedViews="_Ra33wBp8Ee6Es_SjV3cWPg" version="15.2.0.202303281325">
     <semanticResources>MyRepository.repository</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Ra33wBp8Ee6Es_SjV3cWPg">
       <viewpoint xmi:type="description:Viewpoint" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ti1oABp8Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_tig34Bp8Ee6Es_SjV3cWPg" changeId="1688485581904">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_JLLUch9IEe6I3vd4X2sTJg" name="new diagram-Repository" repPath="#_JLLUcB9IEe6I3vd4X2sTJg" changeId="1689010520890">
         <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
         <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_TUPXshp9Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_TUPXsBp9Ee6Es_SjV3cWPg" changeId="1688483596476">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Ii4eAB9LEe6ak4yiLd9a2A" name="new diagram-Repository" repPath="#_IiuF8B9LEe6ak4yiLd9a2A" changeId="1689011805249">
         <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
         <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_wvNA4Rp9Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_wvMZ0Bp9Ee6Es_SjV3cWPg" changeId="1688483793916">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_zqWjYBp9Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_zqV8UBp9Ee6Es_SjV3cWPg" changeId="1688483813537">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__M4ycRp9Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#__M4LYBp9Ee6Es_SjV3cWPg" changeId="1688483890983">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_i2iyghp-Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_i2iygBp-Ee6Es_SjV3cWPg" changeId="1688484130229">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_s4_H0hp-Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_s4_H0Bp-Ee6Es_SjV3cWPg" changeId="1688484197591">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_xvYPABp-Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_xvXn8Bp-Ee6Es_SjV3cWPg" changeId="1688485443780">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_4qMFABp-Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_4qLd8Bp-Ee6Es_SjV3cWPg" changeId="1688484276570">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_R292gBp_Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_R29PcBp_Ee6Es_SjV3cWPg" changeId="1688484445680">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_d1h6Qhp_Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_d1h6QBp_Ee6Es_SjV3cWPg" changeId="1688484526060">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_30bFMhp_Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_30bFMBp_Ee6Es_SjV3cWPg" changeId="1688484700430">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-9gnwBp_Ee6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_-9gAsBp_Ee6Es_SjV3cWPg" changeId="1688484757474">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_h5MukhqAEe6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_h5MukBqAEe6Es_SjV3cWPg" changeId="1688484982818">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_DGG_YhqBEe6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_DGG_YBqBEe6Es_SjV3cWPg" changeId="1688485216260">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OM_NMhqBEe6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_OM_NMBqBEe6Es_SjV3cWPg" changeId="1688485282016">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_mNpw4hqBEe6Es_SjV3cWPg" name="new diagram-Repository" repPath="#_mNpw4BqBEe6Es_SjV3cWPg" changeId="1688485454221">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Lz1b8B9MEe6ak4yiLd9a2A" name="new diagram-Repository" repPath="#_Lz004B9MEe6ak4yiLd9a2A" changeId="1689012360112">
         <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
         <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_tig34Bp8Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_tjJxEBp8Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_tjJxERp8Ee6Es_SjV3cWPg" type="Sirius" element="_tig34Bp8Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_tjJxEhp8Ee6Es_SjV3cWPg"/>
+  <diagram:DSemanticDiagram uid="_JLLUcB9IEe6I3vd4X2sTJg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_JLL7gB9IEe6I3vd4X2sTJg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_JLL7gR9IEe6I3vd4X2sTJg" type="Sirius" element="_JLLUcB9IEe6I3vd4X2sTJg" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_JLL7gh9IEe6I3vd4X2sTJg"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_tjpgUBp8Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_tjpgURp8Ee6Es_SjV3cWPg"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_JLNJoB9IEe6I3vd4X2sTJg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_JLNJoR9IEe6I3vd4X2sTJg"/>
     </ownedAnnotationEntries>
     <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_tiqo4Bp8Ee6Es_SjV3cWPg"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_JLLUcR9IEe6I3vd4X2sTJg"/>
     <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
     <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_TUPXsBp9Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TUP-wRp9Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_TUP-whp9Ee6Es_SjV3cWPg" type="Sirius" element="_TUPXsBp9Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_TUP-wxp9Ee6Es_SjV3cWPg"/>
+  <diagram:DSemanticDiagram uid="_IiuF8B9LEe6ak4yiLd9a2A">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_IjAZ0B9LEe6ak4yiLd9a2A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_IjAZ0R9LEe6ak4yiLd9a2A" type="Sirius" element="_IiuF8B9LEe6ak4yiLd9a2A" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_IjAZ0h9LEe6ak4yiLd9a2A"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TUZIsBp9Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_TUZIsRp9Ee6Es_SjV3cWPg"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Ijs9YB9LEe6ak4yiLd9a2A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Ijs9YR9LEe6ak4yiLd9a2A"/>
     </ownedAnnotationEntries>
     <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_TUPXsRp9Ee6Es_SjV3cWPg"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_IiyXYB9LEe6ak4yiLd9a2A"/>
     <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
     <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_wvMZ0Bp9Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_wvNn8Bp9Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_wvNn8Rp9Ee6Es_SjV3cWPg" type="Sirius" element="_wvMZ0Bp9Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_wvNn8hp9Ee6Es_SjV3cWPg"/>
+  <diagram:DSemanticDiagram uid="_Lz004B9MEe6ak4yiLd9a2A">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Lz1b8h9MEe6ak4yiLd9a2A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_Lz1b8x9MEe6ak4yiLd9a2A" type="Sirius" element="_Lz004B9MEe6ak4yiLd9a2A" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_L0AbEB9MEe6ak4yiLd9a2A" visible="false" type="2001" element="_Lz5GUB9MEe6ak4yiLd9a2A">
+          <children xmi:type="notation:Node" xmi:id="_L0BpMB9MEe6ak4yiLd9a2A" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0BpMR9MEe6ak4yiLd9a2A" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_L0C3VR9MEe6ak4yiLd9a2A" type="3004" element="_Lz7ikB9MEe6ak4yiLd9a2A">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_L0C3Vh9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0C3Vx9MEe6ak4yiLd9a2A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0AbER9MEe6ak4yiLd9a2A" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0AbEh9MEe6ak4yiLd9a2A" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_L0CQQB9MEe6ak4yiLd9a2A" visible="false" type="2001" element="_Lz8wsB9MEe6ak4yiLd9a2A">
+          <children xmi:type="notation:Node" xmi:id="_L0CQQx9MEe6ak4yiLd9a2A" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0CQRB9MEe6ak4yiLd9a2A" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_L0DeYB9MEe6ak4yiLd9a2A" type="3004" element="_Lz8wsR9MEe6ak4yiLd9a2A">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_L0DeYR9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0DeYh9MEe6ak4yiLd9a2A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0CQQR9MEe6ak4yiLd9a2A" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0CQQh9MEe6ak4yiLd9a2A" x="45" y="90" width="196" height="106"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_L0C3UB9MEe6ak4yiLd9a2A" type="2001" element="_Lz8wsx9MEe6ak4yiLd9a2A">
+          <children xmi:type="notation:Node" xmi:id="_L0C3Ux9MEe6ak4yiLd9a2A" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0C3VB9MEe6ak4yiLd9a2A" y="5"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0C3UR9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0C3Uh9MEe6ak4yiLd9a2A" x="180" width="20" height="20"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_Lz1b9B9MEe6ak4yiLd9a2A"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_wvU8sBp9Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_wvVjwBp9Ee6Es_SjV3cWPg"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Lz9XwB9MEe6ak4yiLd9a2A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Lz9XwR9MEe6ak4yiLd9a2A"/>
     </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz5GUB9MEe6ak4yiLd9a2A" visible="false" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
+      <semanticElements xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
+      <ownedStyle xmi:type="diagram:BundledImage" uid="_Lz7ikB9MEe6ak4yiLd9a2A" labelSize="12" labelPosition="node">
+        <description xmi:type="style:BundledImageDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz8wsB9MEe6ak4yiLd9a2A" visible="false" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="metaModel.viewType.repository:Component" href="MyRepository.repository#//@components.1"/>
+      <semanticElements xmi:type="metaModel.viewType.repository:Component" href="MyRepository.repository#//@components.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:BundledImage" uid="_Lz8wsR9MEe6ak4yiLd9a2A" labelSize="12" labelPosition="node">
+        <description xmi:type="style:BundledImageDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz8wsx9MEe6ak4yiLd9a2A">
+      <target xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
+      <semanticElements xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
+      <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-CompositeComponent']"/>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_wvNA4Bp9Ee6Es_SjV3cWPg"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_Lz004R9MEe6ak4yiLd9a2A"/>
     <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_zqV8UBp9Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_zqXKcBp9Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_zqXKcRp9Ee6Es_SjV3cWPg" type="Sirius" element="_zqV8UBp9Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_zqXKchp9Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_zqdREBp9Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_zqdRERp9Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_zqV8URp9Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="__M4LYBp9Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="__M5ZgBp9Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="__M5ZgRp9Ee6Es_SjV3cWPg" type="Sirius" element="__M4LYBp9Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="__M5Zghp9Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="__NB8YBp9Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="__NB8YRp9Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="__M4ycBp9Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_i2iygBp-Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_i2jZkBp-Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_i2jZkRp-Ee6Es_SjV3cWPg" type="Sirius" element="_i2iygBp-Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_i2jZkhp-Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_i2qHQBp-Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_i2qHQRp-Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_i2iygRp-Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_s4_H0Bp-Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_s4_u4Bp-Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_s4_u4Rp-Ee6Es_SjV3cWPg" type="Sirius" element="_s4_H0Bp-Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_s4_u4hp-Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_s5EnYBp-Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_s5EnYRp-Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_s4_H0Rp-Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_xvXn8Bp-Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xvYPAhp-Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_xvYPAxp-Ee6Es_SjV3cWPg" type="Sirius" element="_xvXn8Bp-Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_xvYPBBp-Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xve8sBp-Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_xve8sRp-Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_xvXn8Rp-Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_4qLd8Bp-Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_4qMsEBp-Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_4qMsERp-Ee6Es_SjV3cWPg" type="Sirius" element="_4qLd8Bp-Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_4qMsEhp-Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_4qRkkBp-Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_4qRkkRp-Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_4qLd8Rp-Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_R29PcBp_Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_R2-dkBp_Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_R2-dkRp_Ee6Es_SjV3cWPg" type="Sirius" element="_R29PcBp_Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_R2-dkhp_Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_R3CH8Bp_Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_R3CH8Rp_Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_R29PcRp_Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_d1h6QBp_Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_d1ihUBp_Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_d1ihURp_Ee6Es_SjV3cWPg" type="Sirius" element="_d1h6QBp_Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_d1ihUhp_Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_d1mLsBp_Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_d1mLsRp_Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_d1h6QRp_Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_30bFMBp_Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_30bsQBp_Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_30bsQRp_Ee6Es_SjV3cWPg" type="Sirius" element="_30bFMBp_Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_30bsQhp_Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_30hL0Bp_Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_30hL0Rp_Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_30bFMRp_Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_-9gAsBp_Ee6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-9gnwhp_Ee6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_-9gnwxp_Ee6Es_SjV3cWPg" type="Sirius" element="_-9gAsBp_Ee6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_-9gnxBp_Ee6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-9kSIBp_Ee6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_-9kSIRp_Ee6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_-9gAsRp_Ee6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_h5MukBqAEe6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_h5NVoBqAEe6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_h5N8sBqAEe6Es_SjV3cWPg" type="Sirius" element="_h5MukBqAEe6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_h5N8sRqAEe6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_h5lJEBqAEe6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_h5lJERqAEe6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_h5MukRqAEe6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_DGG_YBqBEe6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_DGHmcBqBEe6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_DGHmcRqBEe6Es_SjV3cWPg" type="Sirius" element="_DGG_YBqBEe6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_DGHmchqBEe6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_DGKpwBqBEe6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_DGKpwRqBEe6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_DGG_YRqBEe6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_OM_NMBqBEe6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_OM_0QBqBEe6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_OM_0QRqBEe6Es_SjV3cWPg" type="Sirius" element="_OM_NMBqBEe6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_OM_0QhqBEe6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_ONGh8BqBEe6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_ONGh8RqBEe6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_OM_NMRqBEe6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_mNpw4BqBEe6Es_SjV3cWPg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_mNpw5BqBEe6Es_SjV3cWPg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_mNpw5RqBEe6Es_SjV3cWPg" type="Sirius" element="_mNpw4BqBEe6Es_SjV3cWPg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_mNpw5hqBEe6Es_SjV3cWPg"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_mNuCUBqBEe6Es_SjV3cWPg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_mNuCURqBEe6Es_SjV3cWPg"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_mNpw4RqBEe6Es_SjV3cWPg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
     <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

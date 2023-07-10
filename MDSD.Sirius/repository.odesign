@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="repository" version="12.0.0.2017041100">
   <ownedViewpoints name="viewpoint-Editor">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="diagram-Repository" initialisation="true" domainClass="repository::Repository" enablePopupBars="true">
-      <defaultLayer name="Default"/>
-      <additionalLayers name="diagram-Repository-main" label="Repository" activeByDefault="true" optional="false">
-        <edgeMappings name="edge-Component-to-Interface" sourceMapping="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Component']" targetMapping="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Interface']" domainClass="Association" useDomainElement="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="diagram-Repository" domainClass="repository.Repository" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="node-CompositeComponent" semanticCandidatesExpression="feature:components" domainClass="assembly::CompositeComponent"/>
+        <nodeMappings name="node-ProvidedRole" domainClass="assembly::ProvidedRole"/>
+        <nodeMappings name="node-RequiredRole" label="node-RequiredRole" domainClass="assembly::RequiredRole"/>
+        <edgeMappings name="edge-Component-to-Interface" domainClass="Association" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -12,7 +14,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge-Interface-to-Signature" sourceMapping="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Interface']" targetMapping="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Signature']" domainClass="Association" useDomainElement="true">
+        <edgeMappings name="edge-Interface-to-Signature" domainClass="Association" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -20,19 +22,22 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="container-Repository" domainClass="Repository">
-          <subNodeMappings name="node-Component" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-Component']" domainClass="Component">
-            <style xsi:type="style:BundledImageDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+        <containerMappings name="container-Component" semanticCandidatesExpression="aql:(self.components->reject(component|component.oclIsKindOf(assembly::CompositeComponent)))" domainClass="Component">
+          <subNodeMappings name="node-Behaviour-Description" semanticCandidatesExpression="feature:description" domainClass="BehaviorDescription">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="node-CompositeComponent" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-CompositeComponent']" semanticCandidatesExpression="aql:self.eAllContents(assembly::CompositeComponent)" domainClass="assembly::CompositeComponent"/>
-          <subNodeMappings name="node-Interface" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-Interface']" semanticCandidatesExpression="aql:self.eAllContents(repository::Interface)" domainClass="repository::Interface"/>
-          <subNodeMappings name="node-Signature" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-Signature']" semanticCandidatesExpression="aql:self.eAllContents(repository::Signature)" domainClass="repository::Signature"/>
-          <subNodeMappings name="node-ProvidedRole" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-ProvidedRole']" semanticCandidatesExpression="aql:self.eAllContents(assembly::ProvidedRole)" domainClass="assembly::ProvidedRole"/>
-          <subNodeMappings name="node-RequiredRole" label="node-RequiredRole" deletionDescription="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@toolSections.0/@ownedTools[name='delete-RequiredRole']" semanticCandidatesExpression="aql:self.eAllContents(assembly::RequiredRole)" domainClass="assembly::RequiredRole"/>
+          <subNodeMappings name="node-Required-Interface" semanticCandidatesExpression="feature:requires" domainClass="repository::Interface">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="node-Provided-Interface" semanticCandidatesExpression="feature:provides" domainClass="repository::Interface"/>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -40,100 +45,87 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
+        <containerMappings name="container-Interface" semanticCandidatesExpression="feature:interfaces" domainClass="Interface">
+          <subContainerMappings name="container-Signature" semanticCandidatesExpression="feature:signatures" domainClass="repository.Signature" childrenPresentation="HorizontalStack">
+            <subNodeMappings name="node-Parameter" semanticCandidatesExpression="feature:eparameters" domainClass="repository::Parameter">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+        </containerMappings>
         <toolSections name="tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Component" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Component']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-ProvidedRole" label="create-ProvidedRole" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-ProvidedRole']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-RequiredRole" label="create-RequiredRole" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-RequiredRole']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Component-set-Interface" edgeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@edgeMappings[name='edge-Component-to-Interface']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interface-set-Signature" edgeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@edgeMappings[name='edge-Interface-to-Signature']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create-Component" containerMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Component']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::Component" referenceName="component">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Container"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository.Component" referenceName="components"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-CompositeComponent" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-CompositeComponent']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Interface" label="create-Interface" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Interface']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Signature" label="create-Signature" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-Signature']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-ProvidedRole" label="create-ProvidedRole" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-ProvidedRole']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-RequiredRole" label="create-RequiredRole" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']/@subNodeMappings[name='node-RequiredRole']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Component">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-CompositeComponent">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Interface">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-Signature">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-ProvidedRole">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="delete-RequiredRole">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Component-set-Interface" edgeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@edgeMappings[name='edge-Component-to-Interface']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interface-set-Signature" edgeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@edgeMappings[name='edge-Interface-to-Signature']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create-Repository" containerMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']/@containerMappings[name='container-Repository']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create-Interface" containerMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Repository" referenceName="repository"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository.Interface" referenceName="interfaces"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create-Signature" containerMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository.Component" referenceName="components"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository.Signature" referenceName="signatures"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-Parameter" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository:Parameter" referenceName="parameters"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-      </additionalLayers>
+      </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
