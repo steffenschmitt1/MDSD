@@ -40,6 +40,7 @@ mapping CBS::viewType::repository::Branch::mapBranch() : PCM::seff::BranchAction
 
 mapping CBS::viewType::assembly::AssemblyContext::mapAssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement {
 	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
+	
 }
 
 mapping CBS::viewType::repository::Interface::mapInterface() : PCM::repository::OperationInterface inherits CBS::viewType::NamedElement::mapNamedElement {
@@ -117,12 +118,13 @@ abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Rol
 mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole 
 {
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
-	
+	requiringEntity_RequiredRole := self.assemblyConnector.resolveone(PCM::core::entity::ComposedProvidingRequiringEntity) ; //TODO
 }
 
 mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::repository::OperationProvidedRole  inherits CBS::viewType::assembly::Role::mapRole 
 {
-	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.late resolveone(PCM::repository::OperationInterface);
+	providingEntity_ProvidedRole := self.assemblyConnector.providedRole.late resolveone(PCM::core::entity::InterfaceProvidingEntity); //TODO check?
 }
 
 
@@ -132,6 +134,13 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext():
 		PCM::allocation::AllocationContext inherits CBS::viewType::NamedElement::mapNamedElement{
 	assemblyContext_AllocationContext := self.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
 	resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
+	allocation_AllocationContext := object pcm::allocation::Allocation{
+		allocationContexts_Allocation := self.late resolveone(pcm::allocation::AllocationContext);
+		system_Allocation := result.assemblyContext_AllocationContext.parentStructure__AssemblyContext.oclAsType(PCM::system::System);
+		
+		
+	};
+	
 }
 
 mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement{
@@ -143,17 +152,18 @@ mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyCon
 }
 
 
-
 mapping CBS::viewType::assembly::System::mapSystem() : PCM::system::System {
 	//inherits from ComposedProvidingRequiringEntity
 	//again inherits from ComposedStructure
-	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> map mapAssemplyContext2AssemblyContext();
-	//resourceRequiredDelegationConnectors__ComposedStructure := null;
-	eventChannel__ComposedStructure := object PCM::core::composition::EventChannel {};
+	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> map mapAssemblyContext();
+	assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext).parentStructure__AssemblyContext := result};
 	connectors__ComposedStructure += self.delegationConnectors -> map mapDelegationConnector2DelegationConnector();
 	connectors__ComposedStructure += self.assemblyConnectors -> map mapAssemblyConnector2AssemblyConnector();
-	//providedRoles_InterfaceProvidingEntity := self.encapsulatedInstances.provides.late resolveone(pcm::repository::OperationProvidedRole);
-	
+	providedRoles_InterfaceProvidingEntity := self.encapsulatedInstances.provides.late resolve(pcm::repository::OperationProvidedRole);
+	//assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext)};
+	//linkingResources__ResourceEnvironment->forEach(link) {
+	//	link.oclAsType(PCM::resourceenvironment::LinkingResource).resourceEnvironment_LinkingResource := result;
+	//};
 	
 }
  mapping CBS::viewType::assembly::DelegationConnector::mapDelegationConnector2DelegationConnector() : PCM::core::composition::DelegationConnector disjuncts 
@@ -167,15 +177,25 @@ mapping CBS::viewType::assembly::DelegationConnectorRequired::mapDelegationConne
 }
 mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConnectorProvided2ProvidedDelegationConnector() : PCM::core::composition::ProvidedDelegationConnector {
 	innerProvidedRole_ProvidedDelegationConnector := self.linkedRole.late resolveone(PCM::repository::OperationProvidedRole);
-	outerProvidedRole_ProvidedDelegationConnector := self.linkedRole.late resolveone(PCM::repository::OperationProvidedRole); //TODO
+	outerProvidedRole_ProvidedDelegationConnector := self.linkedRole.late resolveone(PCM::repository::OperationProvidedRole);
 	assemblyContext_ProvidedDelegationConnector := self.linkedRole.assemblyContext.late resolveone(PCM::core::composition::AssemblyContext);
 }
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
-	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
-	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.late resolveone(pcm::core::composition::AssemblyContext);
-	providedRole_AssemblyConnector := self.providedRole.late resolveone(pcm::repository::OperationProvidedRole); 
+	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
+	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
+	providedRole_AssemblyConnector := self.providedRole.late resolveone(pcm::repository::OperationProvidedRole);
+	if(providedRole_AssemblyConnector = null) {
+		providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole() -> asSequence() -> first();
+	};
 	//-> map mapProvidedRole() -> asSequence() -> first();
-	requiredRole_AssemblyConnector := self.requiredRole.late resolveone(pcm::repository::OperationRequiredRole);
+	requiredRole_AssemblyConnector := self.requiredRole.resolveone(pcm::repository::OperationRequiredRole);
+	if(requiredRole_AssemblyConnector = null) {
+		var roles := self.requiredRole -> map mapReqiredRole() -> asSequence();
+		roles -> forEach(role) { //TODO
+			role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := null ;
+		};
+		requiredRole_AssemblyConnector := roles -> first();
+	};
 	//-> map mapReqiredRole() -> asSequence() -> first();
 }
 
@@ -189,6 +209,7 @@ mapping  CBS::viewType::environment::Environment::mapEnvironment() : PCM::resour
 	};
 	resourceContainer_ResourceEnvironment->forEach(container) {
 		container.oclAsType(PCM::resourceenvironment::ResourceContainer).resourceEnvironment_ResourceContainer := result;
+		
 	};
 }
 
@@ -203,14 +224,15 @@ mapping CBS::viewType::environment::Link::mapLink() : PCM::resourceenvironment::
 		id := "1337";
 		failureProbability := 0.0;
 		linkingResource_CommunicationLinkResourceSpecification := result;
-		latency_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
-		throughput_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{};
+		latency_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{specification := "1"};
+		throughput_CommunicationLinkResourceSpecification := object pcm::core::PCMRandomVariable{ specification := "1"};
 		communicationLinkResourceType_CommunicationLinkResourceSpecification := object pcm::resourcetype::CommunicationLinkResourceType{
 			resourceRepository_ResourceType := object pcm::resourcetype::ResourceRepository {
 				availableResourceTypes_ResourceRepository += result.communicationLinkResourceSpecifications_LinkingResource.communicationLinkResourceType_CommunicationLinkResourceSpecification;
 			};
-			id := "";
-			entityName := "";
+			id := "1338";
+			entityName := "spec";
+			//id and entity name needed to be able to automatically insert link resource type
 		};
 	};
 }
