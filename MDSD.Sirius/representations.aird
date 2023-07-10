@@ -4,113 +4,175 @@
     <semanticResources>MyRepository.repository</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Ra33wBp8Ee6Es_SjV3cWPg">
       <viewpoint xmi:type="description:Viewpoint" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_JLLUch9IEe6I3vd4X2sTJg" name="new diagram-Repository" repPath="#_JLLUcB9IEe6I3vd4X2sTJg" changeId="1689010520890">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Ii4eAB9LEe6ak4yiLd9a2A" name="new diagram-Repository" repPath="#_IiuF8B9LEe6ak4yiLd9a2A" changeId="1689011805249">
-        <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-        <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Lz1b8B9MEe6ak4yiLd9a2A" name="new diagram-Repository" repPath="#_Lz004B9MEe6ak4yiLd9a2A" changeId="1689012360112">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_DsrbsB9ZEe6Wj7ZvVS68mA" name="new diagram-Repository" repPath="#_Dsq0oB9ZEe6Wj7ZvVS68mA" changeId="1689023286951">
         <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
         <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_JLLUcB9IEe6I3vd4X2sTJg">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_JLL7gB9IEe6I3vd4X2sTJg" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_JLL7gR9IEe6I3vd4X2sTJg" type="Sirius" element="_JLLUcB9IEe6I3vd4X2sTJg" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_JLL7gh9IEe6I3vd4X2sTJg"/>
+  <diagram:DSemanticDiagram uid="_Dsq0oB9ZEe6Wj7ZvVS68mA">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Dsrbsh9ZEe6Wj7ZvVS68mA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_Dsrbsx9ZEe6Wj7ZvVS68mA" type="Sirius" element="_Dsq0oB9ZEe6Wj7ZvVS68mA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_Dst38B9ZEe6Wj7ZvVS68mA" type="2001" element="_Dssp0B9ZEe6Wj7ZvVS68mA">
+          <children xmi:type="notation:Node" xmi:id="_Dst38x9ZEe6Wj7ZvVS68mA" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Dst39B9ZEe6Wj7ZvVS68mA" y="5"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Dst38R9ZEe6Wj7ZvVS68mA" fontName="Segoe UI"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Dst38h9ZEe6Wj7ZvVS68mA" width="20" height="20"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iG8-Eh9fEe6Wj7ZvVS68mA" type="2002" element="_iG7I4B9fEe6Wj7ZvVS68mA">
+          <children xmi:type="notation:Node" xmi:id="_iG9lIB9fEe6Wj7ZvVS68mA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_iG9lIR9fEe6Wj7ZvVS68mA" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_j6Quwh9fEe6Wj7ZvVS68mA" type="3008" element="_ZLeCEh9lEe6Wj7ZvVS68mA">
+              <children xmi:type="notation:Node" xmi:id="_j6QuxR9fEe6Wj7ZvVS68mA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_j6Quxh9fEe6Wj7ZvVS68mA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_dNr6UB9lEe6Wj7ZvVS68mA" type="3007" element="_dM8TeB9lEe6Wj7ZvVS68mA">
+                  <children xmi:type="notation:Node" xmi:id="_dNr6Ux9lEe6Wj7ZvVS68mA" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_dNr6VB9lEe6Wj7ZvVS68mA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_dNtIcB9lEe6Wj7ZvVS68mA" type="3003" element="_dM8TeR9lEe6Wj7ZvVS68mA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_dNtIcR9lEe6Wj7ZvVS68mA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNtIch9lEe6Wj7ZvVS68mA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_dNr6UR9lEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNr6Uh9lEe6Wj7ZvVS68mA" x="101" y="-5" width="159" height="30"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_dNr6VR9lEe6Wj7ZvVS68mA" type="3007" element="_dM8Tex9lEe6Wj7ZvVS68mA">
+                  <children xmi:type="notation:Node" xmi:id="_dNr6WB9lEe6Wj7ZvVS68mA" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_dNr6WR9lEe6Wj7ZvVS68mA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_dNtIcx9lEe6Wj7ZvVS68mA" type="3003" element="_dM8TfB9lEe6Wj7ZvVS68mA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_dNtIdB9lEe6Wj7ZvVS68mA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNtIdR9lEe6Wj7ZvVS68mA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_dNr6Vh9lEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNr6Vx9lEe6Wj7ZvVS68mA" x="259" y="-5" width="193" height="30"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_j6Quxx9fEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_j6QuyB9fEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:DrawerStyle" xmi:id="_j6QuyR9fEe6Wj7ZvVS68mA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_j6Quwx9fEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_j6QuxB9fEe6Wj7ZvVS68mA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_1CMqoB9gEe6Wj7ZvVS68mA" type="3008" element="_ZLepIh9lEe6Wj7ZvVS68mA">
+              <children xmi:type="notation:Node" xmi:id="_1CMqox9gEe6Wj7ZvVS68mA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_1CMqpB9gEe6Wj7ZvVS68mA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_dNtIgh9lEe6Wj7ZvVS68mA" type="3007" element="_dM86hx9lEe6Wj7ZvVS68mA">
+                  <children xmi:type="notation:Node" xmi:id="_dNtIhR9lEe6Wj7ZvVS68mA" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_dNtIhh9lEe6Wj7ZvVS68mA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_dNtIhx9lEe6Wj7ZvVS68mA" type="3003" element="_dM86iB9lEe6Wj7ZvVS68mA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_dNtIiB9lEe6Wj7ZvVS68mA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNtIiR9lEe6Wj7ZvVS68mA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_dNtIgx9lEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dNtIhB9lEe6Wj7ZvVS68mA" x="109" width="139" height="30"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_1CMqpR9gEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_1CMqph9gEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:DrawerStyle" xmi:id="_1CMqpx9gEe6Wj7ZvVS68mA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_1CMqoR9gEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1CMqoh9gEe6Wj7ZvVS68mA" y="77"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_yPUd6h9hEe6Wj7ZvVS68mA" type="3008" element="_ZLepJx9lEe6Wj7ZvVS68mA">
+              <children xmi:type="notation:Node" xmi:id="_yPUd7R9hEe6Wj7ZvVS68mA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_yPVsAB9hEe6Wj7ZvVS68mA" type="7002">
+                <styles xmi:type="notation:SortingStyle" xmi:id="_yPVsAR9hEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_yPVsAh9hEe6Wj7ZvVS68mA"/>
+                <styles xmi:type="notation:DrawerStyle" xmi:id="_yPVsAx9hEe6Wj7ZvVS68mA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_yPUd6x9hEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yPUd7B9hEe6Wj7ZvVS68mA" y="154" width="587"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_iG9lIh9fEe6Wj7ZvVS68mA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_iG9lIx9fEe6Wj7ZvVS68mA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iG8-Ex9fEe6Wj7ZvVS68mA" fontName="Segoe UI" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iG8-FB9fEe6Wj7ZvVS68mA" x="66" y="216"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_DsrbtB9ZEe6Wj7ZvVS68mA"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_JLNJoB9IEe6I3vd4X2sTJg" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_JLNJoR9IEe6I3vd4X2sTJg"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_DstQ4B9ZEe6Wj7ZvVS68mA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_DstQ4R9ZEe6Wj7ZvVS68mA"/>
     </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_JLLUcR9IEe6I3vd4X2sTJg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@additionalLayers[name='diagram-Repository-main']"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_IiuF8B9LEe6ak4yiLd9a2A">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_IjAZ0B9LEe6ak4yiLd9a2A" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_IjAZ0R9LEe6ak4yiLd9a2A" type="Sirius" element="_IiuF8B9LEe6ak4yiLd9a2A" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_IjAZ0h9LEe6ak4yiLd9a2A"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Ijs9YB9LEe6ak4yiLd9a2A" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Ijs9YR9LEe6ak4yiLd9a2A"/>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_IiyXYB9LEe6ak4yiLd9a2A"/>
-    <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
-    <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
-  </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram uid="_Lz004B9MEe6ak4yiLd9a2A">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Lz1b8h9MEe6ak4yiLd9a2A" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_Lz1b8x9MEe6ak4yiLd9a2A" type="Sirius" element="_Lz004B9MEe6ak4yiLd9a2A" measurementUnit="Pixel">
-        <children xmi:type="notation:Node" xmi:id="_L0AbEB9MEe6ak4yiLd9a2A" visible="false" type="2001" element="_Lz5GUB9MEe6ak4yiLd9a2A">
-          <children xmi:type="notation:Node" xmi:id="_L0BpMB9MEe6ak4yiLd9a2A" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0BpMR9MEe6ak4yiLd9a2A" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_L0C3VR9MEe6ak4yiLd9a2A" type="3004" element="_Lz7ikB9MEe6ak4yiLd9a2A">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_L0C3Vh9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0C3Vx9MEe6ak4yiLd9a2A"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0AbER9MEe6ak4yiLd9a2A" fontName="Segoe UI" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0AbEh9MEe6ak4yiLd9a2A" width="30" height="30"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_L0CQQB9MEe6ak4yiLd9a2A" visible="false" type="2001" element="_Lz8wsB9MEe6ak4yiLd9a2A">
-          <children xmi:type="notation:Node" xmi:id="_L0CQQx9MEe6ak4yiLd9a2A" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0CQRB9MEe6ak4yiLd9a2A" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_L0DeYB9MEe6ak4yiLd9a2A" type="3004" element="_Lz8wsR9MEe6ak4yiLd9a2A">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_L0DeYR9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0DeYh9MEe6ak4yiLd9a2A"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0CQQR9MEe6ak4yiLd9a2A" fontName="Segoe UI" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0CQQh9MEe6ak4yiLd9a2A" x="45" y="90" width="196" height="106"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_L0C3UB9MEe6ak4yiLd9a2A" type="2001" element="_Lz8wsx9MEe6ak4yiLd9a2A">
-          <children xmi:type="notation:Node" xmi:id="_L0C3Ux9MEe6ak4yiLd9a2A" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_L0C3VB9MEe6ak4yiLd9a2A" y="5"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_L0C3UR9MEe6ak4yiLd9a2A" fontName="Segoe UI"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0C3Uh9MEe6ak4yiLd9a2A" x="180" width="20" height="20"/>
-        </children>
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_Lz1b9B9MEe6ak4yiLd9a2A"/>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Lz9XwB9MEe6ak4yiLd9a2A" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Lz9XwR9MEe6ak4yiLd9a2A"/>
-    </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz5GUB9MEe6ak4yiLd9a2A" visible="false" width="3" height="3" resizeKind="NSEW">
-      <target xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
-      <semanticElements xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
-      <ownedStyle xmi:type="diagram:BundledImage" uid="_Lz7ikB9MEe6ak4yiLd9a2A" labelSize="12" labelPosition="node">
-        <description xmi:type="style:BundledImageDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz8wsB9MEe6ak4yiLd9a2A" visible="false" width="3" height="3" resizeKind="NSEW">
-      <target xmi:type="metaModel.viewType.repository:Component" href="MyRepository.repository#//@components.1"/>
-      <semanticElements xmi:type="metaModel.viewType.repository:Component" href="MyRepository.repository#//@components.1"/>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:BundledImage" uid="_Lz8wsR9MEe6ak4yiLd9a2A" labelSize="12" labelPosition="node">
-        <description xmi:type="style:BundledImageDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-Component']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Lz8wsx9MEe6ak4yiLd9a2A">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Dssp0B9ZEe6Wj7ZvVS68mA">
       <target xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
       <semanticElements xmi:type="metaModel.viewType.assembly:CompositeComponent" href="MyRepository.repository#//@components.0"/>
       <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@nodeMappings[name='node-CompositeComponent']"/>
     </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_iG7I4B9fEe6Wj7ZvVS68mA" name="Interface" width="50" height="-1" childrenPresentation="VerticalStack">
+      <target xmi:type="metaModel.viewType.repository:Interface" href="MyRepository.repository#//@interfaces.0"/>
+      <semanticElements xmi:type="metaModel.viewType.repository:Interface" href="MyRepository.repository#//@interfaces.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_iG7I4R9fEe6Wj7ZvVS68mA" labelSize="10" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ZLeCEh9lEe6Wj7ZvVS68mA" name="Signatur1">
+        <target xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.0"/>
+        <semanticElements xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZLeCEx9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2">
+          <description xmi:type="style:FlatContainerStyleDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_dM8TeB9lEe6Wj7ZvVS68mA" name="Parameter 1" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.0/@parameters.0"/>
+          <semanticElements xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.0/@parameters.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" uid="_dM8TeR9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" labelPosition="node" color="114,159,207">
+            <description xmi:type="style:SquareDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_dM8Tex9lEe6Wj7ZvVS68mA" name="Parameter 2" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.0/@parameters.1"/>
+          <semanticElements xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.0/@parameters.1"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" uid="_dM8TfB9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" labelPosition="node" color="114,159,207">
+            <description xmi:type="style:SquareDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ZLepIh9lEe6Wj7ZvVS68mA" name="Interface 1">
+        <target xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.1"/>
+        <semanticElements xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.1"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZLepIx9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2">
+          <description xmi:type="style:FlatContainerStyleDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_dM86hx9lEe6Wj7ZvVS68mA" name="Bla2" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.1/@parameters.0"/>
+          <semanticElements xmi:type="metaModel.viewType.repository:Parameter" href="MyRepository.repository#//@interfaces.0/@signatures.1/@parameters.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" uid="_dM86iB9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" labelPosition="node" color="114,159,207">
+            <description xmi:type="style:SquareDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Parameter']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ZLepJx9lEe6Wj7ZvVS68mA">
+        <target xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.2"/>
+        <semanticElements xmi:type="metaModel.viewType.repository:Signature" href="MyRepository.repository#//@interfaces.0/@signatures.2"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZLepKB9lEe6Wj7ZvVS68mA" labelSize="12" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2">
+          <description xmi:type="style:FlatContainerStyleDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_Lz004R9MEe6ak4yiLd9a2A"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_Dsq0oR9ZEe6Wj7ZvVS68mA"/>
     <activatedLayers xmi:type="description_1:Layer" href="repository.odesign#//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer"/>
     <target xmi:type="metaModel.viewType.repository:Repository" href="MyRepository.repository#/"/>
   </diagram:DSemanticDiagram>
