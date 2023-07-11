@@ -51,7 +51,7 @@
               </style>
             </subNodeMappings>
             <subNodeMappings name="node-Return-Type" semanticCandidatesExpression="feature:returnType" domainClass="repository.Type">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="hsfakfhj" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.eClass().name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -157,6 +157,69 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::VoidType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-map-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::MapType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-string-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::StringType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-boolean-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::BooleanType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-int-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::IntType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-list-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::ListType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-date-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::DateType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-long-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::LongType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-float-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::FloatType" referenceName="returnType"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-char-type" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::CharType" referenceName="returnType"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

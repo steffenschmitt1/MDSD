@@ -5,7 +5,7 @@
   <components/>
   <interfaces name="Interface1">
     <signatures>
-      <returnType xsi:type="metaModel.viewType.repository:VoidType"/>
+      <returnType xsi:type="metaModel.viewType.repository:MapType"/>
       <parameters/>
       <parameters>
         <type xsi:type="metaModel.viewType.repository:IntType"/>
