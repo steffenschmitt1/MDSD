@@ -32,7 +32,10 @@ transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
 		CBSRepo.objectsOfType(CBS::viewType::environment::Environment) -> map mapEnvironment();
 
 		log ("mapping allocation");
-		CBSRepo.objectsOfType(CBS::viewType::allocation::AllocationContext) -> map mapAllocationContext();
+		var alloc := object pcm::allocation::Allocation{
+			targetResourceEnvironment_Allocation := CBSRepo.objectsOfType(CBS::viewType::environment::Environment).resolveone(PCM::resourceenvironment::ResourceEnvironment);
+			};
+		CBSRepo.objectsOfType(CBS::viewType::allocation::AllocationContext) -> map mapAllocationContext(alloc);
 		log ("done");
 		
 		

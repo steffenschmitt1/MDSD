@@ -118,7 +118,11 @@ abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Rol
 mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole 
 {
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+	if(requiredInterface__OperationRequiredRole = null) {
+		requiredInterface__OperationRequiredRole := self.assemblyContext.instantiatedComponent.requires -> asSequence()-> first().resolveone(PCM::repository::OperationInterface);
+	};
 	requiringEntity_RequiredRole := self.assemblyConnector.resolveone(PCM::core::entity::ComposedProvidingRequiringEntity) ; //TODO
+	
 }
 
 mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::repository::OperationProvidedRole  inherits CBS::viewType::assembly::Role::mapRole 
@@ -130,16 +134,37 @@ mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::reposito
 
 
 //Allocation - Valerii
-mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext():
-		PCM::allocation::AllocationContext inherits CBS::viewType::NamedElement::mapNamedElement{
+mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext(param: pcm::allocation::Allocation):
+		PCM::allocation::AllocationContext{
+		entityName := self.name;
 	assemblyContext_AllocationContext := self.assemblyContext.resolveone(PCM::core::composition::AssemblyContext);
+	
 	resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
-	allocation_AllocationContext := object pcm::allocation::Allocation{
-		allocationContexts_Allocation := self.late resolveone(pcm::allocation::AllocationContext);
-		system_Allocation := result.assemblyContext_AllocationContext.parentStructure__AssemblyContext.oclAsType(PCM::system::System);
 		
+	
+	allocation_AllocationContext := param;
+		allocation_AllocationContext.allocationContexts_Allocation += self.late resolveone(PCM::allocation::AllocationContext);
+		allocation_AllocationContext.system_Allocation := result.assemblyContext_AllocationContext.parentStructure__AssemblyContext.oclAsType(PCM::system::System);
+		
+	
+	
+	//Palladio required that even Assembly contexts that are part of a composite have to be allocated
+	//for this version this is done WITHOUT further recursion, so max depth = 1
+	var component := self.assemblyContext.instantiatedComponent;
+	if(component.oclIsTypeOf(CBS::viewType::assembly::CompositeComponent)) {
+		component.oclAsType(CBS::viewType::assembly::CompositeComponent).encapsulatedInstances -> forEach(instance) {
+			var alloc := object pcm::allocation::AllocationContext {
+				assemblyContext_AllocationContext := instance.resolveone(PCM::core::composition::AssemblyContext);
+				entityName := instance.name;
+				resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
+				
+			};
+			result.allocation_AllocationContext.allocationContexts_Allocation += alloc;
+		};
 		
 	};
+	
+	
 	
 }
 
@@ -159,6 +184,7 @@ mapping CBS::viewType::assembly::System::mapSystem() : PCM::system::System {
 	assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext).parentStructure__AssemblyContext := result};
 	connectors__ComposedStructure += self.delegationConnectors -> map mapDelegationConnector2DelegationConnector();
 	connectors__ComposedStructure += self.assemblyConnectors -> map mapAssemblyConnector2AssemblyConnector();
+	connectors__ComposedStructure -> forEach(connector) {connector.oclAsType(PCM::core::composition::AssemblyConnector).parentStructure__Connector := result};
 	providedRoles_InterfaceProvidingEntity := self.encapsulatedInstances.provides.late resolve(pcm::repository::OperationProvidedRole);
 	//assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext)};
 	//linkingResources__ResourceEnvironment->forEach(link) {
@@ -183,7 +209,7 @@ mapping CBS::viewType::assembly::DelegationConnectorProvided::mapDelegationConne
 mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2AssemblyConnector() : PCM::core::composition::AssemblyConnector {
 	requiringAssemblyContext_AssemblyConnector := self.requiredRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
 	providingAssemblyContext_AssemblyConnector := self.providedRole.assemblyContext.resolveone(pcm::core::composition::AssemblyContext);
-	providedRole_AssemblyConnector := self.providedRole.late resolveone(pcm::repository::OperationProvidedRole);
+	providedRole_AssemblyConnector := self.providedRole.resolveone(pcm::repository::OperationProvidedRole);
 	if(providedRole_AssemblyConnector = null) {
 		providedRole_AssemblyConnector := self.providedRole -> map mapProvidedRole() -> asSequence() -> first();
 	};
@@ -192,7 +218,8 @@ mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2Assembl
 	if(requiredRole_AssemblyConnector = null) {
 		var roles := self.requiredRole -> map mapReqiredRole() -> asSequence();
 		roles -> forEach(role) { //TODO
-			role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := null ;
+			//role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := self.requiredRole.assemblyContext.instantiatedComponent.requires -> first().resolveone(PCM::repository::Interface);
+			//role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := null;
 		};
 		requiredRole_AssemblyConnector := roles -> first();
 	};
