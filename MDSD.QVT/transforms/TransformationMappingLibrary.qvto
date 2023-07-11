@@ -119,7 +119,7 @@ mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repositor
 {
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
 	if(requiredInterface__OperationRequiredRole = null) {
-		requiredInterface__OperationRequiredRole := self.assemblyContext.instantiatedComponent.requires -> asSequence()-> first().resolveone(PCM::repository::OperationInterface);
+		requiredInterface__OperationRequiredRole := self.assemblyContext.instantiatedComponent.requires.resolveone(PCM::repository::OperationInterface);
 	};
 	requiringEntity_RequiredRole := self.assemblyConnector.resolveone(PCM::core::entity::ComposedProvidingRequiringEntity) ; //TODO
 	
@@ -127,7 +127,10 @@ mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repositor
 
 mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::repository::OperationProvidedRole  inherits CBS::viewType::assembly::Role::mapRole 
 {
-	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.late resolveone(PCM::repository::OperationInterface);
+	providedInterface__OperationProvidedRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
+	if(providedInterface__OperationProvidedRole = null) {
+		providedInterface__OperationProvidedRole := self.assemblyContext.instantiatedComponent.provides.resolveone(PCM::repository::OperationInterface);
+	};
 	providingEntity_ProvidedRole := self.assemblyConnector.providedRole.late resolveone(PCM::core::entity::InterfaceProvidingEntity); //TODO check?
 }
 
