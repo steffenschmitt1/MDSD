@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<metaModel.viewType.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metaModel.viewType.assembly="http://metaModel/viewType/assembly" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" name="New Container">
-  <components xsi:type="metaModel.viewType.assembly:CompositeComponent"/>
-  <components/>
-  <components/>
-  <interfaces name="Interface">
-    <signatures name="Signatur1">
-      <parameters name="Parameter 1"/>
-      <parameters name="Parameter 2"/>
-    </signatures>
-    <signatures name="Interface 1">
-      <parameters name="Bla2"/>
-    </signatures>
-    <signatures/>
-  </interfaces>
+<metaModel.viewType.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" name="New Container">
+  <components name="Component1" requires="//@interfaces.1" provides="//@interfaces.0"/>
+  <interfaces name="Interface1"/>
+  <interfaces name="Interface2"/>
 </metaModel.viewType.repository:Repository>
