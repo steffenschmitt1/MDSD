@@ -268,73 +268,115 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-boolean-type" label="Set Type Boolean" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-boolean-type" label="Set Type Boolean" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::BooleanType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::BooleanType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::BooleanType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-int-type" label="Set Type Int" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-int-type" label="Set Type Int" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::IntType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::IntType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::IntType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-list-type" label="Set Type List" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-list-type" label="Set Type List" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::ListType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::ListType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::ListType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-date-type" label="Set Type Date" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-date-type" label="Set Type Date" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::DateType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::DateType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::DateType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-long-type" label="Set Type Long" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-long-type" label="Set Type Long" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::LongType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::LongType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::LongType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-float-type" label="Set Type Float" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-float-type" label="Set Type Float" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::FloatType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::FloatType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::FloatType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-char-type" label="Set Type Char" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create-char-type" label="Set Type Char" nodeMappings="//@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subNodeMappings[name='node-Return-Type'] //@ownedViewpoints[name='viewpoint-Editor']/@ownedRepresentations[name='diagram-Repository']/@defaultLayer/@containerMappings[name='container-Interface']/@subContainerMappings[name='container-Signature']/@subContainerMappings[name='Parameter']/@subNodeMappings[name='Type']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::CharType" referenceName="returnType"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Signature)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="returnType"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::CharType" referenceName="returnType"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(repository::Parameter)">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="type"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository::CharType" referenceName="type" variableName="type"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
