@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Automatic-Module-Name: MDSD.Sirius
+Bundle-Name: MDSD.Sirius
+Bundle-SymbolicName: MDSD.Sirius; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ActivationPolicy: lazy

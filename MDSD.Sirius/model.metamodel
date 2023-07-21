@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaModel:ComponentBasedSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metaModel="http://metaModel">
+  <repositories>
+    <components/>
+  </repositories>
+  <environments>
+    <containers/>
+  </environments>
+</metaModel:ComponentBasedSystem>
