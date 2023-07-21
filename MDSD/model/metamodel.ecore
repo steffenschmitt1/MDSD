@@ -32,6 +32,8 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" upperBound="-1"
             eType="#//viewType/repository/Signature" containment="true" resolveProxies="false"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="#//viewType/repository/Repository"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="superInterfaces" upperBound="-1"
+            eType="#//viewType/repository/Interface"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ParameterType" abstract="true" eSuperTypes="#//viewType/repository/Type"/>
       <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//viewType/NamedElement">

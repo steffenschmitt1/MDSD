@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<metaModel.viewType.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metaModel.viewType.repository="http://metaModel/viewType/repository" name="New Container">
+  <components name="Component" requires="//@interfaces.0" provides="//@interfaces.1"/>
+  <interfaces name="Interface1" superInterfaces="//@interfaces.1">
+    <signatures name="signaturName">
+      <returnType xsi:type="metaModel.viewType.repository:BooleanType"/>
+      <parameters name="parameterName">
+        <type xsi:type="metaModel.viewType.repository:MapType"/>
+      </parameters>
+      <parameters name="parameterName">
+        <type xsi:type="metaModel.viewType.repository:StringType"/>
+      </parameters>
+    </signatures>
+  </interfaces>
+  <interfaces name="Interface2">
+    <signatures>
+      <returnType xsi:type="metaModel.viewType.repository:VoidType"/>
+      <parameters name="parameterName"/>
+    </signatures>
+  </interfaces>
+  <interfaces name="InterfaceName"/>
+</metaModel.viewType.repository:Repository>
