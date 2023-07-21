@@ -121,7 +121,9 @@ mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repositor
 	if(requiredInterface__OperationRequiredRole = null) {
 		requiredInterface__OperationRequiredRole := self.assemblyContext.instantiatedComponent.requires.resolveone(PCM::repository::OperationInterface);
 	};
-	requiringEntity_RequiredRole := self.assemblyConnector.resolveone(PCM::core::entity::ComposedProvidingRequiringEntity) ; //TODO
+	//TODO
+	requiringEntity_RequiredRole := self.assemblyContext.instantiatedComponent.resolveone(PCM::repository::ImplementationComponentType);
+	//self.assemblyConnector.requiredRole.resolveone(PCM::core::entity::InterfaceRequiringEntity) ; //TODO
 	
 }
 
@@ -131,7 +133,8 @@ mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::reposito
 	if(providedInterface__OperationProvidedRole = null) {
 		providedInterface__OperationProvidedRole := self.assemblyContext.instantiatedComponent.provides.resolveone(PCM::repository::OperationInterface);
 	};
-	providingEntity_ProvidedRole := self.assemblyConnector.providedRole.late resolveone(PCM::core::entity::InterfaceProvidingEntity); //TODO check?
+	providingEntity_ProvidedRole := self.assemblyContext.instantiatedComponent.resolveone(PCM::repository::ImplementationComponentType);
+	//self.assemblyConnector.providedRole.late resolveone(PCM::core::entity::InterfaceProvidingEntity); //TODO check?
 }
 
 
@@ -221,7 +224,7 @@ mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2Assembl
 	if(requiredRole_AssemblyConnector = null) {
 		var roles := self.requiredRole -> map mapReqiredRole() -> asSequence();
 		roles -> forEach(role) { //TODO
-			//role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := self.requiredRole.assemblyContext.instantiatedComponent.requires -> first().resolveone(PCM::repository::Interface);
+			//role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := self.requiredRole.assemblyContext.instantiatedComponent.requires -> first(); // -> first().resolveone(PCM::repository::Interface);
 			//role.oclAsType(PCM::repository::OperationRequiredRole).requiringEntity_RequiredRole := null;
 		};
 		requiredRole_AssemblyConnector := roles -> first();
