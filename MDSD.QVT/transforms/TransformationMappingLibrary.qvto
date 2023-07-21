@@ -156,16 +156,28 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext(param
 	
 	
 	//Palladio required that even Assembly contexts that are part of a composite have to be allocated
-	//for this version this is done WITHOUT further recursion, so max depth = 1
+	//This is somewhat janky, so there's a lot of commentary
+	
+	//First we take the instantiated Component
 	var component := self.assemblyContext.instantiatedComponent;
+	//Then we check if it is a composite and therefore we have subcomponents to allocate
 	if(component.oclIsTypeOf(CBS::viewType::assembly::CompositeComponent)) {
-		component.oclAsType(CBS::viewType::assembly::CompositeComponent).encapsulatedInstances -> forEach(instance) {
+		//then we put all subcomponents into a collection
+		var subComponentsToAlloc = component.oclAsType(CBS::viewType::assembly::CompositeComponent).encapsulatedInstances -> asSequence();
+		//Then we forEach through our list
+		subComponentsToAlloc -> forEach(instance) {
+			
+			//create an Allocation Context for every subcomponent
 			var alloc := object pcm::allocation::AllocationContext {
 				assemblyContext_AllocationContext := instance.resolveone(PCM::core::composition::AssemblyContext);
 				entityName := instance.name;
 				resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
-				
+				//if any of the subcomponents is ANOTHER composite, we simply add it to our subcomponent collection to be handle as well
+				if(instance.oclIsTypeOf(CBS::viewType::assembly::CompositeComponent)) {
+					subComponentsToAlloc += instance.oclAsType(CBS::viewType::assembly::CompositeComponent).encapsulatedInstances;
+				};
 			};
+			//then we add the new Allocation contexts to our main allocation
 			result.allocation_AllocationContext.allocationContexts_Allocation += alloc;
 		};
 		
