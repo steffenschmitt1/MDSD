@@ -25,6 +25,7 @@ import metaModel.viewType.repository.Component
 import metaModel.viewType.repository.Repository
 import java.util.Collection
 import java.util.HashSet
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -138,39 +139,21 @@ class DslGenerator extends AbstractGenerator {
 	}
 	
 	def String getPackageFull(EObject object) {
-		var result = "";
-		var element = object.eContainer;
+		var packageSegements = new ArrayList<String>();
+		var element = object.eContainer;		
 		while(element !== null) {
 			if(element instanceof NamedElement) {
-				result = addSegment(result, element.name);
+				packageSegements.add(element.name);
 			} else {
-				result = addSegment(result, element.eClass.name);
+				packageSegements.add(element.eClass.name);
 			}
 			element  = element.eContainer;
 		}
-		result = reversePackage(result);
+		Collections.reverse(packageSegements);
 		if(object instanceof NamedElement) {
-			result = addSegment(result, object.name)
+			packageSegements.add(object.name);
 		}
-		
-		return result.toLowerCase() as String
-	}
-	
-	def String addSegment(String packageElement, String segment)  {
-		var result = packageElement;
-		if(segment !== null && !segment.isBlank()) {
-			if(!result.isEmpty()) {
-				result += ".";
-			}
-			result += segment.trim();
-		}
-		return result;
-	}
-	
-	def String reversePackage(String name) {
-		var elements = Arrays.asList(name.split("\\."));
-		Collections.reverse(elements); 
-		return elements.join(".");
+		return packageSegements.join(".") as String
 	}
 	
 	def String getType(Type type) {
