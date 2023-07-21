@@ -24,7 +24,7 @@ mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::reposi
 }
 
 mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : PCM::repository::CompositeComponent inherits CBS::viewType::NamedElement::mapNamedElement{
-	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext();
+	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemplyContext2AssemblyContext();
 	
 }
  
@@ -38,10 +38,10 @@ mapping CBS::viewType::repository::Loop::mapLoop() : PCM::seff::LoopAction{}
 mapping CBS::viewType::repository::ExternalCall::mapExternalCall() : PCM::seff::ExternalCallAction{}
 mapping CBS::viewType::repository::Branch::mapBranch() : PCM::seff::BranchAction{}
 
-mapping CBS::viewType::assembly::AssemblyContext::mapAssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement {
-	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
-	
-}
+//mapping CBS::viewType::assembly::AssemblyContext::mapAssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement {
+//	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
+//	
+//}
 
 mapping CBS::viewType::repository::Interface::mapInterface() : PCM::repository::OperationInterface inherits CBS::viewType::NamedElement::mapNamedElement {
 	signatures__OperationInterface := self.signatures -> map mapSignature();
@@ -134,6 +134,7 @@ mapping CBS::viewType::assembly::ProvidedRole::mapProvidedRole() : PCM::reposito
 		providedInterface__OperationProvidedRole := self.assemblyContext.instantiatedComponent.provides.resolveone(PCM::repository::OperationInterface);
 	};
 	providingEntity_ProvidedRole := self.assemblyContext.instantiatedComponent.resolveone(PCM::repository::ImplementationComponentType);
+	
 	//self.assemblyConnector.providedRole.late resolveone(PCM::core::entity::InterfaceProvidingEntity); //TODO check?
 }
 
@@ -177,8 +178,8 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext(param
 mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyContext() : PCM::core::composition::AssemblyContext inherits CBS::viewType::NamedElement::mapNamedElement{
 	//delayed mapping allocation context from exisiting object
 	parentStructure__AssemblyContext := self.allocationContext.resolveone(PCM::core::composition::ComposedStructure);
-	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.resolveone(PCM::repository::RepositoryComponent);
-	
+	//encapsulatedComponent__AssemblyContext := self.instantiatedComponent.resolveone(PCM::repository::RepositoryComponent);
+	encapsulatedComponent__AssemblyContext := self.instantiatedComponent.late resolveone(PCM::repository::RepositoryComponent);
 
 }
 
@@ -186,7 +187,7 @@ mapping CBS::viewType::assembly::AssemblyContext::mapAssemplyContext2AssemblyCon
 mapping CBS::viewType::assembly::System::mapSystem() : PCM::system::System {
 	//inherits from ComposedProvidingRequiringEntity
 	//again inherits from ComposedStructure
-	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> map mapAssemblyContext();
+	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> map mapAssemplyContext2AssemblyContext();
 	assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext).parentStructure__AssemblyContext := result};
 	connectors__ComposedStructure += self.delegationConnectors -> map mapDelegationConnector2DelegationConnector();
 	connectors__ComposedStructure += self.assemblyConnectors -> map mapAssemblyConnector2AssemblyConnector();
