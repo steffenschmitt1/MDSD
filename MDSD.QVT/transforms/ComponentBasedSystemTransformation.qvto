@@ -10,11 +10,6 @@ modeltype PCM uses "http://palladiosimulator.org/PalladioComponentModel/5.2";
 //----- Allocation Model
 //----- Usage Model
 
-
-
-
-
-
 transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
 										) 
 										access TransformationMappingLibrary{
@@ -32,7 +27,8 @@ transformation transformECORE2Palladio(	in CBSRepo: CBS, out PCMRepo: PCM
 		log ("mapping allocation");
 		//Create Shared Allocation
 		var alloc := object pcm::allocation::Allocation{
-			targetResourceEnvironment_Allocation := CBSRepo.objectsOfType(CBS::viewType::environment::Environment).resolveone(PCM::resourceenvironment::ResourceEnvironment);
+			targetResourceEnvironment_Allocation := CBSRepo.objectsOfType(CBS::viewType::environment::Environment)
+			.resolveone(PCM::resourceenvironment::ResourceEnvironment);
 			};
 		
 		CBSRepo.objectsOfType(CBS::viewType::allocation::AllocationContext) -> map mapAllocationContext(alloc);
