@@ -1,70 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" xmlns:resourcetype="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2 ../MDSD.QVT/target/pcm.ecore#//allocation http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2 ../MDSD.QVT/target/pcm.ecore#//core/composition http://palladiosimulator.org/PalladioComponentModel/Repository/5.2 ../MDSD.QVT/target/pcm.ecore#//repository http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2 ../MDSD.QVT/target/pcm.ecore#//resourceenvironment http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2 ../MDSD.QVT/target/pcm.ecore#//resourcetype http://palladiosimulator.org/PalladioComponentModel/System/5.2 ../MDSD.QVT/target/pcm.ecore#//system">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" xmlns:resourcetype="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2 ../MDSD.QVT/target/pcm.ecore#//allocation http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2 ../MDSD.QVT/target/pcm.ecore#//core/composition http://palladiosimulator.org/PalladioComponentModel/Repository/5.2 ../MDSD.QVT/target/pcm.ecore#//repository http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2 ../MDSD.QVT/target/pcm.ecore#//resourceenvironment http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2 ../MDSD.QVT/target/pcm.ecore#//resourcetype http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2 ../MDSD.QVT/target/pcm.ecore#//seff http://palladiosimulator.org/PalladioComponentModel/System/5.2 ../MDSD.QVT/target/pcm.ecore#//system">
   <repository:Repository entityName="Test">
-    <components__Repository xsi:type="repository:BasicComponent" entityName="DBCache"/>
-    <components__Repository xsi:type="repository:BasicComponent" entityName="MediaManager"/>
     <components__Repository xsi:type="repository:CompositeComponent" entityName="MediaStore">
-      <assemblyContexts__ComposedStructure entityName="MediaManager" encapsulatedComponent__AssemblyContext="/0/@components__Repository.1"/>
-      <assemblyContexts__ComposedStructure entityName="DBCache" encapsulatedComponent__AssemblyContext="/0/@components__Repository.0"/>
-      <assemblyContexts__ComposedStructure entityName="DigitalWatermarking" encapsulatedComponent__AssemblyContext="/0/@components__Repository.5"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="WebGUIMediaStore" entityName="WebGUIMediaStore" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.2"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" entityName="MediasstoreDBServer" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.1"/>
     </components__Repository>
-    <components__Repository xsi:type="repository:BasicComponent" entityName="WebBrowser"/>
-    <components__Repository xsi:type="repository:BasicComponent" entityName="WebGUI"/>
-    <components__Repository xsi:type="repository:BasicComponent" entityName="DigitalWatermarking"/>
-    <components__Repository xsi:type="repository:BasicComponent" entityName="PoolingAudioDB"/>
-    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="Sound">
-      <signatures__OperationInterface entityName="Watermark"/>
-    </interfaces__Repository>
-    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="MediaStore">
-      <signatures__OperationInterface entityName="download"/>
-      <signatures__OperationInterface entityName="upload"/>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="DigitalWatermarking">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="DigitalWatermarking" entityName="DigitalWatermarking" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.3"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="DigitalWatermarking_seff" describedService__SEFF="/0/@interfaces__Repository.3/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="DigitalWatermarkingstart" successor_AbstractAction="/0/@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="DigitalWatermarkingstop" predecessor_AbstractAction="/0/@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="WebGUI">
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" entityName="WebGUI" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.2"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebGUI_seff" describedService__SEFF="/0/@interfaces__Repository.2/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebGUIstart" successor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebGUIstop" predecessor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebGUI_seff" describedService__SEFF="/0/@interfaces__Repository.2/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebGUIstart" successor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebGUIstop" predecessor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebGUI_seff" describedService__SEFF="/0/@interfaces__Repository.0/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebGUIstart" successor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebGUIstop" predecessor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebGUI_seff" describedService__SEFF="/0/@interfaces__Repository.0/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebGUIstart" successor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.3/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebGUIstop" predecessor_AbstractAction="/0/@components__Repository.2/@serviceEffectSpecifications__BasicComponent.3/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="MediaManager">
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" entityName="MediaManagerWatermarking" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.3"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" entityName="MediaManagerDB" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.3"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="MediaManager_seff" describedService__SEFF="/0/@interfaces__Repository.3/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="MediaManagerstart" successor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="MediaManagerstop" predecessor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="MediaManager_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="MediaManagerstart" successor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="MediaManagerstop" predecessor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="MediaManager_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="MediaManagerstart" successor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="MediaManagerstop" predecessor_AbstractAction="/0/@components__Repository.3/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="PoolingAudioDB">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="DBServer" entityName="DBServer" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.1"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="PoolingAudioDB_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="PoolingAudioDBstart" successor_AbstractAction="/0/@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="PoolingAudioDBstop" predecessor_AbstractAction="/0/@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="PoolingAudioDB_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="PoolingAudioDBstart" successor_AbstractAction="/0/@components__Repository.4/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="PoolingAudioDBstop" predecessor_AbstractAction="/0/@components__Repository.4/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="DBCache">
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="DBCache_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="DBCachestart" successor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="DBCachestop" predecessor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="DBCache_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="DBCachestart" successor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="DBCachestop" predecessor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="DBCache_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="DBCachestart" successor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="DBCachestop" predecessor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="DBCache_seff" describedService__SEFF="/0/@interfaces__Repository.1/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="DBCachestart" successor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.3/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="DBCachestop" predecessor_AbstractAction="/0/@components__Repository.5/@serviceEffectSpecifications__BasicComponent.3/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" entityName="WebBrowser">
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebBrowser_seff" describedService__SEFF="/0/@interfaces__Repository.0/@signatures__OperationInterface.1">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebBrowserstart" successor_AbstractAction="/0/@components__Repository.6/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebBrowserstop" predecessor_AbstractAction="/0/@components__Repository.6/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" seffTypeID="WebBrowser_seff" describedService__SEFF="/0/@interfaces__Repository.0/@signatures__OperationInterface.0">
+        <steps_Behaviour xsi:type="seff:StartAction" entityName="WebBrowserstart" successor_AbstractAction="/0/@components__Repository.6/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1"/>
+        <steps_Behaviour xsi:type="seff:StopAction" entityName="WebBrowserstop" predecessor_AbstractAction="/0/@components__Repository.6/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.0"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="HTTP">
+      <signatures__OperationInterface entityName="HTTPUpload"/>
+      <signatures__OperationInterface entityName="HTTPDownload"/>
     </interfaces__Repository>
     <interfaces__Repository xsi:type="repository:OperationInterface" entityName="AudioDB">
       <signatures__OperationInterface entityName="AddFile"/>
       <signatures__OperationInterface entityName="QueryDB"/>
     </interfaces__Repository>
-    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="HTTP">
-      <signatures__OperationInterface entityName="HTTPDownload"/>
-      <signatures__OperationInterface entityName="HTTPUpload"/>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="MediaStore">
+      <signatures__OperationInterface entityName="download"/>
+      <signatures__OperationInterface entityName="upload"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" entityName="Sound">
+      <signatures__OperationInterface entityName="Watermark"/>
     </interfaces__Repository>
   </repository:Repository>
   <system:System>
-    <assemblyContexts__ComposedStructure entityName="AssemblyContextWebGUI" encapsulatedComponent__AssemblyContext="/0/@components__Repository.4"/>
-    <assemblyContexts__ComposedStructure entityName="DBServer" encapsulatedComponent__AssemblyContext="/0/@components__Repository.6"/>
-    <assemblyContexts__ComposedStructure entityName="MediaManager" encapsulatedComponent__AssemblyContext="/0/@components__Repository.1"/>
-    <assemblyContexts__ComposedStructure entityName="DigitalWatermarking" encapsulatedComponent__AssemblyContext="/0/@components__Repository.5"/>
-    <assemblyContexts__ComposedStructure entityName="DBCache" encapsulatedComponent__AssemblyContext="/0/@components__Repository.0"/>
-    <assemblyContexts__ComposedStructure entityName="MediaStore" encapsulatedComponent__AssemblyContext="/0/@components__Repository.2"/>
-    <eventChannel__ComposedStructure/>
-    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="/8" outerProvidedRole_ProvidedDelegationConnector="/8" assemblyContext_ProvidedDelegationConnector="/1/@assemblyContexts__ComposedStructure.1"/>
-    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="/7" outerRequiredRole_RequiredDelegationConnector="/7" assemblyContext_RequiredDelegationConnector="/1/@assemblyContexts__ComposedStructure.0"/>
-    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.2" providedRole_AssemblyConnector="/2" requiredRole_AssemblyConnector="/3"/>
-    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/0/@components__Repository.2/@assemblyContexts__ComposedStructure.1" providedRole_AssemblyConnector="/4" requiredRole_AssemblyConnector="/5"/>
-    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.0" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.5" providedRole_AssemblyConnector="/6" requiredRole_AssemblyConnector="/7"/>
-    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.5" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.1" providedRole_AssemblyConnector="/8" requiredRole_AssemblyConnector="/9"/>
+    <assemblyContexts__ComposedStructure entityName="DigitalWatermarking" encapsulatedComponent__AssemblyContext="/0/@components__Repository.1"/>
+    <assemblyContexts__ComposedStructure entityName="AssemblyContextWebGUI" encapsulatedComponent__AssemblyContext="/0/@components__Repository.2"/>
+    <assemblyContexts__ComposedStructure entityName="MediaManager" encapsulatedComponent__AssemblyContext="/0/@components__Repository.3"/>
+    <assemblyContexts__ComposedStructure entityName="DBServer" encapsulatedComponent__AssemblyContext="/0/@components__Repository.4"/>
+    <assemblyContexts__ComposedStructure entityName="MediaStore" encapsulatedComponent__AssemblyContext="/0/@components__Repository.0"/>
+    <assemblyContexts__ComposedStructure entityName="DBCache" encapsulatedComponent__AssemblyContext="/0/@components__Repository.5"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.2" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.0" providedRole_AssemblyConnector="DigitalWatermarking" requiredRole_AssemblyConnector="/0/@components__Repository.3/@requiredRoles_InterfaceRequiringEntity.0"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.2" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.5" providedRole_AssemblyConnector="DBCache" requiredRole_AssemblyConnector="/0/@components__Repository.3/@requiredRoles_InterfaceRequiringEntity.1"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.1" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.4" providedRole_AssemblyConnector="WebGUIMediaStore" requiredRole_AssemblyConnector="/0/@components__Repository.2/@requiredRoles_InterfaceRequiringEntity.0"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" requiringAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.4" providingAssemblyContext_AssemblyConnector="/1/@assemblyContexts__ComposedStructure.3" providedRole_AssemblyConnector="DBServer" requiredRole_AssemblyConnector="/0/@components__Repository.0/@requiredRoles_InterfaceRequiringEntity.0"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="DBServer" outerProvidedRole_ProvidedDelegationConnector="DBServer" assemblyContext_ProvidedDelegationConnector="/1/@assemblyContexts__ComposedStructure.3"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="/0/@components__Repository.2/@requiredRoles_InterfaceRequiringEntity.0" outerRequiredRole_RequiredDelegationConnector="/0/@components__Repository.2/@requiredRoles_InterfaceRequiringEntity.0" assemblyContext_RequiredDelegationConnector="/1/@assemblyContexts__ComposedStructure.1"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="DBCache" entityName="DBCache" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.1"/>
   </system:System>
-  <repository:OperationProvidedRole entityName="DigitalWatermarking"/>
-  <repository:OperationRequiredRole entityName="MediaManagerWatermarking"/>
-  <repository:OperationProvidedRole entityName="DBCache"/>
-  <repository:OperationRequiredRole entityName="MediaManagerDB"/>
-  <repository:OperationProvidedRole entityName="WebGUIMediaStore"/>
-  <repository:OperationRequiredRole entityName="WebGUI" requiredInterface__OperationRequiredRole="/0/@interfaces__Repository.1"/>
-  <repository:OperationProvidedRole entityName="DBServer" providedInterface__OperationProvidedRole="/0/@interfaces__Repository.2"/>
-  <repository:OperationRequiredRole entityName="MediasstoreDBServer"/>
   <resourceenvironment:ResourceEnvironment entityName="">
-    <linkingResources__ResourceEnvironment id="ServerDBServer" entityName="ServerDBServer" connectedResourceContainers_LinkingResource="ApplicationServer DatabaseServer">
-      <communicationLinkResourceSpecifications_LinkingResource id="1337" communicationLinkResourceType_CommunicationLinkResourceSpecification="">
-        <latency_CommunicationLinkResourceSpecification/>
-        <throughput_CommunicationLinkResourceSpecification/>
+    <linkingResources__ResourceEnvironment id="ServerDBServer" entityName="ServerDBServer" connectedResourceContainers_LinkingResource="DatabaseServer ApplicationServer">
+      <communicationLinkResourceSpecifications_LinkingResource id="1337" communicationLinkResourceType_CommunicationLinkResourceSpecification="1338">
+        <latency_CommunicationLinkResourceSpecification specification="1"/>
+        <throughput_CommunicationLinkResourceSpecification specification="1"/>
       </communicationLinkResourceSpecifications_LinkingResource>
     </linkingResources__ResourceEnvironment>
-    <resourceContainer_ResourceEnvironment id="ApplicationServer" entityName="ApplicationServer"/>
     <resourceContainer_ResourceEnvironment id="DatabaseServer" entityName="DatabaseServer"/>
+    <resourceContainer_ResourceEnvironment id="ApplicationServer" entityName="ApplicationServer"/>
   </resourceenvironment:ResourceEnvironment>
   <resourcetype:ResourceRepository>
-    <availableResourceTypes_ResourceRepository xsi:type="resourcetype:CommunicationLinkResourceType" id="" entityName=""/>
+    <availableResourceTypes_ResourceRepository xsi:type="resourcetype:CommunicationLinkResourceType" id="1338" entityName="spec"/>
   </resourcetype:ResourceRepository>
-  <allocation:AllocationContext entityName="Server WebGUI" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.0"/>
-  <allocation:AllocationContext entityName="DBServer" resourceContainer_AllocationContext="DatabaseServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.1"/>
-  <allocation:AllocationContext entityName="Server MediaStore" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.5"/>
+  <allocation:Allocation targetResourceEnvironment_Allocation="/2" system_Allocation="/1">
+    <allocationContexts_Allocation entityName="Server WebGUI" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.1"/>
+    <allocationContexts_Allocation entityName="DBServer" resourceContainer_AllocationContext="DatabaseServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.3"/>
+    <allocationContexts_Allocation entityName="Server MediaStore" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.4"/>
+    <allocationContexts_Allocation entityName="DBCache" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.5"/>
+    <allocationContexts_Allocation entityName="DigitalWatermarking" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.0"/>
+    <allocationContexts_Allocation entityName="MediaManager" resourceContainer_AllocationContext="ApplicationServer" assemblyContext_AllocationContext="/1/@assemblyContexts__ComposedStructure.2"/>
+  </allocation:Allocation>
 </xmi:XMI>
