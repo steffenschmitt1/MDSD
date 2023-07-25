@@ -19,10 +19,10 @@ mapping CBS::viewType::repository::Component::mapComponent() : PCM::repository::
 disjuncts CBS::viewType::assembly::CompositeComponent::mapCompositeComponent, CBS::viewType::repository::Component::mapSimpleComponent;
 
 mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::repository::BasicComponent inherits CBS::viewType::NamedElement::mapNamedElement{
-	--Use ResDemanding SEFF because it's not abstract
-	//serviceEffectSpecifications__BasicComponent := self.description -> mapBehaviorToSeff();
+	--Use ResDemanding SEFF 
 		providedRoles_InterfaceProvidingEntity += self.provides.late resolve(PCM::repository::OperationProvidedRole);
 		requiredRoles_InterfaceRequiringEntity += self.requires.late resolve(PCM::repository::OperationRequiredRole);
+		//Add seff for all signatures
 		self.requires.signatures -> union(self.provides.signatures) -> forEach(signature) {
 			serviceEffectSpecifications__BasicComponent += object PCM::seff::ResourceDemandingSEFF {
 			describedService__SEFF := signature.late resolveone(PCM::repository::OperationSignature);
@@ -46,14 +46,7 @@ mapping CBS::viewType::repository::Component::mapSimpleComponent() : PCM::reposi
 }
 
 mapping CBS::viewType::assembly::CompositeComponent::mapCompositeComponent() : PCM::repository::CompositeComponent inherits CBS::viewType::NamedElement::mapNamedElement{
-	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext2AssemblyContext();
-	
-	
-}
- 
-
-mapping CBS::viewType::repository::BehaviourDescription::mapBehaviorToSeff() : PCM::seff::ResourceDemandingSEFF {
-	
+	assemblyContexts__ComposedStructure := self.encapsulatedInstances -> mapAssemblyContext2AssemblyContext();	
 }
 
 mapping CBS::viewType::repository::InternalAction::mapInternalAction() : PCM::seff::InternalAction{}
@@ -136,7 +129,7 @@ mapping CBS::viewType::repository::Parameter::mapParameter() : PCM::repository::
 abstract mapping CBS::viewType::assembly::Role::mapRole() : PCM::repository::Role inherits CBS::viewType::NamedElement::mapNamedElement{}
 
 
-mapping CBS::viewType::assembly::RequiredRole::mapReqiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole 
+mapping CBS::viewType::assembly::RequiredRole::mapRequiredRole() : PCM::repository::OperationRequiredRole inherits CBS::viewType::assembly::Role::mapRole 
 {
 	requiredInterface__OperationRequiredRole := self.delegationConnector.linkedInterface.resolveone(PCM::repository::OperationInterface);
 	if(requiredInterface__OperationRequiredRole = null) {
@@ -170,8 +163,8 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext(param
 		allocation_AllocationContext.allocationContexts_Allocation += self.late resolveone(PCM::allocation::AllocationContext);
 		allocation_AllocationContext.system_Allocation := result.assemblyContext_AllocationContext.parentStructure__AssemblyContext.oclAsType(PCM::system::System);
 		
-	//Palladio required that even Assembly contexts that are part of a composite have to be allocated
-	//This is somewhat janky, so there's a lot of commentary
+	//Palladio required that even Assembly contexts that are part of a composite have to be allocated. This is not the case for our model requirements;
+	//This is somewhat forced, so there's a lot of commentary
 	
 	//First we take the instantiated Component
 	var component := self.assemblyContext.instantiatedComponent;
@@ -187,7 +180,7 @@ mapping CBS::viewType::allocation::AllocationContext::mapAllocationContext(param
 				assemblyContext_AllocationContext := instance.resolveone(PCM::core::composition::AssemblyContext);
 				entityName := instance.name;
 				resourceContainer_AllocationContext := self.container.resolveone(PCM::resourceenvironment::ResourceContainer);
-				//if any of the subcomponents is ANOTHER composite, we simply add it to our subcomponent collection to be handle as well
+				//if any of the subcomponents is ANOTHER composite, we simply add it to our subcomponent collection to be handle by the next iterations of the foreach as well
 				if(instance.oclIsTypeOf(CBS::viewType::assembly::CompositeComponent)) {
 					subComponentsToAlloc += instance.oclAsType(CBS::viewType::assembly::CompositeComponent).encapsulatedInstances;
 				};
@@ -218,6 +211,9 @@ mapping CBS::viewType::assembly::System::mapSystem() : PCM::system::System {
 	assemblyContexts__ComposedStructure -> forEach(context) {context.oclAsType(PCM::core::composition::AssemblyContext).parentStructure__AssemblyContext := result};
 	connectors__ComposedStructure += self.assemblyConnectors -> map mapAssemblyConnector2AssemblyConnector();
 	connectors__ComposedStructure += self.delegationConnectors -> map mapDelegationConnector2DelegationConnector();
+	//Delegation connectors work a lot differently in our model
+	//we need to manually connect the composite role to the component role. This is complicated
+	//TODO unsolved. No time left to invest after spending multiple days fixing all the qvto stuff
 	connectors__ComposedStructure -> forEach(connector) {
 		var composites := self.encapsulatedInstances -> asSequence() -> select(c|c.instantiatedComponent.oclIsTypeOf(CBS::viewType::assembly::CompositeComponent)).instantiatedComponent.oclAsType(CBS::viewType::assembly::CompositeComponent);
 		composites -> forEach(c) {
@@ -265,7 +261,7 @@ mapping CBS::viewType::assembly::AssemblyConnector::mapAssemblyConnector2Assembl
 
 	requiredRole_AssemblyConnector := self.requiredRole.resolveone(pcm::repository::OperationRequiredRole);
 	if(requiredRole_AssemblyConnector = null) {
-		var roles := self.requiredRole -> map mapReqiredRole() -> asSequence();
+		var roles := self.requiredRole -> map mapRequiredRole() -> asSequence();
 		requiredRole_AssemblyConnector := roles -> first();
 	};
 
