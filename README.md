@@ -8,3 +8,6 @@ Packages in this workspace:
 - MDSD.Sirius contains the Sirius editor
 - Testing contains the mediastore model, DSL, Xtend Code (if generated) and the converted Palladio PCM model (on the ex02_finish and ex03_finish respectively)
 - Refactors.txt is an artifact needed from ex01
+
+Branches:
+There are snapshots of every exercise in its finished state. These are namex exXX_finish
