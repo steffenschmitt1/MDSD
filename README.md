@@ -10,4 +10,4 @@ Packages in this workspace:
 - Refactors.txt is an artifact needed from ex01
 
 Branches:
-There are snapshots of every exercise in its finished state. These are namex exXX_finish
+There are snapshots of every exercise in its finished state. These are namex exXX_finish. (For exercise 4 the latest version is in ex05_finish.)
